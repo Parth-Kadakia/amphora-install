@@ -129,9 +129,15 @@ wait_ready() {
 }
 
 lan_ip() {
-  (hostname -I 2>/dev/null || ipconfig getifaddr en0 2>/dev/null || echo "<this machine>") | awk '{print $1}'
+  local ip
+  ip="$(ipconfig getifaddr en0 2>/dev/null || hostname -I 2>/dev/null | awk '{print $1}' || true)"
+  printf '%s' "${ip:-localhost}"
 }
 
+# Everything runs from main so the whole script is parsed before anything
+# executes — required when it arrives through "curl | bash -s", where a
+# command reading stdin would otherwise eat the rest of the script.
+main() {
 cmd="${1:-}"
 case "$cmd" in
   update)
@@ -155,3 +161,6 @@ case "$cmd" in
       die "Amphora started but isn't answering on port $PORT yet. Check: cd $DIR && docker compose logs amphora"
     fi ;;
 esac
+}
+
+main "$@" </dev/null
