@@ -1,6 +1,6 @@
 {
-  "version": "1.0.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.0.1",
+  "version": "1.0.2",
+  "image": "ghcr.io/parth-kadakia/amphora:1.0.2",
   "releasedAt": "2026-09-07",
-  "notes": "The demo world and rehearsal worlds work in packaged installs."
+  "notes": "Signing in to a world no longer signs you out of the main install."
 }
