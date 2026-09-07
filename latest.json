@@ -1,6 +1,6 @@
 {
-  "version": "1.0.2",
-  "image": "ghcr.io/parth-kadakia/amphora:1.0.2",
+  "version": "1.0.3",
+  "image": "ghcr.io/parth-kadakia/amphora:1.0.3",
   "releasedAt": "2026-09-07",
-  "notes": "Signing in to a world no longer signs you out of the main install."
+  "notes": "Worlds come back on their own after an update."
 }
