@@ -108,6 +108,9 @@ services:
       WATCHTOWER_LABEL_ENABLE: "true"
       WATCHTOWER_CLEANUP: "true"
       WATCHTOWER_NO_STARTUP_MESSAGE: "true"
+      # Watchtower 1.7.1 speaks Docker API 1.25; daemons since Docker 25
+      # refuse anything below 1.40. Pin the client version it announces.
+      DOCKER_API_VERSION: "1.44"
       REPO_USER: ${REGISTRY_USER}
       REPO_PASS: ${REGISTRY_TOKEN}
 volumes:
