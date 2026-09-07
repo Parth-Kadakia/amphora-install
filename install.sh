@@ -91,7 +91,7 @@ services:
     ports:
       - "${AMPHORA_PORT:-3000}:3000"
       # Worlds (demo, rehearsal databases) each run on their own port.
-      - "3001-3010:3001-3010"
+      - "3101-3110:3101-3110"
     volumes:
       - amphora-data:/data
     env_file:
