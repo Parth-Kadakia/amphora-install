@@ -1,0 +1,6 @@
+{
+  "version": "1.0.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.0.0",
+  "releasedAt": "2026-09-07",
+  "notes": "First customer release: Docker image, licensing, client portals."
+}
