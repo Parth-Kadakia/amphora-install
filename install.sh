@@ -54,6 +54,11 @@ write_files() {
   local image user token key
   image="$(get AMPHORA_IMAGE)"; user="$(get REGISTRY_USER)"; token="$(get REGISTRY_TOKEN)"; key="$(get AMPHORA_LICENSE_KEY)"
   [[ -n "$image" && -n "$user" && -n "$token" ]] || die "The install code is missing the registry login. Ask BrandBox for a fresh one."
+  # Registry host = first path segment of the image when it looks like a host.
+  local registry="${image%%/*}"
+  [[ "$registry" == *.* || "$registry" == *:* ]] || registry="ghcr.io"
+  # A token of "none" means an open registry (local testing) — no login, no creds.
+  if [[ "$token" == "none" ]]; then user=""; token=""; fi
   local updater_token
   if [[ -f "$DIR/.env" ]] && grep -q '^AMPHORA_UPDATER_TOKEN=' "$DIR/.env"; then
     updater_token="$(sed -n 's/^AMPHORA_UPDATER_TOKEN=//p' "$DIR/.env")"
@@ -109,7 +114,9 @@ volumes:
   amphora-data:
 YML
   ok "Wrote $DIR/docker-compose.yml, .env, amphora.env"
-  printf '%s' "$token" | docker login ghcr.io -u "$user" --password-stdin >/dev/null 2>&1 && ok "Logged in to the image registry" || die "Registry login failed — the pull token may have expired. Ask BrandBox for a fresh install code."
+  if [[ -n "$token" ]]; then
+    printf '%s' "$token" | docker login "$registry" -u "$user" --password-stdin >/dev/null 2>&1 && ok "Logged in to $registry" || die "Registry login failed — the pull token may have expired. Ask BrandBox for a fresh install code."
+  fi
 }
 
 wait_ready() {
