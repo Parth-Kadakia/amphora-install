@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.1.0",
+  "version": "1.2.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.2.0",
   "releasedAt": "2026-09-08",
-  "notes": "Client portal reports, usage pivot, brand-announced inbound, approval rule engine."
+  "notes": "Customer workspace rail; approvals as a visual flow with a walk-through tester; checkout shows approval routing."
 }
