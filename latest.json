@@ -1,6 +1,6 @@
 {
-  "version": "1.8.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.8.1",
+  "version": "1.8.2",
+  "image": "ghcr.io/parth-kadakia/amphora:1.8.2",
   "releasedAt": "2026-09-08",
-  "notes": "Print on demand: artwork preflight with reason codes and normalization, manufacturing specs with routing and per-step billing, templates with fit rules and brand locks, fonts never substituted, variable data with record-level proofs, proofs bound to the file hash, portal personalization with a live proof, ganged imposed jobs produced into stock. Demo world rebuilds itself on updates (1.8.1: the print seed now ships in the image)."
+  "notes": "Print on demand: artwork preflight with reason codes and normalization, manufacturing specs with routing and per-step billing, templates with fit rules and brand locks, fonts never substituted, variable data with record-level proofs, proofs bound to the file hash, portal personalization with a live proof, ganged imposed jobs produced into stock. Demo world rebuilds itself on updates (1.8.2: the print seed now ships in the image)."
 }
