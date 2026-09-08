@@ -1,6 +1,6 @@
 {
-  "version": "1.5.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.5.0",
+  "version": "1.6.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.6.0",
   "releasedAt": "2026-09-08",
-  "notes": "Saved carts and place-many; bulk checkout (same cart to many, spreadsheet, saved carts) with address validation that corrects or blocks before placing; sign in as a portal user."
+  "notes": "Invoices: monthly run, drafts, issue/sent/paid/void, branded PDF, CSV/Excel/JSON exports, accounting export, Insights report, portal invoices; work-order PDF for kitting."
 }
