@@ -1,6 +1,6 @@
 {
-  "version": "1.7.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.7.0",
+  "version": "1.8.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.8.0",
   "releasedAt": "2026-09-08",
-  "notes": "Compliance pack: serialized inventory, SSCC labels, EPCIS, one-click recall with drills, suspect product cases with the Form 3911 clock, temperature excursions, trading partners, complaints, electronic signatures, records export. Import templates page. Sign-in-as host fix."
+  "notes": "Print on demand: artwork preflight with reason codes and normalization, manufacturing specs with routing and per-step billing, templates with fit rules and brand locks, fonts never substituted, variable data with record-level proofs, proofs bound to the file hash, portal personalization with a live proof, ganged imposed jobs produced into stock. Demo world rebuilds itself on updates."
 }
