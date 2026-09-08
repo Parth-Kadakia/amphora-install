@@ -1,6 +1,6 @@
 {
-  "version": "1.6.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.6.0",
+  "version": "1.7.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.7.0",
   "releasedAt": "2026-09-08",
-  "notes": "Invoices: monthly run, drafts, issue/sent/paid/void, branded PDF, CSV/Excel/JSON exports, accounting export, Insights report, portal invoices; work-order PDF for kitting."
+  "notes": "Compliance pack: serialized inventory, SSCC labels, EPCIS, one-click recall with drills, suspect product cases with the Form 3911 clock, temperature excursions, trading partners, complaints, electronic signatures, records export. Import templates page. Sign-in-as host fix."
 }
