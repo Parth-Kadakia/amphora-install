@@ -1,6 +1,6 @@
 {
-  "version": "1.2.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.2.0",
+  "version": "1.3.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.3.0",
   "releasedAt": "2026-09-08",
-  "notes": "Customer workspace rail; approvals as a visual flow with a walk-through tester; checkout shows approval routing."
+  "notes": "Guided approval setup with straight denies and shipping/rush triggers; catalog reorganizer with undo; paging and CSV export on every table; SKU Insights; location pages; scanner-driven returns."
 }
