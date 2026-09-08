@@ -1,6 +1,6 @@
 {
-  "version": "1.4.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.4.0",
+  "version": "1.5.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.5.0",
   "releasedAt": "2026-09-08",
-  "notes": "Kitting work orders and bench for prebuilt kits with ledger genealogy; SKU ordering limits enforced at checkout with group and person scopes; rate cards per customer only."
+  "notes": "Saved carts and place-many; bulk checkout (same cart to many, spreadsheet, saved carts) with address validation that corrects or blocks before placing; sign in as a portal user."
 }
