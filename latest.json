@@ -1,6 +1,6 @@
 {
-  "version": "1.9.8",
-  "image": "ghcr.io/parth-kadakia/amphora:1.9.8",
-  "releasedAt": "2026-09-08",
-  "notes": "Print on demand: personalization survives an approval hold and is stored on the order line; buyers add missing details to an ordered piece from the order page; blank fields knock the original text out; per-product blank spreadsheet with the exact columns for hundred-piece orders."
+  "version": "1.10.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.10.0",
+  "releasedAt": "2026-09-09",
+  "notes": "Security hardening: Settings \u2192 Security \u2192 Install policy \u2014 enforced two-factor, session idle/absolute limits, password policy, syslog/SIEM forwarding of the audit trail, and HSTS/CSP security headers from the app. Release images are now vulnerability-scanned and signed (Sigstore)."
 }
