@@ -1,6 +1,6 @@
 {
-  "version": "1.13.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.13.0",
+  "version": "1.13.1",
+  "image": "ghcr.io/parth-kadakia/amphora:1.13.1",
   "releasedAt": "2026-09-10",
   "notes": "Invitations and password resets by email, request access from the sign-in page, brand admins managing their own people, smart low-stock alerts, scheduled reports to people and groups, one summary a day, invoices by email."
 }
