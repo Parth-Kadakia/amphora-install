@@ -1,6 +1,6 @@
 {
-  "version": "1.10.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.10.0",
+  "version": "1.10.1",
+  "image": "ghcr.io/parth-kadakia/amphora:1.10.1",
   "releasedAt": "2026-09-09",
-  "notes": "Security hardening: Settings \u2192 Security \u2192 Install policy \u2014 enforced two-factor, session idle/absolute limits, password policy, syslog/SIEM forwarding of the audit trail, and HSTS/CSP security headers from the app. Release images are now vulnerability-scanned and signed (Sigstore)."
+  "notes": "Security hardening (Install policy: enforced two-factor, session limits, password policy, syslog/SIEM forwarding, HSTS/CSP) plus a clean lint gate in CI; release images are scanned and signed."
 }
