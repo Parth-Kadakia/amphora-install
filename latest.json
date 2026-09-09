@@ -1,6 +1,6 @@
 {
-  "version": "1.14.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.14.1",
+  "version": "1.15.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.15.0",
   "releasedAt": "2026-09-10",
-  "notes": "Accounting units and budgets: every portal order charged to a cost center, budgets per unit with live headroom at checkout, reports and invoices split by unit."
+  "notes": "Single sign-on per portal: Okta, Entra ID, Google Workspace, AD FS or any SAML/OIDC provider, set up in a guided walkthrough with a handout for the brand's IT; people provisioned on first sign-in; roster import."
 }
