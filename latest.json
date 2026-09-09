@@ -1,6 +1,6 @@
 {
-  "version": "1.12.2",
-  "image": "ghcr.io/parth-kadakia/amphora:1.12.2",
+  "version": "1.13.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.13.0",
   "releasedAt": "2026-09-10",
-  "notes": "Email from the system: one sender (SMTP, SendGrid or Resend), thirteen ready-made emails in five looks set in each brand's portal design, an email studio with live preview, per-brand wording, a sent log under Reports, and per-person switches on the portal. Emails carry product photos, a progress strip, a tracking card and the ship-to address."
+  "notes": "Invitations and password resets by email, request access from the sign-in page, brand admins managing their own people, smart low-stock alerts, scheduled reports to people and groups, one summary a day, invoices by email."
 }
