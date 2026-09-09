@@ -1,6 +1,6 @@
 {
-  "version": "1.9.7",
-  "image": "ghcr.io/parth-kadakia/amphora:1.9.7",
+  "version": "1.9.8",
+  "image": "ghcr.io/parth-kadakia/amphora:1.9.8",
   "releasedAt": "2026-09-08",
-  "notes": "Print on demand, buyer side: Being printed status and timeline, the proof and a print-ready PDF download on the order page, proof pictures in the cart, Order again carries personalization, bulk checkout refuses personalized items with a clear message."
+  "notes": "Print on demand: personalization survives an approval hold and is stored on the order line; buyers add missing details to an ordered piece from the order page; blank fields knock the original text out; per-product blank spreadsheet with the exact columns for hundred-piece orders."
 }
