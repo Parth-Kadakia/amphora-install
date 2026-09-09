@@ -1,6 +1,6 @@
 {
-  "version": "1.10.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.10.1",
+  "version": "1.10.2",
+  "image": "ghcr.io/parth-kadakia/amphora:1.10.2",
   "releasedAt": "2026-09-09",
-  "notes": "Security hardening (Install policy: enforced two-factor, session limits, password policy, syslog/SIEM forwarding, HSTS/CSP) plus a clean lint gate in CI; release images are scanned and signed."
+  "notes": "Propago migration wizard with live import progress and real parent/child products; per-person allowances by category; kits show how many can be built; variant options with picture and stock; cleaner user-group editor with save-cart and ship-to-many capabilities."
 }
