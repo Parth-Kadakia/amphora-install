@@ -1,6 +1,6 @@
 {
-  "version": "1.10.2",
-  "image": "ghcr.io/parth-kadakia/amphora:1.10.2",
+  "version": "1.11.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.11.0",
   "releasedAt": "2026-09-09",
-  "notes": "Propago migration wizard with live import progress and real parent/child products; per-person allowances by category; kits show how many can be built; variant options with picture and stock; cleaner user-group editor with save-cart and ship-to-many capabilities."
+  "notes": "A proper API reference at /docs that runs requests against your install; a page per portal person with their whole activity and a CSV export; allowances shown on products and at checkout; the order page names who placed it."
 }
