@@ -1,6 +1,6 @@
 {
-  "version": "1.15.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.15.1",
+  "version": "1.16.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.16.0",
   "releasedAt": "2026-09-10",
-  "notes": "Single sign-on per portal: Okta, Entra ID, Google Workspace, AD FS or any SAML/OIDC provider, set up in a guided walkthrough with a handout for the brand's IT; people provisioned on first sign-in; roster import."
+  "notes": "A brand can build against its own portal: API keys that act as a role and user group, so every ordering rule still applies, plus live documentation and a printable integration guide at the brand's own portal link."
 }
