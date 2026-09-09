@@ -1,6 +1,6 @@
 {
-  "version": "1.9.5",
-  "image": "ghcr.io/parth-kadakia/amphora:1.9.5",
+  "version": "1.9.6",
+  "image": "ghcr.io/parth-kadakia/amphora:1.9.6",
   "releasedAt": "2026-09-08",
   "notes": "Print on demand, simplified: the SKU carries the print spec, the customer's PDF is the artwork, a designer draws fields over it, buyers personalize on screen (one piece or a spreadsheet), the print queue hands over a print-ready PDF and a work instruction, mark printed fills the order."
 }
