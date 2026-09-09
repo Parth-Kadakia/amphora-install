@@ -1,6 +1,6 @@
 {
-  "version": "1.11.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.11.1",
-  "releasedAt": "2026-09-09",
-  "notes": "Settings \u2192 Shipping redrawn with a calendar for days off and one-click US holidays; fixes the default ship-within resetting on save and the app going dark after opening the API reference."
+  "version": "1.12.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.12.0",
+  "releasedAt": "2026-09-10",
+  "notes": "Email from the system: one sender (SMTP, SendGrid or Resend), thirteen ready-made emails in five looks set in each brand's portal design, an email studio with live preview, per-brand wording, a sent log under Reports, and per-person switches on the portal."
 }
