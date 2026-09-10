@@ -1,6 +1,6 @@
 {
-  "version": "1.22.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.22.0",
+  "version": "1.23.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.23.0",
   "releasedAt": "2026-09-10",
-  "notes": "Adding someone under Settings → Users now sends them a welcome email: who added them, their role, the sign-in link and the temporary password you typed, with a request to change it once they are in. The wording is editable under Settings → Email as “Welcome to the team”."
+  "notes": "Settings → Email has a new Blind copy address. Set it and every email the install sends — order confirmations, approvals, tracking, invitations, welcomes, the test — is quietly copied there, so a shared mailbox keeps a record. Recipients never see it."
 }
