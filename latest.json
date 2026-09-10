@@ -1,6 +1,6 @@
 {
-  "version": "1.21.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.21.1",
+  "version": "1.22.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.22.0",
   "releasedAt": "2026-09-10",
-  "notes": "Email can now go to a relay on your own network that takes mail without a login and without encryption: Settings → Email, encryption None, port 25, username and password empty. Until now Amphora always tried to switch to an encrypted connection when the relay offered it, and a relay whose encryption is not set up answered with an SSL error instead of accepting the mail."
+  "notes": "Adding someone under Settings → Users now sends them a welcome email: who added them, their role, the sign-in link and the temporary password you typed, with a request to change it once they are in. The wording is editable under Settings → Email as “Welcome to the team”."
 }
