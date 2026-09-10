@@ -1,6 +1,6 @@
 {
-  "version": "1.19.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.19.0",
+  "version": "1.19.1",
+  "image": "ghcr.io/parth-kadakia/amphora:1.19.1",
   "releasedAt": "2026-09-10",
-  "notes": "A brand's portal can answer for backorders itself — always, never, or leave it to each product — instead of every product deciding alone."
+  "notes": "What a portal does when the shelf is short: refuse the order, drop the line, or take it anyway — decided per brand, said out loud in the bulk preview before anything is placed, and checked even when stock levels are hidden. Plus complete-shipments-only for brands that would rather wait."
 }
