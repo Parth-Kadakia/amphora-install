@@ -1,6 +1,6 @@
 {
-  "version": "1.18.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.18.0",
+  "version": "1.18.1",
+  "image": "ghcr.io/parth-kadakia/amphora:1.18.1",
   "releasedAt": "2026-09-10",
-  "notes": "A report builder: pick what a report is about, click the fields you want, filter and summarise it, run it. Save it, export it, schedule it — or publish it to a customer, where it is scoped to them and to each person's role automatically."
+  "notes": "The report builder, with twenty reports ready to run and a fix for columns whose underlying names collided. Publishing a report to a brand now also lives on the customer, under Client portal → Reports."
 }
