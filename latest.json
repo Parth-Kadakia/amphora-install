@@ -1,6 +1,6 @@
 {
-  "version": "1.16.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.16.0",
+  "version": "1.17.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.17.0",
   "releasedAt": "2026-09-10",
-  "notes": "A brand can build against its own portal: API keys that act as a role and user group, so every ordering rule still applies, plus live documentation and a printable integration guide at the brand's own portal link."
+  "notes": "Save any report's filters as a named view and share it with the team; send print work to an outside shop that signs in and sees only its own queue. Also a readable wordmark logo, cleaner invoices, a redrawn dashboard, and carriers imported as \"UPS Next Day Air\" now recognised."
 }
