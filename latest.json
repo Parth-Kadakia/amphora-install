@@ -1,6 +1,6 @@
 {
-  "version": "1.25.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.25.0",
+  "version": "1.26.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.26.0",
   "releasedAt": "2026-09-10",
-  "notes": "Pallets and cartons are now called license plates, the industry word, throughout the screens, the knowledge base and the API documentation. The placard prints the code under a LICENSE PLATE caption, readable across the aisle and scannable as a barcode. Old links redirect. Also fixed: a pallet you assigned an SSCC to could not be found by scanning its own GS1 label; a plate now answers to either name."
+  "notes": "Your team can now sign in with the account they already have at work. Settings → Single sign-on connects the install to Okta, Microsoft Entra ID, Google Workspace, AD FS or any OpenID Connect provider. People can be created the first time they sign in, but only for an email domain you have listed as your company's, so a personal address cannot mint itself a login. Roles stay with you: a new account starts on the role you pick and an admin changes it afterwards. The owner can always sign in with a password, so a provider outage can never lock you out."
 }
