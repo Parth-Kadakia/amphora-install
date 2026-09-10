@@ -1,6 +1,6 @@
 {
-  "version": "1.19.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.19.1",
+  "version": "1.20.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.20.0",
   "releasedAt": "2026-09-10",
-  "notes": "What a portal does when the shelf is short: refuse the order, drop the line, or take it anyway — decided per brand, said out loud in the bulk preview before anything is placed, and checked even when stock levels are hidden. Plus complete-shipments-only for brands that would rather wait."
+  "notes": "Do one thing to many orders: take a product off all of them, cancel, release holds, set a carrier or ship-by date — previewed first, and it never touches an order you should look at. Plus one search box across everything, and a readiness panel on every customer."
 }
