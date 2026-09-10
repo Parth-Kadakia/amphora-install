@@ -1,6 +1,6 @@
 {
-  "version": "1.20.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.20.0",
+  "version": "1.21.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.21.0",
   "releasedAt": "2026-09-10",
-  "notes": "Do one thing to many orders: take a product off all of them, cancel, release holds, set a carrier or ship-by date — previewed first, and it never touches an order you should look at. Plus one search box across everything, and a readiness panel on every customer."
+  "notes": "Every change to an order now says what actually changed and to what, and lands on the order itself — including changes made in bulk, which previously left no record on the orders they changed. Asking for a later ship date moves the due date with it, and a date you type is read as the day you meant. The bulk toolbar is rebuilt as three plain steps, with a searchable product picker."
 }
