@@ -1,6 +1,6 @@
 {
-  "version": "1.24.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.24.0",
+  "version": "1.25.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.25.0",
   "releasedAt": "2026-09-10",
-  "notes": "The pick queue now shows the shape of the day: the same Rush, Late and due-date chips as the orders board, with the suggested carts regrouping inside whichever one you pick. Suggested carts name the products the orders share, and ticking boxes tells you what that cart saves. A new panel shows what is stuck behind the kitting bench and which build releases the most orders. Settings → Users can now invite the whole team at once from a pasted list, each with their own login and welcome email."
+  "notes": "Pallets and cartons are now called license plates, the industry word, throughout the screens, the knowledge base and the API documentation. The placard prints the code under a LICENSE PLATE caption, readable across the aisle and scannable as a barcode. Old links redirect. Also fixed: a pallet you assigned an SSCC to could not be found by scanning its own GS1 label; a plate now answers to either name."
 }
