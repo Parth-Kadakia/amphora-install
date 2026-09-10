@@ -1,6 +1,6 @@
 {
-  "version": "1.21.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.21.0",
+  "version": "1.21.1",
+  "image": "ghcr.io/parth-kadakia/amphora:1.21.1",
   "releasedAt": "2026-09-10",
-  "notes": "Every change to an order now says what actually changed and to what, and lands on the order itself — including changes made in bulk, which previously left no record on the orders they changed. Asking for a later ship date moves the due date with it, and a date you type is read as the day you meant. The bulk toolbar is rebuilt as three plain steps, with a searchable product picker."
+  "notes": "Email can now go to a relay on your own network that takes mail without a login and without encryption: Settings → Email, encryption None, port 25, username and password empty. Until now Amphora always tried to switch to an encrypted connection when the relay offered it, and a relay whose encryption is not set up answered with an SSL error instead of accepting the mail."
 }
