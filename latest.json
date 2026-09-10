@@ -1,6 +1,6 @@
 {
-  "version": "1.18.3",
-  "image": "ghcr.io/parth-kadakia/amphora:1.18.3",
+  "version": "1.19.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.19.0",
   "releasedAt": "2026-09-10",
-  "notes": "A way back out of enforced two-factor: an owner who required it before enrolling can now change the policy back. Report builder controls no longer hide until hovered."
+  "notes": "A brand's portal can answer for backorders itself — always, never, or leave it to each product — instead of every product deciding alone."
 }
