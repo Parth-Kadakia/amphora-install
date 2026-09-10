@@ -1,6 +1,6 @@
 {
-  "version": "1.18.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.18.1",
+  "version": "1.18.2",
+  "image": "ghcr.io/parth-kadakia/amphora:1.18.2",
   "releasedAt": "2026-09-10",
-  "notes": "The report builder, with twenty reports ready to run and a fix for columns whose underlying names collided. Publishing a report to a brand now also lives on the customer, under Client portal → Reports."
+  "notes": "A portal's reports on one screen: the six standard reports every portal already has, as a grid you tick per user group, plus the reports you have built for that brand. Saved reports can now be emailed on a schedule, and /reports is a front page over everything."
 }
