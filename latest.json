@@ -1,6 +1,6 @@
 {
-  "version": "1.18.2",
-  "image": "ghcr.io/parth-kadakia/amphora:1.18.2",
+  "version": "1.18.3",
+  "image": "ghcr.io/parth-kadakia/amphora:1.18.3",
   "releasedAt": "2026-09-10",
-  "notes": "A portal's reports on one screen: the six standard reports every portal already has, as a grid you tick per user group, plus the reports you have built for that brand. Saved reports can now be emailed on a schedule, and /reports is a front page over everything."
+  "notes": "A way back out of enforced two-factor: an owner who required it before enrolling can now change the policy back. Report builder controls no longer hide until hovered."
 }
