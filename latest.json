@@ -1,6 +1,6 @@
 {
-  "version": "1.26.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.26.0",
-  "releasedAt": "2026-09-10",
-  "notes": "Your team can now sign in with the account they already have at work. Settings → Single sign-on connects the install to Okta, Microsoft Entra ID, Google Workspace, AD FS or any OpenID Connect provider. People can be created the first time they sign in, but only for an email domain you have listed as your company's, so a personal address cannot mint itself a login. Roles stay with you: a new account starts on the role you pick and an admin changes it afterwards. The owner can always sign in with a password, so a provider outage can never lock you out."
+  "version": "1.27.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.27.0",
+  "releasedAt": "2026-09-15",
+  "notes": "Every write to Propago now has an on/off switch, on a Writes to Propago card at the top of each customer's Propago tab: accepting orders, shipments and closes, inventory, and catalog. They all start OFF, including for customers already linked, so after this update Amphora sends nothing to Propago until you switch it on. Turn them back on for any customer who is already live. Orders and new parts still come in from Propago, and work queued while a switch was off is sent once you turn it on."
 }
