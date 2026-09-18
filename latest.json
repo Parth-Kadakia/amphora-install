@@ -1,6 +1,6 @@
 {
-  "version": "1.27.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.27.1",
+  "version": "1.28.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.28.0",
   "releasedAt": "2026-09-18",
-  "notes": "Amphora can no longer zero out stock in Propago. A catalog brought in without quantities used to be treated as counted, so the sync pushed Amphora's 0 over the client's real number. Now Amphora writes nothing to a code it has never counted, and for counted codes it only lowers Propago's number by what its own ledger moved. Anything bigger is parked with nothing sent, shown in red on the customer's Propago tab and in Needs attention, until an owner or admin approves that one SKU. Kits, print-on-demand items and services are left alone in Propago, and a number Propago can't give is treated as unknown, never as zero. After updating, codes whose numbers already match are confirmed automatically on the next reconcile."
+  "notes": "Arrange the floor plan to match your building. The warehouse floor plan used to lay itself out by zone type and code order, so it never looked like the real floor. Owners and admins can now press Arrange floor plan, drag every zone to where it actually stands, and drag a block's corner to the space it takes up. Blocks snap to a grid and can't overlap, there is always spare floor to make the building taller, and arrow keys work too. You start from the layout you already know, nothing changes until you press Save, and Back to automatic undoes it. It is only the picture: no zone, bin, walk sequence or stock is changed. Also includes 1.27.1: Amphora can no longer zero out stock in Propago."
 }
