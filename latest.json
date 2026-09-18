@@ -1,6 +1,6 @@
 {
-  "version": "1.28.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.28.0",
+  "version": "1.29.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.29.0",
   "releasedAt": "2026-09-18",
-  "notes": "Arrange the floor plan to match your building. The warehouse floor plan used to lay itself out by zone type and code order, so it never looked like the real floor. Owners and admins can now press Arrange floor plan, drag every zone to where it actually stands, and drag a block's corner to the space it takes up. Blocks snap to a grid and can't overlap, there is always spare floor to make the building taller, and arrow keys work too. You start from the layout you already know, nothing changes until you press Save, and Back to automatic undoes it. It is only the picture: no zone, bin, walk sequence or stock is changed. Also includes 1.27.1: Amphora can no longer zero out stock in Propago."
+  "notes": "Receiving-only: a customer can now use Amphora just for receiving while their stock, orders and shipping stay in Propago. Goods are received here with expected shipments, lots, bins and pallets, and each receipt is sent to Propago as +N received, so its on-hand goes up by exactly what arrived. Amphora's numbers follow Propago's, so what Propago sells or ships comes off here too. Set it up with one button on the customer's Propago tab: Set up receiving-only. It can only ever add to Propago, never lower or overwrite a number, and it cannot be combined with the Inventory switch. If Amphora can't tell whether a receipt reached Propago it stops and asks rather than risk adding it twice. Also includes 1.28.0 (arrange the floor plan by drag and drop) and 1.27.1 (Amphora can no longer zero out stock in Propago)."
 }
