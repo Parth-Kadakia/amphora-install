@@ -1,6 +1,6 @@
 {
-  "version": "1.27.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.27.0",
-  "releasedAt": "2026-09-15",
-  "notes": "Every write to Propago now has an on/off switch, on a Writes to Propago card at the top of each customer's Propago tab: accepting orders, shipments and closes, inventory, and catalog. They all start OFF, including for customers already linked, so after this update Amphora sends nothing to Propago until you switch it on. Turn them back on for any customer who is already live. Orders and new parts still come in from Propago, and work queued while a switch was off is sent once you turn it on."
+  "version": "1.27.1",
+  "image": "ghcr.io/parth-kadakia/amphora:1.27.1",
+  "releasedAt": "2026-09-18",
+  "notes": "Amphora can no longer zero out stock in Propago. A catalog brought in without quantities used to be treated as counted, so the sync pushed Amphora's 0 over the client's real number. Now Amphora writes nothing to a code it has never counted, and for counted codes it only lowers Propago's number by what its own ledger moved. Anything bigger is parked with nothing sent, shown in red on the customer's Propago tab and in Needs attention, until an owner or admin approves that one SKU. Kits, print-on-demand items and services are left alone in Propago, and a number Propago can't give is treated as unknown, never as zero. After updating, codes whose numbers already match are confirmed automatically on the next reconcile."
 }
