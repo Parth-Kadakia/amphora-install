@@ -1,6 +1,6 @@
 {
-  "version": "1.29.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.29.0",
-  "releasedAt": "2026-09-18",
-  "notes": "Receiving-only: a customer can now use Amphora just for receiving while their stock, orders and shipping stay in Propago. Goods are received here with expected shipments, lots, bins and pallets, and each receipt is sent to Propago as +N received, so its on-hand goes up by exactly what arrived. Amphora's numbers follow Propago's, so what Propago sells or ships comes off here too. Set it up with one button on the customer's Propago tab: Set up receiving-only. It can only ever add to Propago, never lower or overwrite a number, and it cannot be combined with the Inventory switch. If Amphora can't tell whether a receipt reached Propago it stops and asks rather than risk adding it twice. Also includes 1.28.0 (arrange the floor plan by drag and drop) and 1.27.1 (Amphora can no longer zero out stock in Propago)."
+  "version": "1.31.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.31.0",
+  "releasedAt": "2026-10-07",
+  "notes": "Locations get their own rules: a pick priority, one SKU only or mixed, and a hard size and weight limit (anything that would go over is refused, and putaway only suggests places the load fits), set on each location's page or in bulk, and exported and re-imported as a CSV to change many at once. SKUs get a Size & weight tab for each, pack, carton and pallet. Every line on an ASN has a Receive button with the SKU, lot and quantity filled in. Batch picks get a number printed with a barcode on the slip. Scan mode is simpler: it tells you the one next thing to scan, and moving stock never asks for a lot number. A SKU's unit of measure is Each, Pack, Carton or Pallet, and auto-generated ASN numbers can carry your own prefix and suffix. Also includes 1.30.0 and security updates."
 }
