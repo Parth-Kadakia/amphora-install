@@ -1,6 +1,6 @@
 {
-  "version": "1.32.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.32.0",
+  "version": "1.37.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.37.0",
   "releasedAt": "2026-10-07",
-  "notes": "Receive in each, packs, cartons or pallets (10 cartons books 10 × the SKU's carton size), on the desk, on an ASN line and in the receiving CSV, and see stock in its units everywhere (1 pallet · 1 carton · 3 each). Move many things at once: scan a location, untick what stays, scan where it goes; or fill in a move sheet and upload it, previewed first and all or nothing. The ledger has a search box under every column that takes several values at once, and each SKU's Inventory tab shows its full movement history with the on-hand total after every movement. Also includes 1.31.0: location rules (pick priority, one SKU or mixed, hard size and weight limits) with CSV import and export, SKU size and weight per level, a Receive button on every ASN line, and batch pick numbers."
+  "notes": "From client feedback: pickers can go back mid-run and fix an earlier line; totes are optional (Settings → General → Picking); product photos at every pick stop; Status and Customer filters on the pick queue and in Pick mode; and a clear \"Can it ship?\" flag on every open order — Can ship, Partial, Printing (waiting on print-on-demand) or No stock — with filter chips on the Orders board."
 }
