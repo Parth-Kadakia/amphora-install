@@ -1,6 +1,6 @@
 {
-  "version": "1.37.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.37.0",
+  "version": "1.40.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.40.0",
   "releasedAt": "2026-10-07",
-  "notes": "From client feedback: pickers can go back mid-run and fix an earlier line; totes are optional (Settings → General → Picking); product photos at every pick stop; Status and Customer filters on the pick queue and in Pick mode; and a clear \"Can it ship?\" flag on every open order — Can ship, Partial, Printing (waiting on print-on-demand) or No stock — with filter chips on the Orders board."
+  "notes": "From client feedback: pickers can go back mid-run and fix an earlier line; totes are optional; product photos at every pick stop; Status and Customer filters on the pick queue; a \"Can it ship?\" flag on every order (Can ship, Partial, Printing, No stock); receiving shows where a SKU already lives and suggests spots beside the customer's stock; batch picks by zone (whole orders only), customer, rush or packing type; and a Fix button to change, remove or add items mid-pick, upgrade shipping, or allow a partial shipment for one order."
 }
