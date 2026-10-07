@@ -1,6 +1,6 @@
 {
-  "version": "1.31.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.31.0",
+  "version": "1.32.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.32.0",
   "releasedAt": "2026-10-07",
-  "notes": "Locations get their own rules: a pick priority, one SKU only or mixed, and a hard size and weight limit (anything that would go over is refused, and putaway only suggests places the load fits), set on each location's page or in bulk, and exported and re-imported as a CSV to change many at once. SKUs get a Size & weight tab for each, pack, carton and pallet. Every line on an ASN has a Receive button with the SKU, lot and quantity filled in. Batch picks get a number printed with a barcode on the slip. Scan mode is simpler: it tells you the one next thing to scan, and moving stock never asks for a lot number. A SKU's unit of measure is Each, Pack, Carton or Pallet, and auto-generated ASN numbers can carry your own prefix and suffix. Also includes 1.30.0 and security updates."
+  "notes": "Receive in each, packs, cartons or pallets (10 cartons books 10 × the SKU's carton size), on the desk, on an ASN line and in the receiving CSV, and see stock in its units everywhere (1 pallet · 1 carton · 3 each). Move many things at once: scan a location, untick what stays, scan where it goes; or fill in a move sheet and upload it, previewed first and all or nothing. The ledger has a search box under every column that takes several values at once, and each SKU's Inventory tab shows its full movement history with the on-hand total after every movement. Also includes 1.31.0: location rules (pick priority, one SKU or mixed, hard size and weight limits) with CSV import and export, SKU size and weight per level, a Receive button on every ASN line, and batch pick numbers."
 }
