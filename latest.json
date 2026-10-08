@@ -1,6 +1,6 @@
 {
-  "version": "1.43.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.43.0",
+  "version": "1.44.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.44.0",
   "releasedAt": "2026-10-08",
-  "notes": "Approvals redesigned: each workflow is one card — who and what, then who approves — and a group can have several (rush orders to one person, large quantities to another), with new conditions (card or account, ship-to state/country, cost center, large single items, print on demand, short items, PO text, role) and a Test an order panel. Card groups can hold the card at checkout and charge it when approved. A SKU can now need more time than the SLA (Ships within): orders containing it ship later and can't be rushed. Fixed: rush windows and the order cutoff followed the server's clock — set your warehouse time zone under Settings → Shipping."
+  "notes": "Print on demand rebuilt for any product: a full-screen designer (click the text in a customer's PDF to make it a field, or start from a blank page; preview shows exactly what prints), tees, caps and promo items with blanks per size, decorated areas and production steps, and team orders in the portal where every person gets a proof to check. Shopify: connect a brand's store and its paid orders come in by themselves; tracking and stock go back only when switched on. Direct mail: postcards and self-mailers with the client's artwork in 3D, the mailing list checked and de-duplicated with a report for every outcome, proofs the client approves in their portal, then print and mail."
 }
