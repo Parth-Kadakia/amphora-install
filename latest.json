@@ -1,6 +1,6 @@
 {
-  "version": "1.44.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.44.1",
+  "version": "1.44.2",
+  "image": "ghcr.io/parth-kadakia/amphora:1.44.2",
   "releasedAt": "2026-10-08",
-  "notes": "Fixed: on an install behind HTTPS, opening a world failed with a secure-connection error. Worlds now open on the same address as everything else — no extra ports, nothing for IT to change — with a banner and Back to main. A copied world keeps your single sign-on. Also a dependency security clean-up."
+  "notes": "The knowledge base covers everything new — Direct mail, Shopify, staff single sign-on and Transfers have their own articles, print on demand is rewritten, with fresh screenshots — and every API endpoint is in the reference. Fixed: an outside printer's account could see more than its own print jobs; a world could open without its styling after an update."
 }
