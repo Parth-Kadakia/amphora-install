@@ -1,6 +1,6 @@
 {
-  "version": "1.44.2",
-  "image": "ghcr.io/parth-kadakia/amphora:1.44.2",
+  "version": "1.44.3",
+  "image": "ghcr.io/parth-kadakia/amphora:1.44.3",
   "releasedAt": "2026-10-08",
-  "notes": "The knowledge base covers everything new — Direct mail, Shopify, staff single sign-on and Transfers have their own articles, print on demand is rewritten, with fresh screenshots — and every API endpoint is in the reference. Fixed: an outside printer's account could see more than its own print jobs; a world could open without its styling after an update."
+  "notes": "A simpler Propago page: pick how the brand works with Propago (we run the warehouse, we ship but Propago keeps the count, receiving only, or not live yet) and see exactly what will change before it saves. Shopify: big stores no longer fail with 'query cost exceeds 1000', and a product's SKU match can be changed or unmapped."
 }
