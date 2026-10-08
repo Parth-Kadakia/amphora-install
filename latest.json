@@ -1,6 +1,6 @@
 {
-  "version": "1.42.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.42.0",
-  "releasedAt": "2026-10-07",
-  "notes": "Important fix: placing an order on the web ordering portal works again (it had been refusing orders with \"Invalid input\"). New: card payment at checkout with Authorize.net for chosen user groups, refunds from the order page and a \"Paid by card\" credit on the invoice; warehouse-aware orders — stock is reserved and picked only in the order's own building, and anything short there waits in a new Transfers queue instead of shipping from the wrong place; returns can go straight back to the shelf they were picked from, and a shipment marked shipped by mistake can be undone; brands' own fonts on their storefront; and putaway rules per customer (reserved zones and locations, preferred zones)."
+  "version": "1.43.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.43.0",
+  "releasedAt": "2026-10-08",
+  "notes": "Approvals redesigned: each workflow is one card — who and what, then who approves — and a group can have several (rush orders to one person, large quantities to another), with new conditions (card or account, ship-to state/country, cost center, large single items, print on demand, short items, PO text, role) and a Test an order panel. Card groups can hold the card at checkout and charge it when approved. A SKU can now need more time than the SLA (Ships within): orders containing it ship later and can't be rushed. Fixed: rush windows and the order cutoff followed the server's clock — set your warehouse time zone under Settings → Shipping."
 }
