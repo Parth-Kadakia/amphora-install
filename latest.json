@@ -1,6 +1,6 @@
 {
-  "version": "1.40.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.40.0",
+  "version": "1.42.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.42.0",
   "releasedAt": "2026-10-07",
-  "notes": "From client feedback: pickers can go back mid-run and fix an earlier line; totes are optional; product photos at every pick stop; Status and Customer filters on the pick queue; a \"Can it ship?\" flag on every order (Can ship, Partial, Printing, No stock); receiving shows where a SKU already lives and suggests spots beside the customer's stock; batch picks by zone (whole orders only), customer, rush or packing type; and a Fix button to change, remove or add items mid-pick, upgrade shipping, or allow a partial shipment for one order."
+  "notes": "Important fix: placing an order on the web ordering portal works again (it had been refusing orders with \"Invalid input\"). New: card payment at checkout with Authorize.net for chosen user groups, refunds from the order page and a \"Paid by card\" credit on the invoice; warehouse-aware orders — stock is reserved and picked only in the order's own building, and anything short there waits in a new Transfers queue instead of shipping from the wrong place; returns can go straight back to the shelf they were picked from, and a shipment marked shipped by mistake can be undone; brands' own fonts on their storefront; and putaway rules per customer (reserved zones and locations, preferred zones)."
 }
