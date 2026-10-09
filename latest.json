@@ -1,6 +1,6 @@
 {
-  "version": "1.44.8",
-  "image": "ghcr.io/parth-kadakia/amphora:1.44.8",
+  "version": "1.44.9",
+  "image": "ghcr.io/parth-kadakia/amphora:1.44.9",
   "releasedAt": "2026-10-09",
-  "notes": "Receive by each, pack, carton or pallet: receiving asks how it came and how many are in each carton this time (filled in from the SKU, change it when a shipment differs). Every receipt remembers it — '3 cartons × 12' shows on the ledger, SKU and location history, and the client's Receipts report. A different carton size this time? One tick makes it the usual."
+  "notes": "Every receipt gets a receipt code on its placard and its own license plate (switchable under Settings → General → Receiving). Receiving → Undo a receipt: scan the code, say why, and everything it booked comes off the ledger with your comment. Locations shows every location at once, and Reports → Locations lists them all. New roles: Manager, Pick & pack, Receiving and PPD lead. Kits in the portal say Made to order."
 }
