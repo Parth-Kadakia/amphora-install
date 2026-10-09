@@ -1,6 +1,6 @@
 {
-  "version": "1.44.7",
-  "image": "ghcr.io/parth-kadakia/amphora:1.44.7",
+  "version": "1.44.8",
+  "image": "ghcr.io/parth-kadakia/amphora:1.44.8",
   "releasedAt": "2026-10-09",
-  "notes": "Test worlds open at the server's IP address again, like before: each running world has its own address such as http://192.168.102.178:3101, shown on Settings → Worlds with a Copy button. Every page keeps that address, so anything copied or sent from test stays in test. Nothing for IT to set up."
+  "notes": "Receive by each, pack, carton or pallet: receiving asks how it came and how many are in each carton this time (filled in from the SKU, change it when a shipment differs). Every receipt remembers it — '3 cartons × 12' shows on the ledger, SKU and location history, and the client's Receipts report. A different carton size this time? One tick makes it the usual."
 }
