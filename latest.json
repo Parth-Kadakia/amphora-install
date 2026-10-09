@@ -1,6 +1,6 @@
 {
-  "version": "1.44.5",
-  "image": "ghcr.io/parth-kadakia/amphora:1.44.5",
+  "version": "1.44.6",
+  "image": "ghcr.io/parth-kadakia/amphora:1.44.6",
   "releasedAt": "2026-10-09",
-  "notes": "Test links: every test world has a link on your normal address (.../w/test). Send it to testers: they land on test's sign-in, marked TEST, and sign in with their test account. Nothing for IT to set up. Check now also finds a new version the minute it's out."
+  "notes": "Test links you can share: put /w/test in front of any page to open it in the test world (/w/test/p/<portal link> opens a customer's portal in test). Inside test, portal links and the new 'Copy test link to this page' button already include /w/test, so whoever you send them to lands in test, not production."
 }
