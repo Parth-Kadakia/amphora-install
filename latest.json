@@ -1,6 +1,6 @@
 {
-  "version": "1.44.3",
-  "image": "ghcr.io/parth-kadakia/amphora:1.44.3",
-  "releasedAt": "2026-10-08",
-  "notes": "A simpler Propago page: pick how the brand works with Propago (we run the warehouse, we ship but Propago keeps the count, receiving only, or not live yet) and see exactly what will change before it saves. Shopify: big stores no longer fail with 'query cost exceeds 1000', and a product's SKU match can be changed or unmapped."
+  "version": "1.44.4",
+  "image": "ghcr.io/parth-kadakia/amphora:1.44.4",
+  "releasedAt": "2026-10-09",
+  "notes": "Test worlds are kept apart from production: give one its own address (test.wms.yourcompany.com), let in only the people you add, keep customer portals closed, and nothing reaches the outside (no customer emails, no Propago or Shopify syncing, no real charges or labels) unless you switch it on. Portal links can be readable (/p/thayers or /thayers). The rush window card offers your time zone in one click."
 }
