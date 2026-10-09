@@ -1,6 +1,6 @@
 {
-  "version": "1.44.6",
-  "image": "ghcr.io/parth-kadakia/amphora:1.44.6",
+  "version": "1.44.7",
+  "image": "ghcr.io/parth-kadakia/amphora:1.44.7",
   "releasedAt": "2026-10-09",
-  "notes": "Test links you can share: put /w/test in front of any page to open it in the test world (/w/test/p/<portal link> opens a customer's portal in test). Inside test, portal links and the new 'Copy test link to this page' button already include /w/test, so whoever you send them to lands in test, not production."
+  "notes": "Test worlds open at the server's IP address again, like before: each running world has its own address such as http://192.168.102.178:3101, shown on Settings → Worlds with a Copy button. Every page keeps that address, so anything copied or sent from test stays in test. Nothing for IT to set up."
 }
