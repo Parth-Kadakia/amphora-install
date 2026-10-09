@@ -1,6 +1,6 @@
 {
-  "version": "1.44.9",
-  "image": "ghcr.io/parth-kadakia/amphora:1.44.9",
+  "version": "1.44.10",
+  "image": "ghcr.io/parth-kadakia/amphora:1.44.10",
   "releasedAt": "2026-10-09",
-  "notes": "Every receipt gets a receipt code on its placard and its own license plate (switchable under Settings → General → Receiving). Receiving → Undo a receipt: scan the code, say why, and everything it booked comes off the ledger with your comment. Locations shows every location at once, and Reports → Locations lists them all. New roles: Manager, Pick & pack, Receiving and PPD lead. Kits in the portal say Made to order."
+  "notes": "Receiving only suggests bins holding the same lot; other lots of the SKU are shown but never offered. Lot codes that came in with the expiry stuck on (\"MYZ91W - 08/01/2028\") are split into the lot and its expiry date, including the ones already imported."
 }
