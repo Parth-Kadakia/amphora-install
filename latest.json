@@ -1,6 +1,6 @@
 {
-  "version": "1.44.4",
-  "image": "ghcr.io/parth-kadakia/amphora:1.44.4",
+  "version": "1.44.5",
+  "image": "ghcr.io/parth-kadakia/amphora:1.44.5",
   "releasedAt": "2026-10-09",
-  "notes": "Test worlds are kept apart from production: give one its own address (test.wms.yourcompany.com), let in only the people you add, keep customer portals closed, and nothing reaches the outside (no customer emails, no Propago or Shopify syncing, no real charges or labels) unless you switch it on. Portal links can be readable (/p/thayers or /thayers). The rush window card offers your time zone in one click."
+  "notes": "Test links: every test world has a link on your normal address (.../w/test). Send it to testers: they land on test's sign-in, marked TEST, and sign in with their test account. Nothing for IT to set up. Check now also finds a new version the minute it's out."
 }
