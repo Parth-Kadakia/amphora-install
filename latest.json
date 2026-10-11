@@ -1,6 +1,6 @@
 {
-  "version": "1.45.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.45.0",
-  "releasedAt": "2026-10-10",
-  "notes": "Built for a big warehouse: load-tested at ten times a real prospect's volume and tuned to match. New in Settings: Health (disk, backups, background work, slow pages), nightly Backups with off-site copies and weekly restore drills, and Webhooks. Rate limits, address blocking, scoped API keys and a sealed audit trail. On the floor: scanners keep working when the Wi-Fi drops, and the pick queue shows who is already picking an order."
+  "version": "1.46.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.46.0",
+  "releasedAt": "2026-10-11",
+  "notes": "Pick faces that refill themselves: every picked SKU gets a min/max rule sized nightly from its own demand. Pick from another location at a stop, or per line on the order. Safer under real conditions: cycle counts never undo picks made after the count, cancelled picks wait for a confirmed put-back, card-paid orders can't ship unpaid, offline scanning is off by default and never sent as the wrong person, and deleting a portal group never opens up what its people may do."
 }
