@@ -1,6 +1,6 @@
 {
-  "version": "1.44.10",
-  "image": "ghcr.io/parth-kadakia/amphora:1.44.10",
-  "releasedAt": "2026-10-09",
-  "notes": "Receiving only suggests bins holding the same lot; other lots of the SKU are shown but never offered. Lot codes that came in with the expiry stuck on (\"MYZ91W - 08/01/2028\") are split into the lot and its expiry date, including the ones already imported."
+  "version": "1.45.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.45.0",
+  "releasedAt": "2026-10-10",
+  "notes": "Built for a big warehouse: load-tested at ten times a real prospect's volume and tuned to match. New in Settings: Health (disk, backups, background work, slow pages), nightly Backups with off-site copies and weekly restore drills, and Webhooks. Rate limits, address blocking, scoped API keys and a sealed audit trail. On the floor: scanners keep working when the Wi-Fi drops, and the pick queue shows who is already picking an order."
 }
