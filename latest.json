@@ -1,9 +1,23 @@
 {
-  "version": "1.47.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.47.0",
+  "version": "1.47.1",
+  "image": "ghcr.io/parth-kadakia/amphora:1.47.1",
   "releasedAt": "2026-10-11",
-  "notes": "Your logo leads, and quiet release notices · Amphora's new look",
+  "notes": "The phase tracker, brought up to date",
   "releases": [
+    {
+      "version": "1.47.1",
+      "date": "2026-10-11",
+      "entries": [
+        {
+          "title": "The phase tracker, brought up to date",
+          "items": [
+            "The roadmap map (/phasetracker) now shows where Amphora really is: ten stations in service — through Client Portals, Print & Kitting, Invoicing and the Compliance Pack — with the train at Platform & AI and Ship It mostly built.",
+            "Stations that are partly in service say what's still open (Amazon and ask-in-English reports; the Postgres option and onboarding templates), and Resolve & Horizon are the next stop.",
+            "The map uses the new brand colors and the Amphora mark, in Light and Dark."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.47.0",
       "date": "2026-10-11",
@@ -193,21 +207,6 @@
             "Every test world has a link on your normal address (…/w/test). Send it to testers: they land on test’s sign-in, marked TEST, and sign in with their test account. Nothing to set up.",
             "Test’s sign-in page is marked TEST too, with Back to production.",
             "Check now finds a new version the minute it’s out."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.44.4",
-      "date": "2026-10-09",
-      "entries": [
-        {
-          "title": "Test kept apart from production; readable portal links",
-          "items": [
-            "A test world can have its own address (like test.wms.yourcompany.com) that only ever shows test. Only the people you add can sign in there.",
-            "Inside a test world nothing reaches the outside unless you switch it on: no emails to customers, no Propago or Shopify syncing, no real card charges, no labels bought. Customer portals there are closed, and every page says TEST.",
-            "Portal links can be readable: /p/thayers, or just /thayers. The old link keeps working.",
-            "Rush window reading closed at the wrong hour? The card now offers your computer’s time zone in one click."
           ]
         }
       ]
