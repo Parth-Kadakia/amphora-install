@@ -1,6 +1,216 @@
 {
-  "version": "1.46.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.46.0",
+  "version": "1.47.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.47.0",
   "releasedAt": "2026-10-11",
-  "notes": "Pick faces that refill themselves: every picked SKU gets a min/max rule sized nightly from its own demand. Pick from another location at a stop, or per line on the order. Safer under real conditions: cycle counts never undo picks made after the count, cancelled picks wait for a confirmed put-back, card-paid orders can't ship unpaid, offline scanning is off by default and never sent as the wrong person, and deleting a portal group never opens up what its people may do."
+  "notes": "Your logo leads, and quiet release notices · Amphora's new look",
+  "releases": [
+    {
+      "version": "1.47.0",
+      "date": "2026-10-11",
+      "entries": [
+        {
+          "title": "Your logo leads, and quiet release notices",
+          "items": [
+            "Your company's logo now leads the top of the menu; Amphora moves to the foot of the menu.",
+            "A logo uploaded on a solid box (usually white) has the box removed automatically, with no halo, and its empty margins trimmed.",
+            "On the Forest menu, the sign-in panel and in Dark mode your logo is shown in a light version (its dark ink in Linen, colors as drawn) — or, if you prefer, on a small light plate. Choose under Settings → Branding, with a preview of both.",
+            "Release notices: after an update, a small card in the corner says what's new — once. Owners and admins also see, once, when a newer version is available, with its notes and (when this install can update itself) Update now."
+          ]
+        },
+        {
+          "title": "Amphora's new look",
+          "items": [
+            "The warehouse app now follows the Amphora brand guide: a Forest menu, the new Amphora logo, Linen pages, white cards, Clay for the main action and Sage for where you are. Text is Inter, page titles are larger, and buttons, fields and table rows are taller and easier to hit.",
+            "Status colors are consistent everywhere: green done, amber needs attention, red stopped, blue in progress.",
+            "Scanner screens (/scan) are built for arm's length: bigger text, the location and quantity at 36px, and buttons at least 56px tall.",
+            "Keyboard focus now shows as a thick outline on every control, in Light and Dark.",
+            "Dark mode, done properly: System, Light or Dark from the header (and in Scan mode). System follows your device; your choice is kept on that device. Dark has its own colors from the brand guide, and printing is always Light.",
+            "Your accent color takes over the main buttons — adjusted automatically for Light and for Dark so the text on it always reads.",
+            "Client portals are unchanged — each keeps the look its brand designed, whatever a visitor's device is set to.",
+            "Pick slips, packing slips, count sheets, invoices and the Knowledge Base PDF use the new palette; the Knowledge Base PDF carries the new logo and is set in Inter."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.46.0",
+      "date": "2026-10-10",
+      "entries": [
+        {
+          "title": "Safer under real conditions: counts, put-backs, payments, offline scanners, portal groups",
+          "items": [
+            "Cycle counts: approval now applies the difference the counter actually found — counted minus what the system showed at the moment of the count — so picks after the count are never undone. A location that moved while it was being counted can only be recounted, and pick routes avoid locations waiting to be counted when other stock exists.",
+            "Put back: picked units from a cancelled order, a changed line, a reopened stop or a short close stay in staging until someone puts them back and confirms it (Upkeep → Put back, or right on the pick station). No shelf shows stock that's still on a cart.",
+            "Card payments: approved isn't paid. An order with an uncharged hold, a failed charge, or a charge the processor didn't answer can be picked but not packed, labelled or shipped until the payment is settled — or a billing person lets it ship with a reason.",
+            "Offline scanning is now a setting and off by default (Settings → General → Scanning). When on, a saved scan is only ever sent as the person who made it, with its real scan time; a refused one holds everything that person scanned after it until they say what they did on the shelf; managers see unresolved ones on Settings → Health.",
+            "Portal user groups: deleting a group with people in it asks where they go — another group, or suspended until one is assigned (browse, no ordering or approving). Switching a group off no longer opens its members up to the brand's open default.",
+            "Pick queue: find any order by number, customer or reference, however long the queue is."
+          ]
+        },
+        {
+          "title": "Pick faces that refill themselves, and picking from where you choose",
+          "items": [
+            "Automatic pick replenishment: every SKU picked from a pick face gets a min/max rule, sized every night from its own picks — min covers the wait for a refill plus a safety margin, max a few days of picks, never more than the location holds. Upkeep → Pick replenish → Automatic rules.",
+            "Rules you set or edit yourself are never changed, a rule you switch off stays off, and nothing a client set (like a SKU's low-stock level) is touched.",
+            "The refill queue looks ahead: a pick face that won't cover the orders due in the next two days goes to the top, before faces that are merely below min. Refills only come from reserve in the same building.",
+            "Smarter pick locations: a pick face before reserve, one stop instead of several, the nearly-empty location cleared first, within reach before a lift — and two orders on one cart are never sent for the same last units.",
+            "Pick from another location: scan a different location that holds the product at a stop and the station offers to pick from there, or choose from the list. In the office, Pick from on the order sets the location per line."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.45.0",
+      "date": "2026-10-10",
+      "entries": [
+        {
+          "title": "Health page, nightly backups, webhooks, and scanners that keep working offline",
+          "items": [
+            "Settings → Health: one page that says whether the install is all right — disk space, database size, the last backup and restore drill, background work, email and webhook queues — and which pages and API calls are slow, grouped by route. It lists what needs attention and what to do.",
+            "Backups (Settings → Backups): Amphora backs itself up every night while work carries on, keeps 14 days, mirrors uploaded files, and can copy each backup to your own S3-compatible bucket off the machine.",
+            "Restore drills: every week (or on demand) the latest backup is unpacked and proved — unchanged since it was made, sound, complete, audit trail intact. Any backup can also be opened as a test world, or downloaded.",
+            "Settings → Backups → Secret key shows where the key that unlocks saved passwords lives, and lets an owner copy it into a password manager.",
+            "Webhooks (Settings → Webhooks): Amphora calls your other systems the moment an order is placed, ships or is cancelled, stock moves, or an invoice is issued. Every call is signed, failed calls are retried for a day, and a delivery log shows each answer. Brands can add their own from their API key.",
+            "A webhook can carry the login the receiving system needs (a bearer token or an API-key header), sent on every call next to the signature and kept encrypted.",
+            "Scanners keep working when the Wi-Fi drops: picks, counts and stock moves are saved on the device and sent by themselves when the connection is back — never booked twice. A bar at the bottom shows what's waiting, and anything the server then refuses, with the reason. Integrations get the same protection by sending an Idempotency-Key header.",
+            "Being picked by: the pick queue and the order page show who is working an order right now, and opening an order someone else is on warns you before you walk it.",
+            "Stock API for integrations that poll: every answer has a cursor and an ETag — send the cursor back (?after=) to get only what changed, or the ETag (If-None-Match) to get a quick 'nothing changed'. Works on the warehouse API and every portal API; a portal's stock answer now works out only the page asked for.",
+            "Fixed: a portal API key with Read stock acting as a buyer got an empty stock list. It now gets the stock for every product its group can see.",
+            "Name an ASN yourself: the ASN number on Announce inbound starts with the next system number and can be typed over with anything — a different prefix or suffix, the supplier's PO, a name. Rename it under Edit details until receiving starts. Leave it alone and the system number is used.",
+            "Fixed: the demo world could fail to rebuild after an update since 1.44.9 (its history was written before receipts went onto license plates).",
+            "A license that has run out can be renewed right on the stop screen: paste the key there, no need to reach Settings. Test worlds now run on the install's license instead of a trial of their own, and a newer key set in AMPHORA_LICENSE_KEY always takes over from an expired one."
+          ]
+        },
+        {
+          "title": "Rate limits and blocking addresses",
+          "items": [
+            "Rate limits on by default: every API key, signed-in person and portal buyer gets its own allowance, so a client's integration polling too hard slows only itself. Over the limit, callers are told to wait (429 with Retry-After). Settings → Security → Network and rate limits.",
+            "Block an address or a whole range, for a set time or until removed. An address with repeated failed sign-ins or wrong API keys is blocked automatically for an hour.",
+            "Allow-lists: keep the warehouse app reachable only from your own networks while client portals stay open. Any API key can be limited to its owner's addresses.",
+            "Amphora now takes a request's address from the connection itself, so a forged header can't dodge a block. Behind a proxy on another machine, set AMPHORA_TRUSTED_PROXIES (see the install guide).",
+            "A client integration that retries an order while the first try is still going gets that order back, never a second one.",
+            "Settings → Security shows who has been rate-limited, the busiest callers, and addresses with failed sign-ins.",
+            "Warehouse API keys can be limited to what they're for: full access, or None, View or Change per area (catalog, inventory, orders, customers, billing, reports, integrations). A key outside its permissions is told exactly what it lacks.",
+            "A client's API docs page shows only what their key may do once they paste it.",
+            "Changes can't be made from another website: a page elsewhere can't use your signed-in session to change anything in Amphora.",
+            "Confirm it's you: before changing security settings, keys, people, single sign-on, invoices or test worlds, Amphora asks for your password or authenticator code if you haven't signed in or confirmed in the last 10 minutes. The change then goes through on its own.",
+            "Where you're signed in: Settings → Security lists every device on your account and signs any of them out, or all but this one. Admins can sign anyone out everywhere from Settings → People.",
+            "The audit trail is sealed: every entry is chained to the one before it, so any change, removal or insertion shows up. Reports → Audit trail → Check the trail hasn't been altered.",
+            "Keys needing attention (Settings → Security): every API key that has expired, is about to, or hasn't been used in months. Warehouse keys can have an expiry date, and keys nobody uses can be revoked automatically.",
+            "A portal person's own data: Export data downloads everything held about them; Erase… removes what identifies them for a deletion request, keeping orders without their name.",
+            "Searching orders stays fast with years of history: the search box now uses an index (same results, about 25 times faster on a busy install), and the ledger report opens instantly however long the ledger is.",
+            "The monthly invoice run and the daily storage count no longer hold up scanners and pickers while they work: the server answers the floor between customers."
+          ]
+        },
+        {
+          "title": "Built for a big warehouse: fixes from load testing",
+          "items": [
+            "Two people can no longer pick the same stop on one order. The second scan says it’s already picked and to refresh the route, so the order never ends up with more on the cart than it needs and always ships.",
+            "Inventory and Locations open on any size of warehouse. Inventory pages through SKUs with stock 100 at a time; Locations shows one zone whole or every location 100 at a time, with a search for a location code.",
+            "The pick queue opens in about a second with thousands of open orders (it took 16 seconds and more). The table shows the 200 most urgent; counts, filters and suggested carts still cover the whole queue.",
+            "Faster everywhere as history grows: stock is now kept as running balances alongside the ledger, so receiving, allocating, picking, the portal's stock numbers and every stock screen read a few rows instead of a year of history. The ledger is still the record, and the balances are checked against it.",
+            "Low-stock alerts are right while orders are mid-pick. Picked units waiting in packing used to be counted twice until they shipped, so an alert could fire late or not at all."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.44.10",
+      "date": "2026-10-09",
+      "entries": [
+        {
+          "title": "Lots kept apart when receiving",
+          "items": [
+            "Receiving only suggests bins holding the same lot; other lots of the SKU are shown but never offered.",
+            "Lot codes that came in with the expiry stuck on (“MYZ91W - 08/01/2028”) are split into the lot and its expiry date — including the ones already imported."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.44.9",
+      "date": "2026-10-09",
+      "entries": [
+        {
+          "title": "Undo a receipt, license plates, locations report, new roles",
+          "items": [
+            "Every receipt gets a receipt code on its placard and its own license plate (switch plates off under Settings → General → Receiving).",
+            "Receiving → Undo a receipt: scan the code, say why, and everything it booked comes off the ledger with your comment.",
+            "Locations shows every location at once; Reports → Locations lists every location with its settings, contents and last movement.",
+            "New roles: Manager, Pick & pack, Receiving and PPD lead — each sees and changes only its own part of the warehouse.",
+            "Kits in the portal say Made to order instead of Out of stock."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.44.8",
+      "date": "2026-10-09",
+      "entries": [
+        {
+          "title": "Receive by each, pack, carton or pallet",
+          "items": [
+            "Receiving asks how it came: Each, Pack, Carton or Pallet — and how many are in each carton this time (filled in from the SKU, change it when a shipment differs).",
+            "Every receipt remembers it: “3 cartons × 12” shows on the ledger, the SKU and location history, and the client’s Receipts report.",
+            "A different carton size this time? One tick makes it the usual."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.44.7",
+      "date": "2026-10-09",
+      "entries": [
+        {
+          "title": "Test opens at the server’s IP address again",
+          "items": [
+            "Each running test world has its own address — the server’s IP and a port, like http://192.168.102.178:3101. Settings → Worlds shows it with a Copy button.",
+            "Every page keeps that address, so anything you copy or send from test stays in test. Nothing for IT to set up."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.44.6",
+      "date": "2026-10-09",
+      "entries": [
+        {
+          "title": "Test links you can share",
+          "items": [
+            "Put /w/test in front of any page to open it in the test world — /w/test/p/<portal link> opens a customer’s portal in test.",
+            "Inside test, portal links and the new Copy test link to this page button already include /w/test, so whoever you send them to lands in test, not production."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.44.5",
+      "date": "2026-10-09",
+      "entries": [
+        {
+          "title": "Test links — no IT needed",
+          "items": [
+            "Every test world has a link on your normal address (…/w/test). Send it to testers: they land on test’s sign-in, marked TEST, and sign in with their test account. Nothing to set up.",
+            "Test’s sign-in page is marked TEST too, with Back to production.",
+            "Check now finds a new version the minute it’s out."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.44.4",
+      "date": "2026-10-09",
+      "entries": [
+        {
+          "title": "Test kept apart from production; readable portal links",
+          "items": [
+            "A test world can have its own address (like test.wms.yourcompany.com) that only ever shows test. Only the people you add can sign in there.",
+            "Inside a test world nothing reaches the outside unless you switch it on: no emails to customers, no Propago or Shopify syncing, no real card charges, no labels bought. Customer portals there are closed, and every page says TEST.",
+            "Portal links can be readable: /p/thayers, or just /thayers. The old link keeps working.",
+            "Rush window reading closed at the wrong hour? The card now offers your computer’s time zone in one click."
+          ]
+        }
+      ]
+    }
+  ]
 }
