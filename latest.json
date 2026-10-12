@@ -1,9 +1,34 @@
 {
-  "version": "1.47.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.47.1",
-  "releasedAt": "2026-10-11",
-  "notes": "The phase tracker, brought up to date",
+  "version": "1.48.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.48.0",
+  "releasedAt": "2026-10-12",
+  "notes": "Every CPU core, a floor that stays quick, updates you can undo, and card and label calls that happen exactly once",
   "releases": [
+    {
+      "version": "1.48.0",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "title": "Every CPU core, a floor that stays quick, updates you can undo, and card and label calls that happen exactly once",
+          "items": [
+            "Placing an order, adding lines and creating a shipment no longer slow down as order history grows. Keeping the order search up to date used to read the whole search index on every change. With 97,000 orders that made each order about 4× slower than it should be, and it got worse every month. It now goes straight to the order's entry. The update applies in about a second, and search results are unchanged.",
+            "The nightly backup now copies one consistent snapshot of the warehouse on a background thread. Before, every scan or order during the backup made it start over, so on a busy floor a large warehouse's backup could run all night without finishing.",
+            "Copying the live warehouse into a test world works the same way, so it also finishes while people keep working.",
+            "Amphora now uses every CPU core on your server. It runs separate processes for the warehouse floor (scanners, staff screens, your API), for client portals, and for background jobs (backups, syncs, emails, snapshots). A portal rush only uses the portal processes' share, and heavy jobs never hold up a page. It's still one container, one port and one database file; how many processes run is sized to your server automatically. Settings → Health adds them all up. To go back to a single process, set AMPHORA_WORKERS=1.",
+            "Safe with several processes: every order, invoice, RMA, receipt, carton and SSCC number comes from one shared counter, so two can never get the same number. Stock checks and stock moves happen together, so stock can't go negative. A shipment, a cancel, an approval or a fee can't be done twice by two people at the same moment, card charges, refunds and labels are claimed before calling the processor or carrier, and a retried scan is still booked once.",
+            "Fixed: Settings → Health showed an error while an install's very first backup was running.",
+            "Floor first: a rush on your client portals can no longer slow the warehouse floor. Up to 16 portal requests are worked on at once. At a busy peak, any more get an immediate “This store is busy for a moment” page that tries again by itself after two seconds, and integrations get a “busy, retry” answer. Scanners, staff screens and your own API are never held back. Settings → Health shows how often it happened. Change the limit with AMPHORA_PORTAL_CONCURRENCY.",
+            "Scanning or typing a SKU code finds it instantly however big the catalogue is (it read every SKU on each such scan: 57 ms at 625,000 SKUs and growing). The Orders board's rush and overdue counts read only open orders, not the whole history (3.5 seconds → instant at 977,000 orders).",
+            "Client portals stay quick with a large order history. Every portal page and checkout worked out each product's open demand by reading the whole order history, about 9 seconds a page with 390,000 orders, and for that time the rest of the warehouse waited too. With 60 portals busy, scanners lost their connection. New indexes make it instant, including for popular products with a long history. The portal home page also counts a buyer's open, awaiting-approval and recently shipped orders directly instead of loading their last 500 orders, so the counts are now exact even past 500. The same update speeds up every pick and the order counts on the Orders board. It applies in about 25 seconds on a large warehouse.",
+            "Picking from a carton or pallet works. When the only stock at a location was inside a carton, the pick route sent pickers there, but the pick looked only for loose units on the shelf and refused every time, so the order could never finish. The route now names the carton, the scanner takes the units out of it, and the pick records which carton they came from. If someone moved the carton after the route was drawn, the scanner says so.",
+            "A card is never charged twice, a refund never paid twice, and a label never bought twice — even when the processor or carrier doesn't answer, or the server stops mid-call. Every such call is written down first. With no answer, the order waits as “payment unknown” (or the shipment as “label may have been bought”) and Amphora asks the provider what happened, then records it. A checkout cut off completely never leaves a half-order: it's cancelled and any money taken goes straight back. Providers that can't be asked (UPS, FedEx, Shippo, ShipStation) appear in Settings → Health for someone to settle. Fixed: after a carrier timeout Amphora said “the shipment is untouched — try again”, which could buy a second label.",
+            "Go back to the previous version from Settings → General → Updates. Amphora saves a copy of the database, switches to the version you ran before and keeps everything done since. If a version — newer or older — doesn't start, Amphora goes straight back to the one it was running and says why. Installs set up before this version: run install.sh update once on the server to get the new updater; install.sh use <version> also switches from the server.",
+            "Going back to the previous version is safe: it runs on the updated database and keeps everything done since, and receipt numbers and SSCCs carry on without repeats whichever way you go (Going back in the install guide). A test world started from Settings → Worlds now always runs its own backups and background work, and Settings → Health warns if background work hasn't run at all since Amphora started.",
+            "Amphora now records when it stops answering requests, and why: the longest pauses, the pages and database queries that caused them, and memory use. A pause that's still going on is written to the server log every 10 seconds, so even a server that never recovers leaves a record."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.47.1",
       "date": "2026-10-11",
@@ -193,20 +218,6 @@
           "items": [
             "Put /w/test in front of any page to open it in the test world — /w/test/p/<portal link> opens a customer’s portal in test.",
             "Inside test, portal links and the new Copy test link to this page button already include /w/test, so whoever you send them to lands in test, not production."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.44.5",
-      "date": "2026-10-09",
-      "entries": [
-        {
-          "title": "Test links — no IT needed",
-          "items": [
-            "Every test world has a link on your normal address (…/w/test). Send it to testers: they land on test’s sign-in, marked TEST, and sign in with their test account. Nothing to set up.",
-            "Test’s sign-in page is marked TEST too, with Back to production.",
-            "Check now finds a new version the minute it’s out."
           ]
         }
       ]
