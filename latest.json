@@ -1,9 +1,27 @@
 {
-  "version": "1.48.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.48.1",
+  "version": "1.48.2",
+  "image": "ghcr.io/parth-kadakia/amphora:1.48.2",
   "releasedAt": "2026-10-12",
-  "notes": "Direct mail: BCC Architect, a campaign page for clients, finishes, prices, postage and billing · The cart shows what's in each kit, and Direct mail in the client portal",
+  "notes": "BCC Architect Web Services, USPS address correction at checkout, and Intelligent Mail barcodes for comingled mail",
   "releases": [
+    {
+      "version": "1.48.2",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "title": "BCC Architect Web Services, USPS address correction at checkout, and Intelligent Mail barcodes for comingled mail",
+          "items": [
+            "Amphora now makes the Intelligent Mail barcode (IMb) for mail that isn't presorted — comingled, or mailed as it is. Enter your Mailer ID under Settings → Direct mail → Mail barcodes; every piece gets a barcode with the mailing's Service Type ID, your Mailer ID, a serial number never used before, and the routing code from the checked address. The encoder matches every example in the USPS barcode specification.",
+            "Choose Basic or Full-Service, and what the USPS does with a piece it can't deliver — Standard treatment, Forward, Return, or Electronic address correction. Together with the mail class they pick the Service Type ID from the USPS table; Marketing Mail prints the matching endorsement (ADDRESS / RETURN / CHANGE SERVICE REQUESTED) below the postage area. Set the defaults for new mailings, and let clients choose the undeliverable option on their own mailings if you like.",
+            "The IMb manifest (CSV) on a mailing lists every piece's STID, Mailer ID, serial, routing code and bars — what a comingler asks for. Presorted mailings get the same STID from BCC Architect's presort.",
+            "BCC Architect Web Services: CASS and NCOA run with your BCC Architect licence (product key, add-on keys and NCOA login) on BCC's servers — the PS Form 3553 and NCOALink Processing Summary come back for the client. Amphora's barcodes always carry the full 11-digit delivery point from CASS.",
+            "Built-in address correction: when your BCC Architect licence is set up, every US address typed at portal checkout, in bulk checkout, in the API or saved to the address book is checked against the USPS's own data — corrected street, city and ZIP+4, a warning when the apartment number is missing, refused when the USPS doesn't deliver there. At checkout the buyer sees the corrected address and confirms it before the order is placed; bulk checkout checks every recipient up front.",
+            "Settings, where you'd look for them: BCC Software (built-in, Architect Web Services or REACH — only the chosen one's fields) is on Settings → Integrations; Settings → Direct mail has what's warehouse-wide (Mail barcodes, our postage permit); each brand's Direct mail — portal on or off, user groups, formats and price per piece — is on the brand, Customers → the brand → Direct mail. Print → Direct mail is just the work.",
+            "Fixed: a direct mail campaign's print SKU showed in the client's shop as a product. It's ordered through the mailing only."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.48.1",
       "date": "2026-10-12",
@@ -11,7 +29,7 @@
         {
           "title": "Direct mail: BCC Architect, a campaign page for clients, finishes, prices, postage and billing",
           "items": [
-            "CASS, NCOA and presort through BCC Architect. Enter your BCC Architect sign-in under Print → Direct mail → Address checking & permit, then Run with BCC Architect on a mailing: every address is CASS-certified and checked for movers, duplicates are dropped, and the presort sets the print order, barcode, tray and postage on every piece. The CASS (PS Form 3553), NCOA, summary and postage reports are kept on the mailing and shown to the client. You can also run BCC by hand with the input and import files.",
+            "CASS, NCOA and presort through BCC Architect. Enter your BCC Architect sign-in under Settings → Integrations → BCC Software, then Run with BCC Architect on a mailing: every address is CASS-certified and checked for movers, duplicates are dropped, and the presort sets the print order, barcode, tray and postage on every piece. The CASS (PS Form 3553), NCOA, summary and postage reports are kept on the mailing and shown to the client. You can also run BCC by hand with the input and import files.",
             "Clients get a campaign page: a tracker with dates, one card saying what happens next, the list's results (accepted, changed, not mailing), the cost, and tabs for the piece, the artwork, every record on the list with why it was changed or rejected, the proof and the reports. Their campaigns list shows the artwork, results and cost of each.",
             "Artwork by zone: clients drop images into the front, inside and message areas instead of building a PDF. Each image is checked as it lands, and a change after your OK makes the proof again by itself.",
             "Finishes and prices: every mailing is matte, gloss or satin. Set each client's price per piece by format and finish under Prices per piece; clients see it when they start a mailing, and approving the proof locks it in. The previews show the paper and its finish.",
@@ -23,7 +41,7 @@
         {
           "title": "The cart shows what's in each kit, and Direct mail in the client portal",
           "items": [
-            "Direct mail in the client portal, by user group. Under Print → Direct mail → Client portals, turn it on for a brand, choose which of their user groups may use it (or everyone), and which formats they can choose. Their people start a mailing, upload the artwork (checked automatically right away) and their list, and send it to us. We check the artwork by hand and either send feedback, which they fix and send again, or mark it OK. Then we run the processing job (CASS, NCOA, duplicates, presort, list or ZIP order) and send a proof of 5–10 real pieces. They approve, and we print. Address checking stays on our side.",
+            "Direct mail in the client portal, by user group. On the brand (Customers → the brand → Direct mail), turn it on for a brand, choose which of their user groups may use it (or everyone), and which formats they can choose. Their people start a mailing, upload the artwork (checked automatically right away) and their list, and send it to us. We check the artwork by hand and either send feedback, which they fix and send again, or mark it OK. Then we run the processing job (CASS, NCOA, duplicates, presort, list or ZIP order) and send a proof of 5–10 real pieces. They approve, and we print. Address checking stays on our side.",
             "Print → Direct mail is now Pending and Processed. A job appears the moment a client or we start a mailing, with where it came from and the next step. The client's Direct mail page shows the same jobs their way: In progress and Mailed.",
             "A kit in the portal cart now lists what goes in it: every part that always comes in the kit, then the buyer's picks, each with how many go in one kit. It also shows the count per kit and the total across the kits ordered. It used to be one cut-off line of picks. Long kits show the first six with Show all, and on a phone the list runs the full width under the line."
           ]
@@ -218,19 +236,6 @@
             "Receiving asks how it came: Each, Pack, Carton or Pallet — and how many are in each carton this time (filled in from the SKU, change it when a shipment differs).",
             "Every receipt remembers it: “3 cartons × 12” shows on the ledger, the SKU and location history, and the client’s Receipts report.",
             "A different carton size this time? One tick makes it the usual."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.44.7",
-      "date": "2026-10-09",
-      "entries": [
-        {
-          "title": "Test opens at the server’s IP address again",
-          "items": [
-            "Each running test world has its own address — the server’s IP and a port, like http://192.168.102.178:3101. Settings → Worlds shows it with a Copy button.",
-            "Every page keeps that address, so anything you copy or send from test stays in test. Nothing for IT to set up."
           ]
         }
       ]
