@@ -1,9 +1,25 @@
 {
-  "version": "1.48.2",
-  "image": "ghcr.io/parth-kadakia/amphora:1.48.2",
-  "releasedAt": "2026-10-12",
-  "notes": "BCC Architect Web Services, USPS address correction at checkout, and Intelligent Mail barcodes for comingled mail",
+  "version": "1.49.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.49.0",
+  "releasedAt": "2026-10-13",
+  "notes": "File drops: placards, slips and print files straight to Switch — by SFTP, S3 or a folder",
   "releases": [
+    {
+      "version": "1.49.0",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "title": "File drops: placards, slips and print files straight to Switch — by SFTP, S3 or a folder",
+          "items": [
+            "Settings → File drops writes documents as the work happens to a folder, an SFTP server or an S3 bucket, for Enfocus Switch (or any hot folder) to route to the right printer and tray. Owners and admins set it up; Add and test tries each destination straight away.",
+            "Tick what drops, each with its own settings: placards when stock lands in a location (receiving, moves — or a license plate's placard, once, instead of one per SKU); pick slips when an order is ready to pick or picking starts, in pick-queue order (rush first), plus the batch's slip when a batch pick opens; pack slips when packing starts or the order is packed; print-ready PDFs for print-on-demand and direct mail jobs when they're ready or go to press; scheduled reports as they're emailed.",
+            "File names and folders are patterns — {seq}, {order}, {customer}, {carrier}, {location}, {sku}… — with an example under each drop. A job ticket (XML) can land beside each file with the customer, order, carrier, rush, ship-by and quantity, for Switch to route on.",
+            "Files arrive whole (written then renamed into place), within about five seconds. If a destination can't be reached, files wait and try again with the reason shown; Sent lists every file, with Send again. SFTP servers are pinned to the key seen on the first test.",
+            "A drop starts from the moment it's switched on — nothing that already happened is sent. In a test world, file drops stay off unless switched on there."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.48.2",
       "date": "2026-10-12",
@@ -222,20 +238,6 @@
             "Locations shows every location at once; Reports → Locations lists every location with its settings, contents and last movement.",
             "New roles: Manager, Pick & pack, Receiving and PPD lead — each sees and changes only its own part of the warehouse.",
             "Kits in the portal say Made to order instead of Out of stock."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.44.8",
-      "date": "2026-10-09",
-      "entries": [
-        {
-          "title": "Receive by each, pack, carton or pallet",
-          "items": [
-            "Receiving asks how it came: Each, Pack, Carton or Pallet — and how many are in each carton this time (filled in from the SKU, change it when a shipment differs).",
-            "Every receipt remembers it: “3 cartons × 12” shows on the ledger, the SKU and location history, and the client’s Receipts report.",
-            "A different carton size this time? One tick makes it the usual."
           ]
         }
       ]
