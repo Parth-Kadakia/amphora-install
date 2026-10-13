@@ -1,9 +1,24 @@
 {
-  "version": "1.49.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.49.0",
+  "version": "1.50.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.50.0",
   "releasedAt": "2026-10-13",
-  "notes": "File drops: placards, slips and print files straight to Switch — by SFTP, S3 or a folder",
+  "notes": "Pick in batches: carts by shortest walk, zone, rush, carrier & service, or customer",
   "releases": [
+    {
+      "version": "1.50.0",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "title": "Pick in batches: carts by shortest walk, zone, rush, carrier & service, or customer",
+          "items": [
+            "The pick queue builds carts for you, five ways: Shortest walk (orders that save real walking together), Zone (one zone per cart, orders needing two zones kept whole), Rush & due (rush carts first, all rush), Carrier & service (UPS Ground and UPS 2nd Day Air on their own carts, each carrier with its services as rows) and Customer. Keep each customer apart works with all of them.",
+            "Each group is one row: “67 orders → 6 carts”, Cart 1 of 6 with its stops and how much less walking it is, and Start cart 1. See all carts lists the rest. Carts hold up to 12 orders, never mix packing types, and are built from the whole queue — fast at thousands of orders.",
+            "The filters (date, status, customer, zone, packing and the new Carrier filter) now sit on Orders to pick, the list they narrow. Ticking orders to build your own cart works as before.",
+            "The handheld pick screen has the same Pick in batches, folded into one line above the scanner."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.49.0",
       "date": "2026-10-13",
@@ -222,22 +237,6 @@
           "items": [
             "Receiving only suggests bins holding the same lot; other lots of the SKU are shown but never offered.",
             "Lot codes that came in with the expiry stuck on (“MYZ91W - 08/01/2028”) are split into the lot and its expiry date — including the ones already imported."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.44.9",
-      "date": "2026-10-09",
-      "entries": [
-        {
-          "title": "Undo a receipt, license plates, locations report, new roles",
-          "items": [
-            "Every receipt gets a receipt code on its placard and its own license plate (switch plates off under Settings → General → Receiving).",
-            "Receiving → Undo a receipt: scan the code, say why, and everything it booked comes off the ledger with your comment.",
-            "Locations shows every location at once; Reports → Locations lists every location with its settings, contents and last movement.",
-            "New roles: Manager, Pick & pack, Receiving and PPD lead — each sees and changes only its own part of the warehouse.",
-            "Kits in the portal say Made to order instead of Out of stock."
           ]
         }
       ]
