@@ -1,9 +1,35 @@
 {
-  "version": "1.48.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.48.0",
+  "version": "1.48.1",
+  "image": "ghcr.io/parth-kadakia/amphora:1.48.1",
   "releasedAt": "2026-10-12",
-  "notes": "Every CPU core, a floor that stays quick, updates you can undo, and card and label calls that happen exactly once",
+  "notes": "Direct mail: BCC Architect, a campaign page for clients, finishes, prices, postage and billing · The cart shows what's in each kit, and Direct mail in the client portal",
   "releases": [
+    {
+      "version": "1.48.1",
+      "date": "2026-10-12",
+      "entries": [
+        {
+          "title": "Direct mail: BCC Architect, a campaign page for clients, finishes, prices, postage and billing",
+          "items": [
+            "CASS, NCOA and presort through BCC Architect. Enter your BCC Architect sign-in under Print → Direct mail → Address checking & permit, then Run with BCC Architect on a mailing: every address is CASS-certified and checked for movers, duplicates are dropped, and the presort sets the print order, barcode, tray and postage on every piece. The CASS (PS Form 3553), NCOA, summary and postage reports are kept on the mailing and shown to the client. You can also run BCC by hand with the input and import files.",
+            "Clients get a campaign page: a tracker with dates, one card saying what happens next, the list's results (accepted, changed, not mailing), the cost, and tabs for the piece, the artwork, every record on the list with why it was changed or rejected, the proof and the reports. Their campaigns list shows the artwork, results and cost of each.",
+            "Artwork by zone: clients drop images into the front, inside and message areas instead of building a PDF. Each image is checked as it lands, and a change after your OK makes the proof again by itself.",
+            "Finishes and prices: every mailing is matte, gloss or satin. Set each client's price per piece by format and finish under Prices per piece; clients see it when they start a mailing, and approving the proof locks it in. The previews show the paper and its finish.",
+            "Postage and billing: Mark mailed takes the postage from the USPS statement (filled in from the presort). The print — and the postage, on our permit — goes on the client's bill with the mailing's name, pieces and price on the invoice line. On their own permit, they see the postage but aren't billed for it. Clients get a postage report by sort level and rate.",
+            "Proofs make themselves. The moment a client has artwork and a list, they see a draft proof: six pieces with names and addresses from their file as uploaded, marked DRAFT, nothing to approve. Once we've passed the artwork and the list is processed, the final proof replaces it and waits for their approval — nobody has to press Make the proof (you still can, with 5 to 10 pieces).",
+            "Fixed: a direct mail print job no longer books order, pick, unit or print fees — the drop bills itself, so nothing is charged twice."
+          ]
+        },
+        {
+          "title": "The cart shows what's in each kit, and Direct mail in the client portal",
+          "items": [
+            "Direct mail in the client portal, by user group. Under Print → Direct mail → Client portals, turn it on for a brand, choose which of their user groups may use it (or everyone), and which formats they can choose. Their people start a mailing, upload the artwork (checked automatically right away) and their list, and send it to us. We check the artwork by hand and either send feedback, which they fix and send again, or mark it OK. Then we run the processing job (CASS, NCOA, duplicates, presort, list or ZIP order) and send a proof of 5–10 real pieces. They approve, and we print. Address checking stays on our side.",
+            "Print → Direct mail is now Pending and Processed. A job appears the moment a client or we start a mailing, with where it came from and the next step. The client's Direct mail page shows the same jobs their way: In progress and Mailed.",
+            "A kit in the portal cart now lists what goes in it: every part that always comes in the kit, then the buyer's picks, each with how many go in one kit. It also shows the count per kit and the total across the kits ordered. It used to be one cut-off line of picks. Long kits show the first six with Show all, and on a phone the list runs the full width under the line."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.48.0",
       "date": "2026-10-12",
@@ -205,19 +231,6 @@
           "items": [
             "Each running test world has its own address — the server’s IP and a port, like http://192.168.102.178:3101. Settings → Worlds shows it with a Copy button.",
             "Every page keeps that address, so anything you copy or send from test stays in test. Nothing for IT to set up."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.44.6",
-      "date": "2026-10-09",
-      "entries": [
-        {
-          "title": "Test links you can share",
-          "items": [
-            "Put /w/test in front of any page to open it in the test world — /w/test/p/<portal link> opens a customer’s portal in test.",
-            "Inside test, portal links and the new Copy test link to this page button already include /w/test, so whoever you send them to lands in test, not production."
           ]
         }
       ]
