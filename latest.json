@@ -1,9 +1,29 @@
 {
-  "version": "1.50.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.50.0",
+  "version": "1.51.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.51.0",
   "releasedAt": "2026-10-13",
-  "notes": "Pick in batches: carts by shortest walk, zone, rush, carrier & service, or customer",
+  "notes": "Shipping accounts, Location in reports, SKU status in the report builder, whole product photos",
   "releases": [
+    {
+      "version": "1.51.0",
+      "date": "2026-10-13",
+      "entries": [
+        {
+          "title": "Shipping accounts, Location in reports, SKU status in the report builder, whole product photos",
+          "items": [
+            "Reports say Location, not Bin: the report builder's Location and Location type (and From / To location on the ledger), the stock and license plate exports' location column, the ledger export's from_location and to_location, and the count, move and kitting screens — a location is a bin or a pallet position. The stock import template's column is location; files with the old bin column still import.",
+            "Every column, in reports: each report in Build a report now offers every column of its records and of everything it reaches (under More · <table>), and every other table is a report of its own under All tables — locations, zones, lots, license plates, returns, cycle counts, transfers, work orders, mailings and more, about 100 in all. Secrets and raw data are never included; these extra columns and tables are for staff and can't be given to a brand.",
+            "Inventory → Stock tags a SKU that isn't live — Draft (still being set up) or Discontinued (retired) — and can be filtered by SKU status, so stock of a product nobody can order stands out.",
+            "SKU status (draft, active, discontinued) can be a column or a filter in the report builder — on Stock on hand, the ledger, order lines, inbound, billable events and print pieces.",
+            "Fixed: a product's main photo on the client store's product page cropped square photos (the wide frame cut off their top and bottom). The whole photo now always shows, and the SKU's Images card shows each image whole too.",
+            "Customers → the customer → Carriers → Shipping accounts lists the customer's own carrier accounts, each switched on or off, with how it's billed: as a third party (the account isn't the recipient's — billed at its own billing ZIP) or as the receiver. Each shows who bills it and how many labels it has billed.",
+            "Which account orders bill, one setting at a time: only when the order names one, one account for the whole portal, or each user group its own. If both were ever set, the user group's account wins. An account the order itself names (a Propago order, the API) always comes first.",
+            "UPS and FedEx labels bill a third-party account properly now, at the account's own billing ZIP — before, every customer account was billed as the receiver.",
+            "Accounts that change: an order naming an account that isn't on the list adds it switched off, marked Needs review, and its labels wait until someone adds the billing ZIP and switches it on. A switched-off account stops the label with the reason."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.50.0",
       "date": "2026-10-13",
@@ -224,19 +244,6 @@
             "The pick queue opens in about a second with thousands of open orders (it took 16 seconds and more). The table shows the 200 most urgent; counts, filters and suggested carts still cover the whole queue.",
             "Faster everywhere as history grows: stock is now kept as running balances alongside the ledger, so receiving, allocating, picking, the portal's stock numbers and every stock screen read a few rows instead of a year of history. The ledger is still the record, and the balances are checked against it.",
             "Low-stock alerts are right while orders are mid-pick. Picked units waiting in packing used to be counted twice until they shipped, so an alert could fire late or not at all."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.44.10",
-      "date": "2026-10-09",
-      "entries": [
-        {
-          "title": "Lots kept apart when receiving",
-          "items": [
-            "Receiving only suggests bins holding the same lot; other lots of the SKU are shown but never offered.",
-            "Lot codes that came in with the expiry stuck on (“MYZ91W - 08/01/2028”) are split into the lot and its expiry date — including the ones already imported."
           ]
         }
       ]
