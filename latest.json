@@ -1,9 +1,22 @@
 {
-  "version": "1.51.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.51.1",
+  "version": "1.51.2",
+  "image": "ghcr.io/parth-kadakia/amphora:1.51.2",
   "releasedAt": "2026-10-14",
-  "notes": "Company sign-in works behind an HTTPS proxy again",
+  "notes": "Test worlds: switching on Propago (or any connection) works",
   "releases": [
+    {
+      "version": "1.51.2",
+      "date": "2026-10-14",
+      "entries": [
+        {
+          "title": "Test worlds: switching on Propago (or any connection) works",
+          "items": [
+            "Fixed: in a test world, ticking Propago, Email, Shopify or any other connection under Settings → Worlds said “Invalid input” and stayed off. Each switches on and off on its own now.",
+            "A connection that's off in a test world now says where to switch it on: “…switch it on in this world under Settings → Worlds.”"
+          ]
+        }
+      ]
+    },
     {
       "version": "1.51.1",
       "date": "2026-10-14",
@@ -175,33 +188,6 @@
             "Your accent color takes over the main buttons — adjusted automatically for Light and for Dark so the text on it always reads.",
             "Client portals are unchanged — each keeps the look its brand designed, whatever a visitor's device is set to.",
             "Pick slips, packing slips, count sheets, invoices and the Knowledge Base PDF use the new palette; the Knowledge Base PDF carries the new logo and is set in Inter."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.46.0",
-      "date": "2026-10-10",
-      "entries": [
-        {
-          "title": "Safer under real conditions: counts, put-backs, payments, offline scanners, portal groups",
-          "items": [
-            "Cycle counts: approval now applies the difference the counter actually found — counted minus what the system showed at the moment of the count — so picks after the count are never undone. A location that moved while it was being counted can only be recounted, and pick routes avoid locations waiting to be counted when other stock exists.",
-            "Put back: picked units from a cancelled order, a changed line, a reopened stop or a short close stay in staging until someone puts them back and confirms it (Upkeep → Put back, or right on the pick station). No shelf shows stock that's still on a cart.",
-            "Card payments: approved isn't paid. An order with an uncharged hold, a failed charge, or a charge the processor didn't answer can be picked but not packed, labelled or shipped until the payment is settled — or a billing person lets it ship with a reason.",
-            "Offline scanning is now a setting and off by default (Settings → General → Scanning). When on, a saved scan is only ever sent as the person who made it, with its real scan time; a refused one holds everything that person scanned after it until they say what they did on the shelf; managers see unresolved ones on Settings → Health.",
-            "Portal user groups: deleting a group with people in it asks where they go — another group, or suspended until one is assigned (browse, no ordering or approving). Switching a group off no longer opens its members up to the brand's open default.",
-            "Pick queue: find any order by number, customer or reference, however long the queue is."
-          ]
-        },
-        {
-          "title": "Pick faces that refill themselves, and picking from where you choose",
-          "items": [
-            "Automatic pick replenishment: every SKU picked from a pick face gets a min/max rule, sized every night from its own picks — min covers the wait for a refill plus a safety margin, max a few days of picks, never more than the location holds. Upkeep → Pick replenish → Automatic rules.",
-            "Rules you set or edit yourself are never changed, a rule you switch off stays off, and nothing a client set (like a SKU's low-stock level) is touched.",
-            "The refill queue looks ahead: a pick face that won't cover the orders due in the next two days goes to the top, before faces that are merely below min. Refills only come from reserve in the same building.",
-            "Smarter pick locations: a pick face before reserve, one stop instead of several, the nearly-empty location cleared first, within reach before a lift — and two orders on one cart are never sent for the same last units.",
-            "Pick from another location: scan a different location that holds the product at a stop and the station offers to pick from there, or choose from the list. In the office, Pick from on the order sets the location per line."
           ]
         }
       ]
