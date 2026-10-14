@@ -1,9 +1,25 @@
 {
-  "version": "1.51.2",
-  "image": "ghcr.io/parth-kadakia/amphora:1.51.2",
+  "version": "1.52.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.52.0",
   "releasedAt": "2026-10-14",
-  "notes": "Test worlds: switching on Propago (or any connection) works",
+  "notes": "Kit groups and order; pick several values in report filters",
   "releases": [
+    {
+      "version": "1.52.0",
+      "date": "2026-10-14",
+      "entries": [
+        {
+          "title": "Kit groups and order; pick several values in report filters",
+          "items": [
+            "Kit contents can sit under group headings (Packaging, Products, Add-ons) and in the order you choose. Drag a part by its handle, drag a group by its heading, or use the arrows.",
+            "The portal shows the kit the same way: a heading per group, locked parts and the buyer’s picks under their own heading. The cart, checkout and the order’s packing slip list the contents in the kit’s order.",
+            "Groups are for reading only: quantities, the pick count, picking, stock and billing don't change. Kits with no groups look as they did.",
+            "Reports: is any of is a multi-select on every text field — tick the statuses, carriers, customers or cities you want from the values your data really holds. Fixed: typing a comma in that box used to vanish, so you could only ever enter one value. Text fields also get is none of.",
+            "Reports: the full ship-to address. Orders → Shipping now has company, contact, address 1, 2 and 3, phone, email and residential next to city, state, postcode and country; bill-to is under More · Orders, and every address Amphora stores as one record (user group home address, saved portal addresses) is offered part by part."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.51.2",
       "date": "2026-10-14",
@@ -160,34 +176,6 @@
             "The roadmap map (/phasetracker) now shows where Amphora really is: ten stations in service — through Client Portals, Print & Kitting, Invoicing and the Compliance Pack — with the train at Platform & AI and Ship It mostly built.",
             "Stations that are partly in service say what's still open (Amazon and ask-in-English reports; the Postgres option and onboarding templates), and Resolve & Horizon are the next stop.",
             "The map uses the new brand colors and the Amphora mark, in Light and Dark."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.47.0",
-      "date": "2026-10-11",
-      "entries": [
-        {
-          "title": "Your logo leads, and quiet release notices",
-          "items": [
-            "Your company's logo now leads the top of the menu; Amphora moves to the foot of the menu.",
-            "A logo uploaded on a solid box (usually white) has the box removed automatically, with no halo, and its empty margins trimmed.",
-            "On the Forest menu, the sign-in panel and in Dark mode your logo is shown in a light version (its dark ink in Linen, colors as drawn) — or, if you prefer, on a small light plate. Choose under Settings → Branding, with a preview of both.",
-            "Release notices: after an update, a small card in the corner says what's new — once. Owners and admins also see, once, when a newer version is available, with its notes and (when this install can update itself) Update now."
-          ]
-        },
-        {
-          "title": "Amphora's new look",
-          "items": [
-            "The warehouse app now follows the Amphora brand guide: a Forest menu, the new Amphora logo, Linen pages, white cards, Clay for the main action and Sage for where you are. Text is Inter, page titles are larger, and buttons, fields and table rows are taller and easier to hit.",
-            "Status colors are consistent everywhere: green done, amber needs attention, red stopped, blue in progress.",
-            "Scanner screens (/scan) are built for arm's length: bigger text, the location and quantity at 36px, and buttons at least 56px tall.",
-            "Keyboard focus now shows as a thick outline on every control, in Light and Dark.",
-            "Dark mode, done properly: System, Light or Dark from the header (and in Scan mode). System follows your device; your choice is kept on that device. Dark has its own colors from the brand guide, and printing is always Light.",
-            "Your accent color takes over the main buttons — adjusted automatically for Light and for Dark so the text on it always reads.",
-            "Client portals are unchanged — each keeps the look its brand designed, whatever a visitor's device is set to.",
-            "Pick slips, packing slips, count sheets, invoices and the Knowledge Base PDF use the new palette; the Knowledge Base PDF carries the new logo and is set in Inter."
           ]
         }
       ]
