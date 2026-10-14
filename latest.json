@@ -1,9 +1,22 @@
 {
-  "version": "1.51.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.51.0",
-  "releasedAt": "2026-10-13",
-  "notes": "Shipping accounts, Location in reports, SKU status in the report builder, whole product photos",
+  "version": "1.51.1",
+  "image": "ghcr.io/parth-kadakia/amphora:1.51.1",
+  "releasedAt": "2026-10-14",
+  "notes": "Company sign-in works behind an HTTPS proxy again",
   "releases": [
+    {
+      "version": "1.51.1",
+      "date": "2026-10-14",
+      "entries": [
+        {
+          "title": "Company sign-in works behind an HTTPS proxy again",
+          "items": [
+            "Fixed: behind an HTTPS proxy, company and portal sign-in (SAML, OIDC) showed http:// links and refused sign-ins since 1.48.0 — Amphora only trusts a proxy's forwarded headers from AMPHORA_TRUSTED_PROXIES, so it couldn't tell the request was https.",
+            "Settings → General → Web address: the address people reach Amphora at (https://wms.yourcompany.com). Sign-on, portal sign-on, the portal API docs, Shopify and email links are all built on it, whatever the proxy sends. The sign-in setup warns when its links start with http://."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.51.0",
       "date": "2026-10-13",
@@ -189,61 +202,6 @@
             "The refill queue looks ahead: a pick face that won't cover the orders due in the next two days goes to the top, before faces that are merely below min. Refills only come from reserve in the same building.",
             "Smarter pick locations: a pick face before reserve, one stop instead of several, the nearly-empty location cleared first, within reach before a lift — and two orders on one cart are never sent for the same last units.",
             "Pick from another location: scan a different location that holds the product at a stop and the station offers to pick from there, or choose from the list. In the office, Pick from on the order sets the location per line."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.45.0",
-      "date": "2026-10-10",
-      "entries": [
-        {
-          "title": "Health page, nightly backups, webhooks, and scanners that keep working offline",
-          "items": [
-            "Settings → Health: one page that says whether the install is all right — disk space, database size, the last backup and restore drill, background work, email and webhook queues — and which pages and API calls are slow, grouped by route. It lists what needs attention and what to do.",
-            "Backups (Settings → Backups): Amphora backs itself up every night while work carries on, keeps 14 days, mirrors uploaded files, and can copy each backup to your own S3-compatible bucket off the machine.",
-            "Restore drills: every week (or on demand) the latest backup is unpacked and proved — unchanged since it was made, sound, complete, audit trail intact. Any backup can also be opened as a test world, or downloaded.",
-            "Settings → Backups → Secret key shows where the key that unlocks saved passwords lives, and lets an owner copy it into a password manager.",
-            "Webhooks (Settings → Webhooks): Amphora calls your other systems the moment an order is placed, ships or is cancelled, stock moves, or an invoice is issued. Every call is signed, failed calls are retried for a day, and a delivery log shows each answer. Brands can add their own from their API key.",
-            "A webhook can carry the login the receiving system needs (a bearer token or an API-key header), sent on every call next to the signature and kept encrypted.",
-            "Scanners keep working when the Wi-Fi drops: picks, counts and stock moves are saved on the device and sent by themselves when the connection is back — never booked twice. A bar at the bottom shows what's waiting, and anything the server then refuses, with the reason. Integrations get the same protection by sending an Idempotency-Key header.",
-            "Being picked by: the pick queue and the order page show who is working an order right now, and opening an order someone else is on warns you before you walk it.",
-            "Stock API for integrations that poll: every answer has a cursor and an ETag — send the cursor back (?after=) to get only what changed, or the ETag (If-None-Match) to get a quick 'nothing changed'. Works on the warehouse API and every portal API; a portal's stock answer now works out only the page asked for.",
-            "Fixed: a portal API key with Read stock acting as a buyer got an empty stock list. It now gets the stock for every product its group can see.",
-            "Name an ASN yourself: the ASN number on Announce inbound starts with the next system number and can be typed over with anything — a different prefix or suffix, the supplier's PO, a name. Rename it under Edit details until receiving starts. Leave it alone and the system number is used.",
-            "Fixed: the demo world could fail to rebuild after an update since 1.44.9 (its history was written before receipts went onto license plates).",
-            "A license that has run out can be renewed right on the stop screen: paste the key there, no need to reach Settings. Test worlds now run on the install's license instead of a trial of their own, and a newer key set in AMPHORA_LICENSE_KEY always takes over from an expired one."
-          ]
-        },
-        {
-          "title": "Rate limits and blocking addresses",
-          "items": [
-            "Rate limits on by default: every API key, signed-in person and portal buyer gets its own allowance, so a client's integration polling too hard slows only itself. Over the limit, callers are told to wait (429 with Retry-After). Settings → Security → Network and rate limits.",
-            "Block an address or a whole range, for a set time or until removed. An address with repeated failed sign-ins or wrong API keys is blocked automatically for an hour.",
-            "Allow-lists: keep the warehouse app reachable only from your own networks while client portals stay open. Any API key can be limited to its owner's addresses.",
-            "Amphora now takes a request's address from the connection itself, so a forged header can't dodge a block. Behind a proxy on another machine, set AMPHORA_TRUSTED_PROXIES (see the install guide).",
-            "A client integration that retries an order while the first try is still going gets that order back, never a second one.",
-            "Settings → Security shows who has been rate-limited, the busiest callers, and addresses with failed sign-ins.",
-            "Warehouse API keys can be limited to what they're for: full access, or None, View or Change per area (catalog, inventory, orders, customers, billing, reports, integrations). A key outside its permissions is told exactly what it lacks.",
-            "A client's API docs page shows only what their key may do once they paste it.",
-            "Changes can't be made from another website: a page elsewhere can't use your signed-in session to change anything in Amphora.",
-            "Confirm it's you: before changing security settings, keys, people, single sign-on, invoices or test worlds, Amphora asks for your password or authenticator code if you haven't signed in or confirmed in the last 10 minutes. The change then goes through on its own.",
-            "Where you're signed in: Settings → Security lists every device on your account and signs any of them out, or all but this one. Admins can sign anyone out everywhere from Settings → People.",
-            "The audit trail is sealed: every entry is chained to the one before it, so any change, removal or insertion shows up. Reports → Audit trail → Check the trail hasn't been altered.",
-            "Keys needing attention (Settings → Security): every API key that has expired, is about to, or hasn't been used in months. Warehouse keys can have an expiry date, and keys nobody uses can be revoked automatically.",
-            "A portal person's own data: Export data downloads everything held about them; Erase… removes what identifies them for a deletion request, keeping orders without their name.",
-            "Searching orders stays fast with years of history: the search box now uses an index (same results, about 25 times faster on a busy install), and the ledger report opens instantly however long the ledger is.",
-            "The monthly invoice run and the daily storage count no longer hold up scanners and pickers while they work: the server answers the floor between customers."
-          ]
-        },
-        {
-          "title": "Built for a big warehouse: fixes from load testing",
-          "items": [
-            "Two people can no longer pick the same stop on one order. The second scan says it’s already picked and to refresh the route, so the order never ends up with more on the cart than it needs and always ships.",
-            "Inventory and Locations open on any size of warehouse. Inventory pages through SKUs with stock 100 at a time; Locations shows one zone whole or every location 100 at a time, with a search for a location code.",
-            "The pick queue opens in about a second with thousands of open orders (it took 16 seconds and more). The table shows the 200 most urgent; counts, filters and suggested carts still cover the whole queue.",
-            "Faster everywhere as history grows: stock is now kept as running balances alongside the ledger, so receiving, allocating, picking, the portal's stock numbers and every stock screen read a few rows instead of a year of history. The ledger is still the record, and the balances are checked against it.",
-            "Low-stock alerts are right while orders are mid-pick. Picked units waiting in packing used to be counted twice until they shipped, so an alert could fire late or not at all."
           ]
         }
       ]
