@@ -1,9 +1,28 @@
 {
-  "version": "1.54.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.54.0",
+  "version": "1.55.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.55.0",
   "releasedAt": "2026-10-16",
-  "notes": "Import anything from a spreadsheet",
+  "notes": "Required kit choices, kit-only parts, your own checkout fields, a polished storefront, rate card import, phones",
   "releases": [
+    {
+      "version": "1.55.0",
+      "date": "2026-10-16",
+      "entries": [
+        {
+          "title": "Required kit choices, kit-only parts, your own checkout fields, a polished storefront, rate card import, phones",
+          "items": [
+            "Kits: a part can now be Required — the buyer must pick exactly one of the required parts in its group (a scent, a shade, a size). The portal asks “Scent — required, pick one” and won't add the kit to the cart until it's chosen; ordering without one, or with two, is refused by name. Required picks don't use up the buyer's-choice picks.",
+            "Sold: Only in a kit — for packaging and inserts that make no sense alone (SKU → Pricing & limits). They leave the portal's shop, an order for them on their own is refused, and kits holding them order as before. SKU import has a kit_only column; kit content imports take role required.",
+            "Your own checkout fields: in the Design studio (Cart & checkout), add as many questions as a brand needs — short or long text, dropdown, date, number, yes/no — each optional or required, with help text, and for everyone or only some user groups. Answers are checked on the server and saved on the order with its other custom fields; buyers see them on their order.",
+            "Import rate cards: one row per card, every fee in dollars, an optional price rise (date, percent, every N months), and the customer codes to put on it. Same name updates the card. From Billing → Rate cards or Setup → Import.",
+            "Staff logins are listed under Setup → Import too (Settings → Users → Invite several).",
+            "Phones: every screen now fits without sideways scrolling. The top bar keeps search, notices, the knowledge base and Sign out (as an icon); light/dark moved into the ☰ menu.",
+            "Portal storefront, polished: refined placeholders for products without photos, a home hero that shows your products, badges only when they mean something, category chips when there are few, a lighter header, quick add on the photo, quieter SKU codes, aligned prices and headings, better empty and loading states — and every page reworked for phones, with Add to cart pinned on product pages.",
+            "An import's check no longer sends its rolled-back audit entries to your security log copy (SIEM)."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.54.0",
       "date": "2026-10-16",
@@ -162,32 +181,6 @@
             "Built-in address correction: when your BCC Architect licence is set up, every US address typed at portal checkout, in bulk checkout, in the API or saved to the address book is checked against the USPS's own data — corrected street, city and ZIP+4, a warning when the apartment number is missing, refused when the USPS doesn't deliver there. At checkout the buyer sees the corrected address and confirms it before the order is placed; bulk checkout checks every recipient up front.",
             "Settings, where you'd look for them: BCC Software (built-in, Architect Web Services or REACH — only the chosen one's fields) is on Settings → Integrations; Settings → Direct mail has what's warehouse-wide (Mail barcodes, our postage permit); each brand's Direct mail — portal on or off, user groups, formats and price per piece — is on the brand, Customers → the brand → Direct mail. Print → Direct mail is just the work.",
             "Fixed: a direct mail campaign's print SKU showed in the client's shop as a product. It's ordered through the mailing only."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.48.1",
-      "date": "2026-10-12",
-      "entries": [
-        {
-          "title": "Direct mail: BCC Architect, a campaign page for clients, finishes, prices, postage and billing",
-          "items": [
-            "CASS, NCOA and presort through BCC Architect. Enter your BCC Architect sign-in under Settings → Integrations → BCC Software, then Run with BCC Architect on a mailing: every address is CASS-certified and checked for movers, duplicates are dropped, and the presort sets the print order, barcode, tray and postage on every piece. The CASS (PS Form 3553), NCOA, summary and postage reports are kept on the mailing and shown to the client. You can also run BCC by hand with the input and import files.",
-            "Clients get a campaign page: a tracker with dates, one card saying what happens next, the list's results (accepted, changed, not mailing), the cost, and tabs for the piece, the artwork, every record on the list with why it was changed or rejected, the proof and the reports. Their campaigns list shows the artwork, results and cost of each.",
-            "Artwork by zone: clients drop images into the front, inside and message areas instead of building a PDF. Each image is checked as it lands, and a change after your OK makes the proof again by itself.",
-            "Finishes and prices: every mailing is matte, gloss or satin. Set each client's price per piece by format and finish under Prices per piece; clients see it when they start a mailing, and approving the proof locks it in. The previews show the paper and its finish.",
-            "Postage and billing: Mark mailed takes the postage from the USPS statement (filled in from the presort). The print — and the postage, on our permit — goes on the client's bill with the mailing's name, pieces and price on the invoice line. On their own permit, they see the postage but aren't billed for it. Clients get a postage report by sort level and rate.",
-            "Proofs make themselves. The moment a client has artwork and a list, they see a draft proof: six pieces with names and addresses from their file as uploaded, marked DRAFT, nothing to approve. Once we've passed the artwork and the list is processed, the final proof replaces it and waits for their approval — nobody has to press Make the proof (you still can, with 5 to 10 pieces).",
-            "Fixed: a direct mail print job no longer books order, pick, unit or print fees — the drop bills itself, so nothing is charged twice."
-          ]
-        },
-        {
-          "title": "The cart shows what's in each kit, and Direct mail in the client portal",
-          "items": [
-            "Direct mail in the client portal, by user group. On the brand (Customers → the brand → Direct mail), turn it on for a brand, choose which of their user groups may use it (or everyone), and which formats they can choose. Their people start a mailing, upload the artwork (checked automatically right away) and their list, and send it to us. We check the artwork by hand and either send feedback, which they fix and send again, or mark it OK. Then we run the processing job (CASS, NCOA, duplicates, presort, list or ZIP order) and send a proof of 5–10 real pieces. They approve, and we print. Address checking stays on our side.",
-            "Print → Direct mail is now Pending and Processed. A job appears the moment a client or we start a mailing, with where it came from and the next step. The client's Direct mail page shows the same jobs their way: In progress and Mailed.",
-            "A kit in the portal cart now lists what goes in it: every part that always comes in the kit, then the buyer's picks, each with how many go in one kit. It also shows the count per kit and the total across the kits ordered. It used to be one cut-off line of picks. Long kits show the first six with Show all, and on a phone the list runs the full width under the line."
           ]
         }
       ]
