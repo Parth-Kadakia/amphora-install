@@ -1,9 +1,49 @@
 {
-  "version": "1.55.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.55.0",
-  "releasedAt": "2026-10-16",
-  "notes": "Required kit choices, kit-only parts, your own checkout fields, a polished storefront, rate card import, phones",
+  "version": "1.56.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.56.0",
+  "releasedAt": "2026-10-18",
+  "notes": "Batch exactly the orders you choose, release a reservation from a location, guided put-backs, bulk checkout counts the whole batch, kit notes, Prime pick faces",
   "releases": [
+    {
+      "version": "1.56.0",
+      "date": "2026-10-18",
+      "entries": [
+        {
+          "title": "Batch exactly the orders you choose, release a reservation from a location, guided put-backs, bulk checkout counts the whole batch, kit notes, Prime pick faces",
+          "items": [
+            "Select exactly which orders go into a batch on the pick queue: tick rows, Shift-click to tick every row between, Select all shown (whatever the filters leave), type a number range (LUMI-000120 to LUMI-000160, or 120 to 160 inside one customer), or scan the barcode on each pick slip. The bar keeps a running “38 orders selected”.",
+            "Batch these builds carts from exactly that selection with the Pick in batches engine — up to twelve a cart, one packing type per cart, the most urgent first, and Keep each customer apart if you tick it. More than a cart's worth comes back as Cart 1 of N, each with Start.",
+            "Orders that can't go on a cart are never quietly dropped: being edited, on hold, already on a cart someone is picking, picking started, nothing reserved yet — each is listed with the reason.",
+            "Editing an order that's on a cart now takes it off the cart, and the cart carries on. The picker sees “LUMI-000142 was taken off this cart — it's being edited” and chooses Put back (onto the Put back list) or Keep with the order for anything already picked. The other orders keep their bin letters.",
+            "Once the edit is finished, the cart's note reads “it was edited by …” instead of “it's being edited”.",
+            "When the edit is finished the order is back in the pick queue for a new cart, and its order page shows “Taken off cart BATCH-000042 for an edit”.",
+            "Over the API: POST /api/v1/orders/pick-batch batches given orders, numbers or a range; /pick-batch/lookup finds orders by number or range; /orders/{id}/off-cart puts back or keeps an order's picked units.",
+            "Bulk checkout now checks stock for the batch as a whole. Before, each recipient was checked on their own, so 400 orders could pass when the shelf only covered 200 and the rest failed partway through. Now each recipient is counted against what the ones before it already need, the shortage is shown by product before anything is placed, and the brand's short-stock setting decides what happens.",
+            "Bulk checkout asks the brand's own checkout questions: once for every order in the batch (Order details, beside Ship how), or per recipient from a sheet column with the same name. Required questions are required here too — nothing is placed until each recipient is answered.",
+            "In the bulk check, a recipient stopped by a question or by stock now shows the units they asked for (not “0 units · $0.00”), and Fix the address only appears when it's the address that failed.",
+            "Renaming a checkout field no longer hides old answers: the field remembers its earlier names, so buyers and staff see orders answered before the rename under the new name.",
+            "Every part of a kit now carries a short note on the pick slip, the batch pick slip, the pick station and the pack bench: “Part of kit GIFT-HOST-SET (1 of 3) — also with: SOAP-LAV, CANDLE-01”. If one part is found and another isn't, the team knows exactly what else belongs with it.",
+            "The pick slip puts each kit back together above the table (Kits on this order): every part with its stop and location. The same kit twice on one order reads Kit 1 and Kit 2; three of a kit on one line says “1 per kit × 3”.",
+            "Short a kit part at the pick station and it says what else to pull: the rest of that kit, with each part's location and whether it's picked yet — leave it on the shelf and record it short, or Fix the stop to put it back. Shorts work as before: only what you record goes back to stock.",
+            "At the pack bench, a kit missing a part says which of its other parts to leave out of the box; they stay on the cart for the order's next shipment. The suggested first box already leaves them out, and Put everything left does too.",
+            "Kits made in Amphora are now marked exactly like kits that arrive from Propago — on slips, stations and the order page.",
+            "The packing slip in the box keeps it brief for the recipient: the kit's name heads its parts, and each reads “Included in Gift Host Set” — no codes, no locations.",
+            "Prime locations: mark a pick location Prime and it becomes a fixed home pick face that refills itself — refill when it drops to (min), fill up to (max). Only Prime locations get refill jobs or carry refill rules, and the nightly sizing only makes rules there.",
+            "Locations that aren't Prime are never refilled in place: when one runs empty, the SKU's next stock goes wherever putaway suggests, so its location can change as needed. Putaway never offers another SKU's Prime home.",
+            "Mark Prime on a location's page, in bulk on Stock → Locations (tick, then Mark Prime — with a Prime filter and column), or with the new prime column of the locations import and export. Watching a location that isn't Prime offers Make it Prime.",
+            "Stopping a location being Prime while rules watch it asks first: pause the rules (kept, resume later) or remove them.",
+            "Clearer numbers: rules now read “Refill when it drops to (min)” and “Fill up to (max)”, and a refill is proposed when a face reaches its min, not only once it's under it.",
+            "Upgrading changes nothing that works today: every location that already had a refill rule is marked Prime.",
+            "Pick stops show a Prime chip; Prime is reportable (Stock → Prime location) and on the API (POST /api/v1/bins/prime).",
+            "Release from a location: when a shelf is damaged, blocked, being counted, or the product just isn't there, release the order's reservation from that one location — on the order (Lines & allocation → Release from a location) or on the location itself (Reserved here). Choose Release and re-allocate elsewhere (reserved again, earliest expiry first, from other locations — backordered if nothing else covers it) or Release only (backordered). Every release records why and who.",
+            "Release everything reserved here: one button on a location re-allocates every order that would pick from it. Tick Keep this location out of allocation and its stock goes on Hold, so no order reserves it and no route sends anyone there until you press Use it again.",
+            "Units already picked can't be released — they're on the cart. Lower or remove the line and they become a put-back, as before. Orders someone is picking right now are left alone and listed.",
+            "Put back now says where to go: the location each item was picked from when it would still take it, otherwise the best other place (same lot or SKU there, the customer's area, an empty location) — never a location that's being counted or kept out. The list is in walk order, and Print the list gives you the same thing on paper.",
+            "Put back with the scanner (Scan → Put back): scan the location, scan the product, confirm how many. Put them somewhere else by scanning that location instead — it's checked against the same rules. Putting back part of it leaves the rest on the list. When the install allows offline scanning, a put-back made without a connection waits on the device and is checked again when it's sent."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.55.0",
       "date": "2026-10-16",
@@ -163,24 +203,6 @@
             "File names and folders are patterns — {seq}, {order}, {customer}, {carrier}, {location}, {sku}… — with an example under each drop. A job ticket (XML) can land beside each file with the customer, order, carrier, rush, ship-by and quantity, for Switch to route on.",
             "Files arrive whole (written then renamed into place), within about five seconds. If a destination can't be reached, files wait and try again with the reason shown; Sent lists every file, with Send again. SFTP servers are pinned to the key seen on the first test.",
             "A drop starts from the moment it's switched on — nothing that already happened is sent. In a test world, file drops stay off unless switched on there."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.48.2",
-      "date": "2026-10-12",
-      "entries": [
-        {
-          "title": "BCC Architect Web Services, USPS address correction at checkout, and Intelligent Mail barcodes for comingled mail",
-          "items": [
-            "Amphora now makes the Intelligent Mail barcode (IMb) for mail that isn't presorted — comingled, or mailed as it is. Enter your Mailer ID under Settings → Direct mail → Mail barcodes; every piece gets a barcode with the mailing's Service Type ID, your Mailer ID, a serial number never used before, and the routing code from the checked address. The encoder matches every example in the USPS barcode specification.",
-            "Choose Basic or Full-Service, and what the USPS does with a piece it can't deliver — Standard treatment, Forward, Return, or Electronic address correction. Together with the mail class they pick the Service Type ID from the USPS table; Marketing Mail prints the matching endorsement (ADDRESS / RETURN / CHANGE SERVICE REQUESTED) below the postage area. Set the defaults for new mailings, and let clients choose the undeliverable option on their own mailings if you like.",
-            "The IMb manifest (CSV) on a mailing lists every piece's STID, Mailer ID, serial, routing code and bars — what a comingler asks for. Presorted mailings get the same STID from BCC Architect's presort.",
-            "BCC Architect Web Services: CASS and NCOA run with your BCC Architect licence (product key, add-on keys and NCOA login) on BCC's servers — the PS Form 3553 and NCOALink Processing Summary come back for the client. Amphora's barcodes always carry the full 11-digit delivery point from CASS.",
-            "Built-in address correction: when your BCC Architect licence is set up, every US address typed at portal checkout, in bulk checkout, in the API or saved to the address book is checked against the USPS's own data — corrected street, city and ZIP+4, a warning when the apartment number is missing, refused when the USPS doesn't deliver there. At checkout the buyer sees the corrected address and confirms it before the order is placed; bulk checkout checks every recipient up front.",
-            "Settings, where you'd look for them: BCC Software (built-in, Architect Web Services or REACH — only the chosen one's fields) is on Settings → Integrations; Settings → Direct mail has what's warehouse-wide (Mail barcodes, our postage permit); each brand's Direct mail — portal on or off, user groups, formats and price per piece — is on the brand, Customers → the brand → Direct mail. Print → Direct mail is just the work.",
-            "Fixed: a direct mail campaign's print SKU showed in the client's shop as a product. It's ordered through the mailing only."
           ]
         }
       ]
