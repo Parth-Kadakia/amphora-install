@@ -1,9 +1,26 @@
 {
-  "version": "1.56.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.56.0",
+  "version": "1.56.1",
+  "image": "ghcr.io/parth-kadakia/amphora:1.56.1",
   "releasedAt": "2026-10-18",
-  "notes": "Batch exactly the orders you choose, release a reservation from a location, guided put-backs, bulk checkout counts the whole batch, kit notes, Prime pick faces",
+  "notes": "A calmer pick queue",
   "releases": [
+    {
+      "version": "1.56.1",
+      "date": "2026-10-18",
+      "entries": [
+        {
+          "title": "A calmer pick queue",
+          "items": [
+            "Each order on the pick queue has one quiet Start (Resume once begun); Fix is the small wrench beside it. No more column of red buttons.",
+            "The list's filters sit in two rows: the date chips, then Status, Customer, Zone and Carrier as dropdowns, with Find beside the list's title.",
+            "Select all shown is one click; the range box and the slip scanner open under Select by number or scan.",
+            "Orders waiting on a kit build are one line at the top; open it for the builds and Open the bench.",
+            "Batch these: only the first cart's Start is highlighted, and each cart's order numbers fold under Show the orders.",
+            "On a phone the pick queue fits the screen: each row shows the customer, units and ship-by under the order number, with Start beside it."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.56.0",
       "date": "2026-10-18",
@@ -187,22 +204,6 @@
             "Each group is one row: “67 orders → 6 carts”, Cart 1 of 6 with its stops and how much less walking it is, and Start cart 1. See all carts lists the rest. Carts hold up to 12 orders, never mix packing types, and are built from the whole queue — fast at thousands of orders.",
             "The filters (date, status, customer, zone, packing and the new Carrier filter) now sit on Orders to pick, the list they narrow. Ticking orders to build your own cart works as before.",
             "The handheld pick screen has the same Pick in batches, folded into one line above the scanner."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.49.0",
-      "date": "2026-10-13",
-      "entries": [
-        {
-          "title": "File drops: placards, slips and print files straight to Switch — by SFTP, S3 or a folder",
-          "items": [
-            "Settings → File drops writes documents as the work happens to a folder, an SFTP server or an S3 bucket, for Enfocus Switch (or any hot folder) to route to the right printer and tray. Owners and admins set it up; Add and test tries each destination straight away.",
-            "Tick what drops, each with its own settings: placards when stock lands in a location (receiving, moves — or a license plate's placard, once, instead of one per SKU); pick slips when an order is ready to pick or picking starts, in pick-queue order (rush first), plus the batch's slip when a batch pick opens; pack slips when packing starts or the order is packed; print-ready PDFs for print-on-demand and direct mail jobs when they're ready or go to press; scheduled reports as they're emailed.",
-            "File names and folders are patterns — {seq}, {order}, {customer}, {carrier}, {location}, {sku}… — with an example under each drop. A job ticket (XML) can land beside each file with the customer, order, carrier, rush, ship-by and quantity, for Switch to route on.",
-            "Files arrive whole (written then renamed into place), within about five seconds. If a destination can't be reached, files wait and try again with the reason shown; Sent lists every file, with Send again. SFTP servers are pinned to the key seen on the first test.",
-            "A drop starts from the moment it's switched on — nothing that already happened is sent. In a test world, file drops stay off unless switched on there."
           ]
         }
       ]
