@@ -1,9 +1,27 @@
 {
-  "version": "1.58.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.58.1",
+  "version": "1.59.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.59.0",
   "releasedAt": "2026-10-20",
-  "notes": "A new AI assistant: Ask Amphora, and a real chat for portal buyers",
+  "notes": "Design your floor plan to scale — by hand or drafted with AI",
   "releases": [
+    {
+      "version": "1.59.0",
+      "date": "2026-10-20",
+      "entries": [
+        {
+          "title": "Design your floor plan to scale — by hand or drafted with AI",
+          "items": [
+            "Design floor plan (warehouse page, owners and admins): a full-screen designer with the building drawn to scale in feet. Set its width and depth, and put every zone anywhere at any size — a 4 ft shelving row, a 10 ft pallet rack, a whole bulk floor.",
+            "Lay out racking rows in one go: side by side (| | | |) or stacked, with the rack depth, row length and aisle you choose. Reserve zones (SR-10-RES) go back to back with their row; rows that reach the far wall wrap.",
+            "Drag to move, size from any edge or corner, or type exact feet. Select several to move, line up, space evenly or match sizes. Undo/redo, zoom, arrow-key nudges.",
+            "Add the building itself: columns (repeat across and down to draw the column grid), offices, walls, open areas like staging lanes, and labels.",
+            "Dock doors on whichever wall they're cut into — drag them along or onto another wall. Add, rename and remove doors right in the designer; the appointment calendar uses the same list.",
+            "Draft with AI: describe the building (“600 × 260 ft, 12 doors on the front, SR-01 to SR-18 front to back, 12 ft aisles…”) or attach a drawing or a photo of a sketch, and the plan is laid out for you to adjust. It only places your own zones; Undo puts back what was there. A new switch, Floor plan drafting, under Settings → Integrations → AI assistant.",
+            "The plan on the warehouse page draws your design to scale with a scale bar; zones whose location codes don't split into aisles are drawn as a run of racking with their bays. Plans arranged before open converted, nothing lost."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.58.1",
       "date": "2026-10-20",
@@ -215,22 +233,6 @@
             "Inventory has a Stopped column; Reports → Expiring lots lists lots that stop inside the window, with a Stops column (also in its CSV and scheduled email).",
             "Customer → Overview now shows the brand's Minimum life left when it ships, which already skipped lots that would arrive with too little life but had nowhere to be set.",
             "Fixed: Reports → Expiring lots counted every move and status change as more stock, so Units on hand could read too high; and its scheduled email showed no units."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.52.0",
-      "date": "2026-10-14",
-      "entries": [
-        {
-          "title": "Kit groups and order; pick several values in report filters",
-          "items": [
-            "Kit contents can sit under group headings (Packaging, Products, Add-ons) and in the order you choose. Drag a part by its handle, drag a group by its heading, or use the arrows.",
-            "The portal shows the kit the same way: a heading per group, locked parts and the buyer’s picks under their own heading. The cart, checkout and the order’s packing slip list the contents in the kit’s order.",
-            "Groups are for reading only: quantities, the pick count, picking, stock and billing don't change. Kits with no groups look as they did.",
-            "Reports: is any of is a multi-select on every text field — tick the statuses, carriers, customers or cities you want from the values your data really holds. Fixed: typing a comma in that box used to vanish, so you could only ever enter one value. Text fields also get is none of.",
-            "Reports: the full ship-to address. Orders → Shipping now has company, contact, address 1, 2 and 3, phone, email and residential next to city, state, postcode and country; bill-to is under More · Orders, and every address Amphora stores as one record (user group home address, saved portal addresses) is offered part by part."
           ]
         }
       ]
