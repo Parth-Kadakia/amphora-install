@@ -1,9 +1,23 @@
 {
-  "version": "1.59.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.59.0",
+  "version": "1.59.1",
+  "image": "ghcr.io/parth-kadakia/amphora:1.59.1",
   "releasedAt": "2026-10-20",
-  "notes": "Design your floor plan to scale — by hand or drafted with AI",
+  "notes": "Portal home: tidier header and catalog card, “&” instead of “&amp;”",
   "releases": [
+    {
+      "version": "1.59.1",
+      "date": "2026-10-20",
+      "entries": [
+        {
+          "title": "Portal home: tidier header and catalog card, “&” instead of “&amp;”",
+          "items": [
+            "A portal with many menu categories no longer squeezes the brand name to “CSL…” or wraps the menu onto ragged lines: when it doesn't fit beside the logo, the menu moves to its own row underneath.",
+            "The “In the catalog” card beside the headline keeps long product names inside it (they end in “…”), with the arrows back in place.",
+            "Product and category names synced from Propago show “&”, quotes and apostrophes properly instead of “&amp;” — names already stored are fixed when you update."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.59.0",
       "date": "2026-10-20",
@@ -199,40 +213,6 @@
             "Warnings before you finish: columns that will be ignored, the template's example rows left in, and rows with problems — which you confirm will be left out. Download just the rows to fix, with the reason on each.",
             "Orders load through the same checks as one typed in, and an order reference already on file is skipped, so loading the same file twice never places anything twice.",
             "Setup → Import templates is now Setup → Import."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.53.0",
-      "date": "2026-10-16",
-      "entries": [
-        {
-          "title": "Portal design: brand guidelines in, eight new looks, finer options, announcements per group",
-          "items": [
-            "Start from the brand guidelines: upload the PDF in the Design studio and Amphora finds its colours (HEX, RGB, CMYK, swatches — with their names and Pantone references) and typefaces, suggests which colour does what and the closest font pairing, and puts it on the preview for you to adjust.",
-            "Eight new looks — Luxe, Wellness, Sport, Heritage, Nordic, Kids, Tech and Festival — for twenty-four in all.",
-            "New options for every look: secondary, link, border, muted-text and badge colours; heading weight, capitals and letter spacing; shadows and line weight; a page background (dots, grid, lines, grain or a brand gradient); what sits behind product photos and how much room they get; button size.",
-            "Announcements for user groups: a bar just for the East stores, another for the field team — everyone else sees the usual one."
-          ]
-        },
-        {
-          "title": "Safe order edits, bulk changes for everything, stop dates, teams",
-          "items": [
-            "Editing an order on the floor is safe: once it's being picked or packed, changes happen inside an edit that stops picking first. The picker's screen says stop, picks and packing wait, and the order leaves the pick queue until you press Done with a comment saying what changed and why.",
-            "Edited orders say so everywhere — the order page, the Orders list, the pick queue, the scanner and the pick slip — with who, when and the reason. Every order also has Internal comments the client never sees.",
-            "Cycle counts hold still: while a SKU, client, zone or location is being counted, it can't be picked, moved or received — orders that need it wait in the pick queue — until counting is done or a manager releases the lock. SKUs with nothing on hand, or never received, can now be counted too, with + Add a find for what turns up.",
-            "Draft SKUs, finished by the team that knows the client: rename a draft to its real code, or merge it into the SKU it really is — its stock moves lot for lot, its barcodes and links follow. Old placards keep scanning and the scan says the code changed, who changed it and when; the SKU page lists the placards to reprint.",
-            "Bulk changes, redone: Change these orders opens one plain step at a time, and now covers everything an order's edit can change — add, change, swap or take off products; carrier, ship date, ship-to address, building, signature, partial shipments, carrier account; reference, tag, notes and custom fields. Orders on the floor are left alone, with the reason.",
-            "Rush on and off, in bulk or on one order (Fix order): rush moves the ship-by to the rush promise and bills the fee; not rush credits the fee and puts the normal ship-by back.",
-            "Undo a bulk change: each order goes back to its own previous values — its own address, carrier, lines. On the Done step, or later under Undo a recent bulk change; orders that moved on since are left alone and named.",
-            "Teams (Settings → Teams): named groups of staff — Receiving, Solutions, Fulfillment, Inventory — each choosing what it hears about. Notices land on a new bell at the top of every screen and by email (to each member, a team inbox, or bell only).",
-            "Draft SKUs created at receiving, or by a Propago order naming an unknown part, now tell the team that sets SKUs up. Lots that stop being used within 30 days are sent each morning.",
-            "Stop using stock N days before its expiry: per SKU (SKU → Compliance), for every product of a brand (Customer → Overview), or per lot with its own date (the SKU's Inventory tab). From that day the lot reads Stopped — no new order reserves it, and the portal and Available stop counting it.",
-            "A lot can also keep being used until it expires, overriding the rule, with a reason kept on the lot and in the audit trail.",
-            "Inventory has a Stopped column; Reports → Expiring lots lists lots that stop inside the window, with a Stops column (also in its CSV and scheduled email).",
-            "Customer → Overview now shows the brand's Minimum life left when it ships, which already skipped lots that would arrive with too little life but had nowhere to be set.",
-            "Fixed: Reports → Expiring lots counted every move and status change as more stock, so Units on hand could read too high; and its scheduled email showed no units."
           ]
         }
       ]
