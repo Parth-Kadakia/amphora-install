@@ -1,9 +1,43 @@
 {
-  "version": "1.59.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.59.1",
+  "version": "1.59.3",
+  "image": "ghcr.io/parth-kadakia/amphora:1.59.3",
   "releasedAt": "2026-10-20",
-  "notes": "Portal home: tidier header and catalog card, “&” instead of “&amp;”",
+  "notes": "Username and PIN sign-in for floor people without an email",
   "releases": [
+    {
+      "version": "1.59.3",
+      "date": "2026-10-20",
+      "entries": [
+        {
+          "title": "Username and PIN sign-in for floor people without an email",
+          "items": [
+            "Add a person → Username & PIN (no email): a username like maria.l and a 4–8 digit PIN you set and hand over. They sign in on the same page — the username where the email goes, the PIN where the password goes.",
+            "Fenced in on purpose: floor roles only (Warehouse, Pick & pack, Receiving, PPD lead); guessable PINs (1111, 1234) refused; 5 wrong PINs lock it for 15 minutes; no two-factor asked; a username never matches an email account.",
+            "Manage on a PIN person: change the username or set a new PIN (signs them out everywhere). No email ever goes to them, and Forgot password? doesn't apply.",
+            "The sign-in page now reads Email or username / Password or PIN."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.59.2",
+      "date": "2026-10-20",
+      "entries": [
+        {
+          "title": "Settings → Users rebuilt for a big team, and Forgot password? for staff",
+          "items": [
+            "The Team list: search by name or email, Active / Deactivated / All, filter by role, sort by name, last seen or newest; one compact row per person with role, how they sign in, 2FA and when they were last seen; the first 50, then Show more.",
+            "One Manage per person opens everything under the row — role, print shop, new password, deactivate, sign out everywhere, reset 2FA — instead of three buttons on every row.",
+            "Add a person and Invite several are buttons at the top; their forms open above the list only when you need them. Add a person has a Generate button for the temporary password.",
+            "Invite several reads a whole To: line — addresses separated by spaces, commas or semicolons, with or without names — as one person each. Before, a line of addresses was read as one person and most of them were never checked.",
+            "The invite preview is a table, one person per row: the new people first, then those left alone and why, with counts. The form now says up front that each person gets their own temporary password.",
+            "Forgot password? on the staff sign-in page: a link by email to choose a new password (works once, lasts an hour, signs every device out; two-factor still applies). It never says whether an address has an account, and single sign-on accounts are pointed to the company's sign-in. No email set up? The page says to ask an admin.",
+            "Switched single sign-on off? People who only signed in through it are no longer stuck: Settings → Users lists them (Can't sign in), they can use Forgot password?, or an admin sets a password under Manage. They become password accounts; single sign-on still finds them if you switch it back on.",
+            "Dropdowns across the app keep their text clear of the arrow."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.59.1",
       "date": "2026-10-20",
@@ -177,42 +211,6 @@
             "Units already picked can't be released — they're on the cart. Lower or remove the line and they become a put-back, as before. Orders someone is picking right now are left alone and listed.",
             "Put back now says where to go: the location each item was picked from when it would still take it, otherwise the best other place (same lot or SKU there, the customer's area, an empty location) — never a location that's being counted or kept out. The list is in walk order, and Print the list gives you the same thing on paper.",
             "Put back with the scanner (Scan → Put back): scan the location, scan the product, confirm how many. Put them somewhere else by scanning that location instead — it's checked against the same rules. Putting back part of it leaves the rest on the list. When the install allows offline scanning, a put-back made without a connection waits on the device and is checked again when it's sent."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.55.0",
-      "date": "2026-10-16",
-      "entries": [
-        {
-          "title": "Required kit choices, kit-only parts, your own checkout fields, a polished storefront, rate card import, phones",
-          "items": [
-            "Kits: a part can now be Required — the buyer must pick exactly one of the required parts in its group (a scent, a shade, a size). The portal asks “Scent — required, pick one” and won't add the kit to the cart until it's chosen; ordering without one, or with two, is refused by name. Required picks don't use up the buyer's-choice picks.",
-            "Sold: Only in a kit — for packaging and inserts that make no sense alone (SKU → Pricing & limits). They leave the portal's shop, an order for them on their own is refused, and kits holding them order as before. SKU import has a kit_only column; kit content imports take role required.",
-            "Your own checkout fields: in the Design studio (Cart & checkout), add as many questions as a brand needs — short or long text, dropdown, date, number, yes/no — each optional or required, with help text, and for everyone or only some user groups. Answers are checked on the server and saved on the order with its other custom fields; buyers see them on their order.",
-            "Import rate cards: one row per card, every fee in dollars, an optional price rise (date, percent, every N months), and the customer codes to put on it. Same name updates the card. From Billing → Rate cards or Setup → Import.",
-            "Staff logins are listed under Setup → Import too (Settings → Users → Invite several).",
-            "Phones: every screen now fits without sideways scrolling. The top bar keeps search, notices, the knowledge base and Sign out (as an icon); light/dark moved into the ☰ menu.",
-            "Portal storefront, polished: refined placeholders for products without photos, a home hero that shows your products, badges only when they mean something, category chips when there are few, a lighter header, quick add on the photo, quieter SKU codes, aligned prices and headings, better empty and loading states — and every page reworked for phones, with Add to cart pinned on product pages.",
-            "An import's check no longer sends its rolled-back audit entries to your security log copy (SIEM)."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.54.0",
-      "date": "2026-10-16",
-      "entries": [
-        {
-          "title": "Import anything from a spreadsheet",
-          "items": [
-            "Setup → Import: every record you can load from a spreadsheet, in one place — and the same Import button on each record's own screen (Customers, a customer's Products, Categories, Carriers, Accounting, Portal people, Orders, Inbound, Returns, Pick replenish, Settings → Teams).",
-            "New imports: customers, shipping accounts, accounting units, categories, kit contents, price breaks, lots (with stop dates), orders, inbound shipments (ASNs), returns, pick-face refill rules, the portal address book, and teams.",
-            "Every import is guided the same way: get the template (Excel, with a sheet explaining every column, or CSV), upload it, check, then import. The check runs every row through the real rules and undoes it, so nothing is written until you press Import — and it says exactly how many will be added, updated or skipped, and names every problem by row and column.",
-            "Warnings before you finish: columns that will be ignored, the template's example rows left in, and rows with problems — which you confirm will be left out. Download just the rows to fix, with the reason on each.",
-            "Orders load through the same checks as one typed in, and an order reference already on file is skipped, so loading the same file twice never places anything twice.",
-            "Setup → Import templates is now Setup → Import."
           ]
         }
       ]
