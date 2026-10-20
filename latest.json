@@ -1,9 +1,41 @@
 {
-  "version": "1.57.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.57.1",
-  "releasedAt": "2026-10-19",
-  "notes": "⌘K answers explain how, then take you to the exact card",
+  "version": "1.58.1",
+  "image": "ghcr.io/parth-kadakia/amphora:1.58.1",
+  "releasedAt": "2026-10-20",
+  "notes": "A new AI assistant: Ask Amphora, and a real chat for portal buyers",
   "releases": [
+    {
+      "version": "1.58.1",
+      "date": "2026-10-20",
+      "entries": [
+        {
+          "title": "A new AI assistant: Ask Amphora, and a real chat for portal buyers",
+          "items": [
+            "Ask Amphora: one panel on the right for every AI question — a conversation that remembers follow-ups, suggested questions, a typing indicator, and Go there links in the answer. Ask AI on an order, ASN, SKU or count opens it about that record; ⌘K → Ask AI opens it with your question.",
+            "Build a report: a new “Describe the report you want” box; after it builds, a summary of what it assumed with Undo.",
+            "Portal assistant: a round chat button and a proper chat window in the brand's look (full screen on a phone), greeting the buyer by name, answering with product cards (photo, how many left) and order cards (status, tracking), and remembering follow-ups.",
+            "The portal assistant answers anything about a buyer's ordering — and never money or anything internal: prices, costs, invoices and payments are never given to it, it's told to refuse, and an answer that names an amount is replaced with a pointer to the brand's contact.",
+            "Knowledge Base → AI in Amphora shows every AI screen, and the related articles show theirs."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.58.0",
+      "date": "2026-10-20",
+      "entries": [
+        {
+          "title": "AI across Amphora: reports in plain words, ask about a record, a portal assistant, import column matching",
+          "items": [
+            "Reports in plain words: on Build a report (or ⌘K → Build a report) type “units shipped per customer last month, top 10” — AI drafts the report, Amphora checks it, and it runs with your permissions. The AI sees field names, never your data.",
+            "Ask about this order / ASN / SKU / count: “why isn't this shipping?”, “what's still to come?” — answered from that record's own status, lines, holds, stock and history, with links to where to act.",
+            "Portal assistant for buyers: an Ask button in a brand's portal — “what can I order this month?”, “where's my order?” — answered only from that buyer's own catalog, limits and orders, in the brand's look. Off on every portal until you switch it on (Customer → Client portal → Storefront).",
+            "Import column matching: when a spreadsheet's headers aren't the template's, AI suggests what each one is; you accept or change it, then the usual check runs.",
+            "Settings → Integrations → AI assistant now lists every use with what it sends, each with its own switch. Without a key, everything works as before."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.57.1",
       "date": "2026-10-19",
@@ -199,32 +231,6 @@
             "Groups are for reading only: quantities, the pick count, picking, stock and billing don't change. Kits with no groups look as they did.",
             "Reports: is any of is a multi-select on every text field — tick the statuses, carriers, customers or cities you want from the values your data really holds. Fixed: typing a comma in that box used to vanish, so you could only ever enter one value. Text fields also get is none of.",
             "Reports: the full ship-to address. Orders → Shipping now has company, contact, address 1, 2 and 3, phone, email and residential next to city, state, postcode and country; bill-to is under More · Orders, and every address Amphora stores as one record (user group home address, saved portal addresses) is offered part by part."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.51.2",
-      "date": "2026-10-14",
-      "entries": [
-        {
-          "title": "Test worlds: switching on Propago (or any connection) works",
-          "items": [
-            "Fixed: in a test world, ticking Propago, Email, Shopify or any other connection under Settings → Worlds said “Invalid input” and stayed off. Each switches on and off on its own now.",
-            "A connection that's off in a test world now says where to switch it on: “…switch it on in this world under Settings → Worlds.”"
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.51.1",
-      "date": "2026-10-14",
-      "entries": [
-        {
-          "title": "Company sign-in works behind an HTTPS proxy again",
-          "items": [
-            "Fixed: behind an HTTPS proxy, company and portal sign-in (SAML, OIDC) showed http:// links and refused sign-ins since 1.48.0 — Amphora only trusts a proxy's forwarded headers from AMPHORA_TRUSTED_PROXIES, so it couldn't tell the request was https.",
-            "Settings → General → Web address: the address people reach Amphora at (https://wms.yourcompany.com). Sign-on, portal sign-on, the portal API docs, Shopify and email links are all built on it, whatever the proxy sends. The sign-in setup warns when its links start with http://."
           ]
         }
       ]
