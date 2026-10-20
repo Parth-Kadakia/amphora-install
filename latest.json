@@ -1,9 +1,25 @@
 {
-  "version": "1.57.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.57.0",
+  "version": "1.57.1",
+  "image": "ghcr.io/parth-kadakia/amphora:1.57.1",
   "releasedAt": "2026-10-19",
-  "notes": "Putaway, receiving and put-back suggestions are fast in a big building · Ask how: ⌘K answers “how do I…” in plain words, with optional AI · Ordering limits for each person, per order, with your own message · Saving a user group works again",
+  "notes": "⌘K answers explain how, then take you to the exact card",
   "releases": [
+    {
+      "version": "1.57.1",
+      "date": "2026-10-19",
+      "entries": [
+        {
+          "title": "⌘K answers explain how, then take you to the exact card",
+          "items": [
+            "Choosing a Go to answer now shows How to first: the clicks (Settings → General → Picking), what it's for, and the steps from the Knowledge Base. Go there — or Enter — then opens the screen and scrolls to the card, which flashes once.",
+            "Fixed: clicking an answer and pressing Enter did nothing; and an answer for the page you were already on looked like it did nothing.",
+            "Things set on each customer or SKU say so (“Pricing & limits is set on each SKU”) and ask which one; Back returns to the explanation.",
+            "The box no longer draws a second focus frame inside itself, which looked odd in Dark mode.",
+            "Settings → General's cards can be linked to directly: totes, offline scanning, license plates, ASN numbering, updates, web address and the license each have their own answer."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.57.0",
       "date": "2026-10-19",
@@ -209,26 +225,6 @@
           "items": [
             "Fixed: behind an HTTPS proxy, company and portal sign-in (SAML, OIDC) showed http:// links and refused sign-ins since 1.48.0 — Amphora only trusts a proxy's forwarded headers from AMPHORA_TRUSTED_PROXIES, so it couldn't tell the request was https.",
             "Settings → General → Web address: the address people reach Amphora at (https://wms.yourcompany.com). Sign-on, portal sign-on, the portal API docs, Shopify and email links are all built on it, whatever the proxy sends. The sign-in setup warns when its links start with http://."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.51.0",
-      "date": "2026-10-13",
-      "entries": [
-        {
-          "title": "Shipping accounts, Location in reports, SKU status in the report builder, whole product photos",
-          "items": [
-            "Reports say Location, not Bin: the report builder's Location and Location type (and From / To location on the ledger), the stock and license plate exports' location column, the ledger export's from_location and to_location, and the count, move and kitting screens — a location is a bin or a pallet position. The stock import template's column is location; files with the old bin column still import.",
-            "Every column, in reports: each report in Build a report now offers every column of its records and of everything it reaches (under More · <table>), and every other table is a report of its own under All tables — locations, zones, lots, license plates, returns, cycle counts, transfers, work orders, mailings and more, about 100 in all. Secrets and raw data are never included; these extra columns and tables are for staff and can't be given to a brand.",
-            "Inventory → Stock tags a SKU that isn't live — Draft (still being set up) or Discontinued (retired) — and can be filtered by SKU status, so stock of a product nobody can order stands out.",
-            "SKU status (draft, active, discontinued) can be a column or a filter in the report builder — on Stock on hand, the ledger, order lines, inbound, billable events and print pieces.",
-            "Fixed: a product's main photo on the client store's product page cropped square photos (the wide frame cut off their top and bottom). The whole photo now always shows, and the SKU's Images card shows each image whole too.",
-            "Customers → the customer → Carriers → Shipping accounts lists the customer's own carrier accounts, each switched on or off, with how it's billed: as a third party (the account isn't the recipient's — billed at its own billing ZIP) or as the receiver. Each shows who bills it and how many labels it has billed.",
-            "Which account orders bill, one setting at a time: only when the order names one, one account for the whole portal, or each user group its own. If both were ever set, the user group's account wins. An account the order itself names (a Propago order, the API) always comes first.",
-            "UPS and FedEx labels bill a third-party account properly now, at the account's own billing ZIP — before, every customer account was billed as the receiver.",
-            "Accounts that change: an order naming an account that isn't on the list adds it switched off, marked Needs review, and its labels wait until someone adds the billing ZIP and switches it on. A switched-off account stops the label with the reason."
           ]
         }
       ]
