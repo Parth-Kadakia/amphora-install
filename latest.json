@@ -1,9 +1,49 @@
 {
-  "version": "1.56.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.56.1",
-  "releasedAt": "2026-10-18",
-  "notes": "A calmer pick queue",
+  "version": "1.57.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.57.0",
+  "releasedAt": "2026-10-19",
+  "notes": "Putaway, receiving and put-back suggestions are fast in a big building · Ask how: ⌘K answers “how do I…” in plain words, with optional AI · Ordering limits for each person, per order, with your own message · Saving a user group works again",
   "releases": [
+    {
+      "version": "1.57.0",
+      "date": "2026-10-19",
+      "entries": [
+        {
+          "title": "Putaway, receiving and put-back suggestions are fast in a big building",
+          "items": [
+            "Fixed: in a building with thousands of locations that have weight or size limits, the Putaway page could take minutes to open — long enough to stall a test world entirely (every page then failed). On a 19,000-location building it now opens in a fraction of a second (106 s → 0.23 s).",
+            "Receiving's “where should this go” suggestions, the license plate page and Put back speed up the same way (about 0.8 s → 0.03 s per line). The suggestions themselves are exactly the same."
+          ]
+        },
+        {
+          "title": "Ask how: ⌘K answers “how do I…” in plain words, with optional AI",
+          "items": [
+            "Press ⌘K and ask the way you'd ask a colleague — “how do I give one person a 120-unit limit?”. Go to opens the screen that does it, with the clicks spelled out; Help opens the Knowledge Base section that explains it.",
+            "Screens inside a customer or a SKU land inside the one you're on, or the box asks which one.",
+            "Questions are understood, not just keywords: filler words dropped, word endings folded, and brand / client / customer (and the like) treated as the same. The Knowledge Base search works the same way.",
+            "Ask AI (optional): bring your own Claude, OpenAI or Gemini key under Settings → Integrations → AI assistant. The model list comes live from the provider. Only the question and Amphora's help text are sent — never your data — and answers can only point at real screens.",
+            "Only screens you may open, and features this install has, are offered."
+          ]
+        },
+        {
+          "title": "Ordering limits for each person, per order, with your own message",
+          "items": [
+            "A SKU's ordering limit can now cover Each person: every buyer gets their own allowance (120 each every 30 days), from one rule on the SKU. Leave it on In every group, or pick a group to cover only its members. New buyers are covered the day they're added.",
+            "Everyone and A user group still share one allowance between them; they now say so (Everyone, shared · A user group, shared).",
+            "Time frame: every N days, or per order — only the order being placed counts. The product shows “Up to 40 per order”.",
+            "Message when someone goes over: the brand's own words lead the reason the buyer sees and the approver reads, with the numbers after.",
+            "Ordering limits import: set the same rule across a whole catalog from one spreadsheet (Setup → Import, or Import on the customer's Products screen).",
+            "Saving a limit now checks it names a group or person of this brand."
+          ]
+        },
+        {
+          "title": "Saving a user group works again",
+          "items": [
+            "Creating or editing a portal user group said \"Invalid input\" unless the group was limited to an accounting unit. Groups now save with any accounting unit allowed."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.56.1",
       "date": "2026-10-18",
@@ -189,21 +229,6 @@
             "Which account orders bill, one setting at a time: only when the order names one, one account for the whole portal, or each user group its own. If both were ever set, the user group's account wins. An account the order itself names (a Propago order, the API) always comes first.",
             "UPS and FedEx labels bill a third-party account properly now, at the account's own billing ZIP — before, every customer account was billed as the receiver.",
             "Accounts that change: an order naming an account that isn't on the list adds it switched off, marked Needs review, and its labels wait until someone adds the billing ZIP and switches it on. A switched-off account stops the label with the reason."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.50.0",
-      "date": "2026-10-13",
-      "entries": [
-        {
-          "title": "Pick in batches: carts by shortest walk, zone, rush, carrier & service, or customer",
-          "items": [
-            "The pick queue builds carts for you, five ways: Shortest walk (orders that save real walking together), Zone (one zone per cart, orders needing two zones kept whole), Rush & due (rush carts first, all rush), Carrier & service (UPS Ground and UPS 2nd Day Air on their own carts, each carrier with its services as rows) and Customer. Keep each customer apart works with all of them.",
-            "Each group is one row: “67 orders → 6 carts”, Cart 1 of 6 with its stops and how much less walking it is, and Start cart 1. See all carts lists the rest. Carts hold up to 12 orders, never mix packing types, and are built from the whole queue — fast at thousands of orders.",
-            "The filters (date, status, customer, zone, packing and the new Carrier filter) now sit on Orders to pick, the list they narrow. Ticking orders to build your own cart works as before.",
-            "The handheld pick screen has the same Pick in batches, folded into one line above the scanner."
           ]
         }
       ]
