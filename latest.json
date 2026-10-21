@@ -1,9 +1,47 @@
 {
-  "version": "1.60.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.60.0",
+  "version": "1.61.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.61.0",
   "releasedAt": "2026-10-21",
-  "notes": "Stock that goes bad moves its orders, files aren't received twice, paid invoices stay paid · Friendlier error pages — and they know when the Wi-Fi dropped · Idle stock fees: stock that doesn't ship costs more to keep · The floor, hammered: lost answers, double taps, counts, returns and billing made safe",
+  "notes": "Practice in the demo world · Onboarding a brand: welcome pack, Getting started and portal Help · Floor cheat sheets: one printed page per station · Learn your job, not the whole manual",
   "releases": [
+    {
+      "version": "1.61.0",
+      "date": "2026-10-21",
+      "entries": [
+        {
+          "title": "Practice in the demo world",
+          "items": [
+            "Practice (demo world only): six guided exercises a trainer hands a new hire — receive a truck with a short line, put away, pick and ship an order, count three shelves, process a return, enter an order from a buyer's email.",
+            "Start builds a fresh scenario through the real engines; the checklist ticks itself as the work gets done on the real screens, and Try again makes a new one. It never touches the main install's stock. New hires need their own account inside the demo world."
+          ]
+        },
+        {
+          "title": "Onboarding a brand: welcome pack, Getting started and portal Help",
+          "items": [
+            "Customer → Overview → Welcome pack (PDF) prints a few pages for a new brand in your own branding: their portal address and how to sign in, the ship-by promise and cut-off, carriers, how to send stock in and mark the cartons, reports, and who to ask. Sections that don't apply are left out.",
+            "When a brand admin signs in, the portal home shows Getting started — invite your people, groups, approvals, the first order, a scheduled report, low-stock alerts. Each line ticks itself from what has actually happened, links to the screen that does it, and the card can be hidden.",
+            "Every portal has a Help page (Help in the account menu): short guides in the brand's own look, showing each person only what they can do, with a search box."
+          ]
+        },
+        {
+          "title": "Floor cheat sheets: one printed page per station",
+          "items": [
+            "Knowledge base → Floor cheat sheets: eight one-page sheets — scan mode, receiving, putaway, picking, pack & ship, cycle counts, returns and put back — to print, laminate and keep where the work happens.",
+            "Each has the steps in big numbered type, What the screen tells you (the messages people actually see, like “may have gone through” or a red DO NOT SHIP placard) and When you're stuck, ending with who to ask. They wear your logo and are generated from this version, so reprint after an update."
+          ]
+        },
+        {
+          "title": "Learn your job, not the whole manual",
+          "items": [
+            "The knowledge base opens on Your first day as… — a short path for each job (receiving, pick & pack, floor lead, office, billing, setting up, developers): the handful of things that job does every day, each with the screen that does it and the exact section that explains it. Handbook (PDF) prints just that job's pages and articles instead of the whole reference.",
+            "A ? in the top bar on every screen opens the help for that screen in a side panel — press ? anywhere outside a field.",
+            "New installs: the dashboard opens with Go live, the first-run steps in order (the clock, the building, the team, a customer ready to trade, the first receipt, the first shipment…), each ticked off from the real thing. Hide it, or bring it back from Settings → General.",
+            "Reports → Help questions (owners and admins) lists what your team asked the help and didn't find, in their own words — the docs still to write.",
+            "The knowledge base's sections are regrouped into eleven, in the order people need them: Start here, Team & security, Customers, Client portals, Catalog, Receiving & stock, Orders & shipping, Billing & reports, Print, mail & compliance, Platform & integrations, Reference."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.60.0",
       "date": "2026-10-21",
@@ -202,23 +240,6 @@
           "title": "Saving a user group works again",
           "items": [
             "Creating or editing a portal user group said \"Invalid input\" unless the group was limited to an accounting unit. Groups now save with any accounting unit allowed."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.56.1",
-      "date": "2026-10-18",
-      "entries": [
-        {
-          "title": "A calmer pick queue",
-          "items": [
-            "Each order on the pick queue has one quiet Start (Resume once begun); Fix is the small wrench beside it. No more column of red buttons.",
-            "The list's filters sit in two rows: the date chips, then Status, Customer, Zone and Carrier as dropdowns, with Find beside the list's title.",
-            "Select all shown is one click; the range box and the slip scanner open under Select by number or scan.",
-            "Orders waiting on a kit build are one line at the top; open it for the builds and Open the bench.",
-            "Batch these: only the first cart's Start is highlighted, and each cart's order numbers fold under Show the orders.",
-            "On a phone the pick queue fits the screen: each row shows the customer, units and ship-by under the order number, with Start beside it."
           ]
         }
       ]
