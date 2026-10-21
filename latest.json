@@ -1,9 +1,57 @@
 {
-  "version": "1.59.3",
-  "image": "ghcr.io/parth-kadakia/amphora:1.59.3",
-  "releasedAt": "2026-10-20",
-  "notes": "Username and PIN sign-in for floor people without an email",
+  "version": "1.60.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.60.0",
+  "releasedAt": "2026-10-21",
+  "notes": "Stock that goes bad moves its orders, files aren't received twice, paid invoices stay paid · Friendlier error pages — and they know when the Wi-Fi dropped · Idle stock fees: stock that doesn't ship costs more to keep · The floor, hammered: lost answers, double taps, counts, returns and billing made safe",
   "releases": [
+    {
+      "version": "1.60.0",
+      "date": "2026-10-21",
+      "entries": [
+        {
+          "title": "Stock that goes bad moves its orders, files aren't received twice, paid invoices stay paid",
+          "items": [
+            "Marking stock damaged or quarantined, writing it off, destroying it or counting it down now re-reserves the orders that were counting on it — from other lots, earliest expiry first, or backordered — and the screen names the orders that moved. Before, they stayed reserved on stock that couldn't ship.",
+            "Mass receiving: the same file received a second time (another screen, a double click, the sheet uploaded again) stops and says when and by whom it was received; Receive it again anyway is there for a genuine second delivery.",
+            "Big import checks run in short parts, so the floor keeps scanning while a 6,000-row file is checked — no more “database is locked” on the scanners.",
+            "A paid invoice can't be voided any more — correct it with a credit on the next invoice, or a refund."
+          ]
+        },
+        {
+          "title": "Friendlier error pages — and they know when the Wi-Fi dropped",
+          "items": [
+            "A page that can't load now says so with a bit of warehouse humour (“This page tripped over a pallet.”), what to check (did what you were saving go through?), and Try again, Go back or Home — instead of a bare “This page couldn't load”.",
+            "Lost the connection? It says that (“The Wi-Fi went on break.”) and tries again by itself the moment the connection is back.",
+            "A real failure shows a short reference code that matches the server's log, for whoever runs Amphora. Pages that don't exist, scan mode and client portals (in the brand's own look) get the same treatment."
+          ]
+        },
+        {
+          "title": "Idle stock fees: stock that doesn't ship costs more to keep",
+          "items": [
+            "Customer → Billing → Idle stock fees: a storage surcharge for SKUs that haven't shipped in months — by default 50% of the bin or pallet fee at 6 months, 75% at 12, 100% at 18, 150% at 24, each client's own tiers editable.",
+            "Idle means no unit shipped: the clock runs from the last shipment (or the first receipt, if it never shipped); receipts and moves don't restart it, shipping one unit does. A location shared with other products counts as a share.",
+            "Three modes per client: Inactive (nothing), Draft (alerts only, nothing charged — a dry run) and On (the monthly invoice adds the surcharge, averaged over the days it was On, like storage).",
+            "Alerts each morning to the brand's admins and the client's new Account manager, by email, and the Billing team's bell: SKUs coming up on a tier within the warning window (30 days by default) and SKUs that just reached one — each told once.",
+            "Reports → Idle stock: by client, every SKU past a tier or coming up — months idle, positions, the surcharge now and at the next tier — with a CSV export."
+          ]
+        },
+        {
+          "title": "The floor, hammered: lost answers, double taps, counts, returns and billing made safe",
+          "items": [
+            "No answer from the server? The scanner now says it may have gone through, and doing it again is safe — it's sent with the same key, so a receipt, move or pick that already landed is never booked twice. Before, it said “this wasn't saved”, and doing it again booked it twice.",
+            "A second Enter from the gun (or a double tap) while a scan is being sent is ignored on the pick and receiving screens; the same stop sent twice in a moment is recorded once. Pallet receipts, return receipts, kitting pulls, Confirm shipped and the print buttons are done once when pressed again after a lost answer.",
+            "Pick & pack and Receiving can now finish their own work: confirm put-backs, show up as Being picked by, answer Put back / Keep when an order comes off their cart, release an empty location, and decide what happened to their own refused offline scans. Anything outside a role now says so (“Pick & pack can't do this — ask a manager”) instead of “Authentication required”.",
+            "Finish picking waits until every stop is confirmed or recorded short — no more lines shorted silently because a colleague's stop was still on its way — and waits while the office is editing the order. A run where every stop came up short sends the order back to Backordered instead of leaving it at the bench as Packed.",
+            "Counts: locations the system believes are empty are listed on the count (and the sheet) and locked with the rest; pallets can't be driven in or out of a counted location; a line sent back for recount must be counted again before it can be approved; two counters who disagree send the line back for a recount; a pick & pack or receiving person can't approve their own count.",
+            "Returns can't bring back more than an order shipped, a product it didn't ship, or the same units twice; Undo shipped is refused once a return has brought units back.",
+            "Invoices: a draft whose dates overlap another invoice is refused (storage would bill those days twice); Recalculate and Issue can no longer cross and leave fees on an invoice that doesn't show them.",
+            "Packing: a box line must be the order line's own product; re-boxing after closing bills (or credits) the difference in cartons; Confirm shipped with open boxes closes them first, weight check and carton fee included; cancelling a packed order takes its boxes off the ship desk (void a bought label first).",
+            "Undo a receipt never takes units off the cart or stock open orders have reserved. A cancelled print job puts its unused blanks back on their shelves, and Mark printed pressed at two stations books once. Two people moving one pallet to two places: one moves it, the other is told.",
+            "Imports read UTF-16 and older-Excel files correctly, refuse an .xlsx that unpacks past 64 MB, and every CSV Amphora exports opens formulas as text."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.59.3",
       "date": "2026-10-20",
@@ -171,46 +219,6 @@
             "Orders waiting on a kit build are one line at the top; open it for the builds and Open the bench.",
             "Batch these: only the first cart's Start is highlighted, and each cart's order numbers fold under Show the orders.",
             "On a phone the pick queue fits the screen: each row shows the customer, units and ship-by under the order number, with Start beside it."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.56.0",
-      "date": "2026-10-18",
-      "entries": [
-        {
-          "title": "Batch exactly the orders you choose, release a reservation from a location, guided put-backs, bulk checkout counts the whole batch, kit notes, Prime pick faces",
-          "items": [
-            "Select exactly which orders go into a batch on the pick queue: tick rows, Shift-click to tick every row between, Select all shown (whatever the filters leave), type a number range (LUMI-000120 to LUMI-000160, or 120 to 160 inside one customer), or scan the barcode on each pick slip. The bar keeps a running “38 orders selected”.",
-            "Batch these builds carts from exactly that selection with the Pick in batches engine — up to twelve a cart, one packing type per cart, the most urgent first, and Keep each customer apart if you tick it. More than a cart's worth comes back as Cart 1 of N, each with Start.",
-            "Orders that can't go on a cart are never quietly dropped: being edited, on hold, already on a cart someone is picking, picking started, nothing reserved yet — each is listed with the reason.",
-            "Editing an order that's on a cart now takes it off the cart, and the cart carries on. The picker sees “LUMI-000142 was taken off this cart — it's being edited” and chooses Put back (onto the Put back list) or Keep with the order for anything already picked. The other orders keep their bin letters.",
-            "Once the edit is finished, the cart's note reads “it was edited by …” instead of “it's being edited”.",
-            "When the edit is finished the order is back in the pick queue for a new cart, and its order page shows “Taken off cart BATCH-000042 for an edit”.",
-            "Over the API: POST /api/v1/orders/pick-batch batches given orders, numbers or a range; /pick-batch/lookup finds orders by number or range; /orders/{id}/off-cart puts back or keeps an order's picked units.",
-            "Bulk checkout now checks stock for the batch as a whole. Before, each recipient was checked on their own, so 400 orders could pass when the shelf only covered 200 and the rest failed partway through. Now each recipient is counted against what the ones before it already need, the shortage is shown by product before anything is placed, and the brand's short-stock setting decides what happens.",
-            "Bulk checkout asks the brand's own checkout questions: once for every order in the batch (Order details, beside Ship how), or per recipient from a sheet column with the same name. Required questions are required here too — nothing is placed until each recipient is answered.",
-            "In the bulk check, a recipient stopped by a question or by stock now shows the units they asked for (not “0 units · $0.00”), and Fix the address only appears when it's the address that failed.",
-            "Renaming a checkout field no longer hides old answers: the field remembers its earlier names, so buyers and staff see orders answered before the rename under the new name.",
-            "Every part of a kit now carries a short note on the pick slip, the batch pick slip, the pick station and the pack bench: “Part of kit GIFT-HOST-SET (1 of 3) — also with: SOAP-LAV, CANDLE-01”. If one part is found and another isn't, the team knows exactly what else belongs with it.",
-            "The pick slip puts each kit back together above the table (Kits on this order): every part with its stop and location. The same kit twice on one order reads Kit 1 and Kit 2; three of a kit on one line says “1 per kit × 3”.",
-            "Short a kit part at the pick station and it says what else to pull: the rest of that kit, with each part's location and whether it's picked yet — leave it on the shelf and record it short, or Fix the stop to put it back. Shorts work as before: only what you record goes back to stock.",
-            "At the pack bench, a kit missing a part says which of its other parts to leave out of the box; they stay on the cart for the order's next shipment. The suggested first box already leaves them out, and Put everything left does too.",
-            "Kits made in Amphora are now marked exactly like kits that arrive from Propago — on slips, stations and the order page.",
-            "The packing slip in the box keeps it brief for the recipient: the kit's name heads its parts, and each reads “Included in Gift Host Set” — no codes, no locations.",
-            "Prime locations: mark a pick location Prime and it becomes a fixed home pick face that refills itself — refill when it drops to (min), fill up to (max). Only Prime locations get refill jobs or carry refill rules, and the nightly sizing only makes rules there.",
-            "Locations that aren't Prime are never refilled in place: when one runs empty, the SKU's next stock goes wherever putaway suggests, so its location can change as needed. Putaway never offers another SKU's Prime home.",
-            "Mark Prime on a location's page, in bulk on Stock → Locations (tick, then Mark Prime — with a Prime filter and column), or with the new prime column of the locations import and export. Watching a location that isn't Prime offers Make it Prime.",
-            "Stopping a location being Prime while rules watch it asks first: pause the rules (kept, resume later) or remove them.",
-            "Clearer numbers: rules now read “Refill when it drops to (min)” and “Fill up to (max)”, and a refill is proposed when a face reaches its min, not only once it's under it.",
-            "Upgrading changes nothing that works today: every location that already had a refill rule is marked Prime.",
-            "Pick stops show a Prime chip; Prime is reportable (Stock → Prime location) and on the API (POST /api/v1/bins/prime).",
-            "Release from a location: when a shelf is damaged, blocked, being counted, or the product just isn't there, release the order's reservation from that one location — on the order (Lines & allocation → Release from a location) or on the location itself (Reserved here). Choose Release and re-allocate elsewhere (reserved again, earliest expiry first, from other locations — backordered if nothing else covers it) or Release only (backordered). Every release records why and who.",
-            "Release everything reserved here: one button on a location re-allocates every order that would pick from it. Tick Keep this location out of allocation and its stock goes on Hold, so no order reserves it and no route sends anyone there until you press Use it again.",
-            "Units already picked can't be released — they're on the cart. Lower or remove the line and they become a put-back, as before. Orders someone is picking right now are left alone and listed.",
-            "Put back now says where to go: the location each item was picked from when it would still take it, otherwise the best other place (same lot or SKU there, the customer's area, an empty location) — never a location that's being counted or kept out. The list is in walk order, and Print the list gives you the same thing on paper.",
-            "Put back with the scanner (Scan → Put back): scan the location, scan the product, confirm how many. Put them somewhere else by scanning that location instead — it's checked against the same rules. Putting back part of it leaves the rest on the list. When the install allows offline scanning, a put-back made without a connection waits on the device and is checked again when it's sent."
           ]
         }
       ]
