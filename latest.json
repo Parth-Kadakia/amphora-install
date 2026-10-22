@@ -1,9 +1,29 @@
 {
-  "version": "1.62.2",
-  "image": "ghcr.io/parth-kadakia/amphora:1.62.2",
+  "version": "1.62.3",
+  "image": "ghcr.io/parth-kadakia/amphora:1.62.3",
   "releasedAt": "2026-10-22",
-  "notes": "Portal typefaces ship with Amphora",
+  "notes": "Pick runs walk pick priority 1 first · Find a location by typing it when receiving a pallet",
   "releases": [
+    {
+      "version": "1.62.3",
+      "date": "2026-10-22",
+      "entries": [
+        {
+          "title": "Pick runs walk pick priority 1 first",
+          "items": [
+            "The pick slip and the scan station now send pickers to locations in pick-priority order — priority 1, then 2, then 3 — before anything without a priority, which follows the walk path as before. Amphora already took the right quantities from each location; it listed the stops in walk order, so a priority-3 shelf could come first on the slip.",
+            "The slip's ROUTE line now reads \"pick priority first, then walk-path order\"."
+          ]
+        },
+        {
+          "title": "Find a location by typing it when receiving a pallet",
+          "items": [
+            "Location on the Receive desk's Pallet mode is now a search box: type or scan part of a code and the list narrows to match. Leave it blank to land the pallet on the dock, as before.",
+            "Location lists everywhere are in aisle order — MAIN46-B-6-5 now comes before MAIN46-B-46-1 instead of after it."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.62.2",
       "date": "2026-10-22",
@@ -215,22 +235,6 @@
             "Dock doors on whichever wall they're cut into — drag them along or onto another wall. Add, rename and remove doors right in the designer; the appointment calendar uses the same list.",
             "Draft with AI: describe the building (“600 × 260 ft, 12 doors on the front, SR-01 to SR-18 front to back, 12 ft aisles…”) or attach a drawing or a photo of a sketch, and the plan is laid out for you to adjust. It only places your own zones; Undo puts back what was there. A new switch, Floor plan drafting, under Settings → Integrations → AI assistant.",
             "The plan on the warehouse page draws your design to scale with a scale bar; zones whose location codes don't split into aisles are drawn as a run of racking with their bays. Plans arranged before open converted, nothing lost."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.58.1",
-      "date": "2026-10-20",
-      "entries": [
-        {
-          "title": "A new AI assistant: Ask Amphora, and a real chat for portal buyers",
-          "items": [
-            "Ask Amphora: one panel on the right for every AI question — a conversation that remembers follow-ups, suggested questions, a typing indicator, and Go there links in the answer. Ask AI on an order, ASN, SKU or count opens it about that record; ⌘K → Ask AI opens it with your question.",
-            "Build a report: a new “Describe the report you want” box; after it builds, a summary of what it assumed with Undo.",
-            "Portal assistant: a round chat button and a proper chat window in the brand's look (full screen on a phone), greeting the buyer by name, answering with product cards (photo, how many left) and order cards (status, tracking), and remembering follow-ups.",
-            "The portal assistant answers anything about a buyer's ordering — and never money or anything internal: prices, costs, invoices and payments are never given to it, it's told to refuse, and an answer that names an amount is replaced with a pointer to the brand's contact.",
-            "Knowledge Base → AI in Amphora shows every AI screen, and the related articles show theirs."
           ]
         }
       ]
