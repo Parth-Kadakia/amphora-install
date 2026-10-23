@@ -1,9 +1,45 @@
 {
-  "version": "1.62.3",
-  "image": "ghcr.io/parth-kadakia/amphora:1.62.3",
-  "releasedAt": "2026-10-22",
-  "notes": "Pick runs walk pick priority 1 first · Find a location by typing it when receiving a pallet",
+  "version": "1.63.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.63.0",
+  "releasedAt": "2026-10-23",
+  "notes": "Security update · Categories at every level, and a merge that keeps user groups · The design studio previews every setting before you publish · The menu stays where you left it",
   "releases": [
+    {
+      "version": "1.63.0",
+      "date": "2026-10-23",
+      "entries": [
+        {
+          "title": "Security update",
+          "items": [
+            "A library Amphora uses to check what's sent to it is updated, closing a way an oversized request could use up the server's memory. Nothing changes on screen."
+          ]
+        },
+        {
+          "title": "Categories at every level, and a merge that keeps user groups",
+          "items": [
+            "The Categories card shows the whole tree — sub-categories of sub-categories included. Before, anything deeper than two levels was hidden from the card even though it existed.",
+            "Add a sub-category straight from the card: pick where it goes (Top level, or Under a category) next to the name, then Add.",
+            "Reorganize the catalog checks each change the moment you add it, so Apply is always one click (\"Apply 2 changes\"). Reshape the tree nests at any depth — drop a category onto another to put it under that one.",
+            "Merging a category into one of its own sub-categories now works: the kept one takes its place. User groups limited to \"Only these categories\", and their allowances, follow a merge or delete too, and Undo puts them back.",
+            "\"view SKUs\" and each category's SKU count open this customer's own SKU list, filtered to that category and everything under it. The SKU list has a category filter of its own."
+          ]
+        },
+        {
+          "title": "The design studio previews every setting before you publish",
+          "items": [
+            "Featured products, the Orders page's opening tab, related products, low-stock-first, labels on the reports, accounting and bulk pages, and the approvals ship-to all change in the preview as you set them. Before, these only showed after Publish.",
+            "Buyers still see the published portal until you press Publish. The draft is yours alone — another designer previewing the same portal sees their own."
+          ]
+        },
+        {
+          "title": "The menu stays where you left it",
+          "items": [
+            "Clicking an item low in the side menu no longer throws the menu back to the top: the menu stays put while the page scrolls, and so does a customer's own menu.",
+            "Fold any menu group you don't use by clicking its heading. This device remembers what you folded; the group holding the page you're on always stays open."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.62.3",
       "date": "2026-10-22",
@@ -217,24 +253,6 @@
             "A portal with many menu categories no longer squeezes the brand name to “CSL…” or wraps the menu onto ragged lines: when it doesn't fit beside the logo, the menu moves to its own row underneath.",
             "The “In the catalog” card beside the headline keeps long product names inside it (they end in “…”), with the arrows back in place.",
             "Product and category names synced from Propago show “&”, quotes and apostrophes properly instead of “&amp;” — names already stored are fixed when you update."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.59.0",
-      "date": "2026-10-20",
-      "entries": [
-        {
-          "title": "Design your floor plan to scale — by hand or drafted with AI",
-          "items": [
-            "Design floor plan (warehouse page, owners and admins): a full-screen designer with the building drawn to scale in feet. Set its width and depth, and put every zone anywhere at any size — a 4 ft shelving row, a 10 ft pallet rack, a whole bulk floor.",
-            "Lay out racking rows in one go: side by side (| | | |) or stacked, with the rack depth, row length and aisle you choose. Reserve zones (SR-10-RES) go back to back with their row; rows that reach the far wall wrap.",
-            "Drag to move, size from any edge or corner, or type exact feet. Select several to move, line up, space evenly or match sizes. Undo/redo, zoom, arrow-key nudges.",
-            "Add the building itself: columns (repeat across and down to draw the column grid), offices, walls, open areas like staging lanes, and labels.",
-            "Dock doors on whichever wall they're cut into — drag them along or onto another wall. Add, rename and remove doors right in the designer; the appointment calendar uses the same list.",
-            "Draft with AI: describe the building (“600 × 260 ft, 12 doors on the front, SR-01 to SR-18 front to back, 12 ft aisles…”) or attach a drawing or a photo of a sketch, and the plan is laid out for you to adjust. It only places your own zones; Undo puts back what was there. A new switch, Floor plan drafting, under Settings → Integrations → AI assistant.",
-            "The plan on the warehouse page draws your design to scale with a scale bar; zones whose location codes don't split into aisles are drawn as a run of racking with their bays. Plans arranged before open converted, nothing lost."
           ]
         }
       ]
