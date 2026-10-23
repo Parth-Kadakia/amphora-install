@@ -1,9 +1,37 @@
 {
-  "version": "1.63.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.63.0",
+  "version": "1.64.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.64.0",
   "releasedAt": "2026-10-23",
-  "notes": "Security update · Categories at every level, and a merge that keeps user groups · The design studio previews every setting before you publish · The menu stays where you left it",
+  "notes": "Kits get their own page · User groups: a category tree, and products one by one · The same category name under two parents",
   "releases": [
+    {
+      "version": "1.64.0",
+      "date": "2026-10-23",
+      "entries": [
+        {
+          "title": "Kits get their own page",
+          "items": [
+            "A customer's Catalog menu now has Categories, SKUs and Kits. Kits lists the products built from other SKUs, with New kit; the SKU list keeps everything else, kit parts included.",
+            "The design studio's \"Catalog page\" step is now \"Shop page\", the name buyers see on the portal."
+          ]
+        },
+        {
+          "title": "User groups: a category tree, and products one by one",
+          "items": [
+            "\"Only these categories\" shows every level as a tree. Tick a category and everything under it comes with it — its sub-categories show as \"included\". Before, a ticked parent didn't bring its sub-categories' products.",
+            "New on a group's Catalog tab: Products, one by one. Find a product and choose Always show (an extra SKU this group wouldn't otherwise see) or Always hide."
+          ]
+        },
+        {
+          "title": "The same category name under two parents",
+          "items": [
+            "Skincare > Sale and Gifts > Sale can now both exist — a name only has to be unique among the categories beside it. Adding a second \"Sale\" under the same parent says so plainly.",
+            "The SKU import's categories column takes paths: \"Makeup > Lipsticks\" files the product there, making any level that's missing.",
+            "The reorganizer's spreadsheet writes each category as its path, and reads paths back, so two categories with the same name never get mixed up."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.63.0",
       "date": "2026-10-23",
@@ -239,20 +267,6 @@
             "Forgot password? on the staff sign-in page: a link by email to choose a new password (works once, lasts an hour, signs every device out; two-factor still applies). It never says whether an address has an account, and single sign-on accounts are pointed to the company's sign-in. No email set up? The page says to ask an admin.",
             "Switched single sign-on off? People who only signed in through it are no longer stuck: Settings → Users lists them (Can't sign in), they can use Forgot password?, or an admin sets a password under Manage. They become password accounts; single sign-on still finds them if you switch it back on.",
             "Dropdowns across the app keep their text clear of the arrow."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.59.1",
-      "date": "2026-10-20",
-      "entries": [
-        {
-          "title": "Portal home: tidier header and catalog card, “&” instead of “&amp;”",
-          "items": [
-            "A portal with many menu categories no longer squeezes the brand name to “CSL…” or wraps the menu onto ragged lines: when it doesn't fit beside the logo, the menu moves to its own row underneath.",
-            "The “In the catalog” card beside the headline keeps long product names inside it (they end in “…”), with the arrows back in place.",
-            "Product and category names synced from Propago show “&”, quotes and apostrophes properly instead of “&amp;” — names already stored are fixed when you update."
           ]
         }
       ]
