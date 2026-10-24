@@ -1,9 +1,59 @@
 {
-  "version": "1.64.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.64.0",
-  "releasedAt": "2026-10-23",
-  "notes": "Kits get their own page · User groups: a category tree, and products one by one · The same category name under two parents",
+  "version": "1.65.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.65.0",
+  "releasedAt": "2026-10-24",
+  "notes": "A removed line gives back its pick fee · A calendar for each brand, with reminders · Two low-stock lines: an early warning, then the alert · Approval thresholds per product, per user group · Allowances for the whole group, by calendar month · A brand's own portal roles, and power buyers",
   "releases": [
+    {
+      "version": "1.65.0",
+      "date": "2026-10-24",
+      "entries": [
+        {
+          "title": "A removed line gives back its pick fee",
+          "items": [
+            "Removing a line from an order before anyone picked it now credits its pick fee, as its unit fee already was — the client is no longer billed a pick that never happened. A line removed after it was picked keeps its fee: the pick was done."
+          ]
+        },
+        {
+          "title": "A calendar for each brand, with reminders",
+          "items": [
+            "Brands put their big dates on a calendar — a launch, a trade show, Paris Fashion Week — from the portal's account menu → Calendar. Staff can add them too, under the customer → Calendar.",
+            "It opens as a month grid with each event across the days it runs (Prev, Next, Today); click a day to add an event there, or switch to List for the dates soonest first.",
+            "Pick when to be reminded (30 days, 2 weeks, 1 week, the day before, on the day). On those days the brand's admins, whoever added it and any extra addresses get an email and a note on the bell; in the warehouse, the teams that chose \"Client event coming up\" (Settings → Teams) and the brand's account manager are told.",
+            "Settings → Teams now also lists the Billing events, which were missing from the list."
+          ]
+        },
+        {
+          "title": "Two low-stock lines: an early warning, then the alert",
+          "items": [
+            "A SKU can have an Early warning level above its low-stock alert (Pricing & limits → Commerce). Set 100 and 50: the brand hears \"Getting low (early warning)\" at 100, then \"Just went low\" at 50.",
+            "Propago's second reorder minimum comes over as the early warning; the SKU import takes a low_stock_warning column."
+          ]
+        },
+        {
+          "title": "Approval thresholds per product, per user group",
+          "items": [
+            "New in a SKU's Commerce section: Approval threshold. Orders above so many units of this product wait for approval — one number for everyone, and a different one for any user group (above 5 for most buyers, above 10 for Marketing).",
+            "A group's own threshold now replaces the everyone one for its people, for any ordering limit of the same kind — before, both applied."
+          ]
+        },
+        {
+          "title": "Allowances for the whole group, by calendar month",
+          "items": [
+            "A user group's allowances can be shared by the whole group — \"this group, 3 orders a month\" — as well as for each person.",
+            "Allowances can run per calendar month, quarter or year, besides lifetime and rolling days. The shop and the person's page say which (\"this month, shared by the group\")."
+          ]
+        },
+        {
+          "title": "A brand's own portal roles, and power buyers",
+          "items": [
+            "Customer → Client portal → Roles: add the brand's own roles — Field rep, Marketing, Finance — each built on buyer, approver or brand admin, with eleven switches for whose orders they see and approve, placing orders, people, addresses, accounting units, reports, inbound, and skipping approvals or limits.",
+            "Pick the brand's roles for people on People, staff side or in the portal. Editing a role changes its people at once; deleting one puts them back on its base role.",
+            "Power buyer, on a person: their orders skip approvals and ordering limits, whatever their role. Stock, minimums and pack multiples still apply."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.64.0",
       "date": "2026-10-23",
@@ -248,25 +298,6 @@
             "Fenced in on purpose: floor roles only (Warehouse, Pick & pack, Receiving, PPD lead); guessable PINs (1111, 1234) refused; 5 wrong PINs lock it for 15 minutes; no two-factor asked; a username never matches an email account.",
             "Manage on a PIN person: change the username or set a new PIN (signs them out everywhere). No email ever goes to them, and Forgot password? doesn't apply.",
             "The sign-in page now reads Email or username / Password or PIN."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.59.2",
-      "date": "2026-10-20",
-      "entries": [
-        {
-          "title": "Settings → Users rebuilt for a big team, and Forgot password? for staff",
-          "items": [
-            "The Team list: search by name or email, Active / Deactivated / All, filter by role, sort by name, last seen or newest; one compact row per person with role, how they sign in, 2FA and when they were last seen; the first 50, then Show more.",
-            "One Manage per person opens everything under the row — role, print shop, new password, deactivate, sign out everywhere, reset 2FA — instead of three buttons on every row.",
-            "Add a person and Invite several are buttons at the top; their forms open above the list only when you need them. Add a person has a Generate button for the temporary password.",
-            "Invite several reads a whole To: line — addresses separated by spaces, commas or semicolons, with or without names — as one person each. Before, a line of addresses was read as one person and most of them were never checked.",
-            "The invite preview is a table, one person per row: the new people first, then those left alone and why, with counts. The form now says up front that each person gets their own temporary password.",
-            "Forgot password? on the staff sign-in page: a link by email to choose a new password (works once, lasts an hour, signs every device out; two-factor still applies). It never says whether an address has an account, and single sign-on accounts are pointed to the company's sign-in. No email set up? The page says to ask an admin.",
-            "Switched single sign-on off? People who only signed in through it are no longer stuck: Settings → Users lists them (Can't sign in), they can use Forgot password?, or an admin sets a password under Manage. They become password accounts; single sign-on still finds them if you switch it back on.",
-            "Dropdowns across the app keep their text clear of the arrow."
           ]
         }
       ]
