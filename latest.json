@@ -1,9 +1,91 @@
 {
-  "version": "1.65.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.65.0",
-  "releasedAt": "2026-10-24",
-  "notes": "A removed line gives back its pick fee · A calendar for each brand, with reminders · Two low-stock lines: an early warning, then the alert · Approval thresholds per product, per user group · Allowances for the whole group, by calendar month · A brand's own portal roles, and power buyers",
+  "version": "1.66.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.66.0",
+  "releasedAt": "2026-10-26",
+  "notes": "Nothing being made: cancelled jobs under waiting orders · Taking items off orders, packing after picking, and rush per SKU · HP Site Flow: connect and check · Clearer answers on the floor · Stock stays right when two people collide · Imports that say what's wrong · Reports: order details, backorders, tracking — and who gets them · Custom SKU fields and item type · Update SKUs in bulk from a spreadsheet",
   "releases": [
+    {
+      "version": "1.66.0",
+      "date": "2026-10-26",
+      "entries": [
+        {
+          "title": "Nothing being made: cancelled jobs under waiting orders",
+          "items": [
+            "A cancelled print piece is never printed again on its own — before, the next change to its order quietly made a new one. If the order still wants it, the Print queue and the order page show “LUMI-000123 still needs 250 × NSF-BC and nothing is being made”, with Make a new job, or take the item off the order.",
+            "The same for kits: a cancelled work order under a waiting order shows under Nothing being built on the Kitting page, counting kits being built ahead for stock.",
+            "A print piece that is queued, in QC or out for a proof no longer gets a duplicate job when its order is edited."
+          ]
+        },
+        {
+          "title": "Taking items off orders, packing after picking, and rush per SKU",
+          "items": [
+            "Fix order → Remove asks first and shows what is credited: the units, and the pick fee if nobody picked it. Picked or already printed? Tick “Also credit the work already done” to credit the pick fee, print setup and per-piece printing at the rate billed — stocked and print-on-demand items alike.",
+            "Brands can take an item off their own order in the portal (order page → Remove from order) while nothing is picked and it isn't being printed. Its fees are credited.",
+            "Packing always starts from picking: an order nobody picked can't be packed. Print-on-demand items go straight to the bench once they're marked printed.",
+            "SKU → Pricing & limits → Rush orders: let a SKU be rushed or not, with the reason buyers see (“it ships by freight only”). Checkout greys out rush with that reason, and rush orders, sooner ship dates and switching to rush are refused the same way.",
+            "Settings → Shipping → Print on demand: shipping days to print and ship for print SKUs without their own Ships within, and whether print on demand can be rushed (off unless ticked)."
+          ]
+        },
+        {
+          "title": "HP Site Flow: connect and check",
+          "items": [
+            "Settings → Integrations → HP Site Flow: connect Live or Stage with the API token and secret (stored encrypted) and the destination account. Connect & check confirms the credentials without creating anything.",
+            "Check a print piece: type its number and see the exact Site Flow order it would become — product code, quantity, print file, shipment — with Site Flow's own verdict. Nothing is sent yet; sending and status back come next."
+          ]
+        },
+        {
+          "title": "Clearer answers on the floor",
+          "items": [
+            "Finish pressed twice (or after the other picker finished) says the order is already finished, and the pick screen counts it as done. Confirm shipped pressed again shows shipped, not an error.",
+            "Picking an order that was just cancelled says so, and lists what to put back and where. Cancel order now asks first.",
+            "Scanning the wrong lot names the lot the order is reserved; a late answer for a wrong-location scan no longer overwrites the stop you've moved on to; a label read twice into the count no longer confirms it.",
+            "Moving from a location whose stock is on license plates names the plates to scan. A cart can be reopened by its batch number after a refresh or a rebooted gun.",
+            "A retry after a crashed server process is no longer stuck on \"still being worked on\" for two minutes."
+          ]
+        },
+        {
+          "title": "Stock stays right when two people collide",
+          "items": [
+            "Undoing a receipt takes the units back from where they were moved, not from the biggest pile of that product.",
+            "Two receivers making the same new lot at once both succeed; l26002 and L26002 (or a copy-pasted code with hidden characters) are one lot; a lot with a different expiry than the one on file is refused with both dates; receiving an already-expired lot warns.",
+            "A pallet moved from a page that was out of date is told where it went instead of moving it twice; a pick-face refill can't be done twice; a double-tapped bench pull books once.",
+            "Counts: blind counts stay blind over the API, two counters on one line can't overwrite each other, a count can't be cancelled once part of it is in the ledger, and a location that doesn't exist is named.",
+            "The kitting bench and print pull parts and blanks that receiving put on license plates; a print job started twice pulls its blanks once; a truck can be received onto the dock while its SKU is being counted.",
+            "Sanity limits: adjustments, counts, order lines and import numbers can't be absurd (a million at most, hex and 1e20 refused)."
+          ]
+        },
+        {
+          "title": "Imports that say what's wrong",
+          "items": [
+            "An unclosed quote, or the same column twice in the header, is refused with the line it's on — before anything is written. Errors name the line as your spreadsheet shows it, blank rows counted.",
+            "A file that repeats the same row is flagged before it's imported. Files up to 25 MB reach the import (bigger ones are told so), and Excel files can't unpack to more than 128 MB.",
+            "Location codes are checked (letters, digits and - _ . /, up to 32, never a formula); a trading partner's licence date must be a date."
+          ]
+        },
+        {
+          "title": "Reports: order details, backorders, tracking — and who gets them",
+          "items": [
+            "Portal reports: Order summary (one row per order, as before), Order details (every item: ordered, shipped, still owed), Backorders (what's waiting on stock) and Tracking (shipped orders with carrier and tracking).",
+            "Order details and Backorders filter by item, category (everything under it), item type, and kits — on screen, in the CSV, and in scheduled emails.",
+            "A report built for a brand can be given to particular people and user groups, not just roles.",
+            "The report builder has Item type and Categories on every product report."
+          ]
+        },
+        {
+          "title": "Custom SKU fields and item type",
+          "items": [
+            "Each brand can have its own SKU fields — Customer → SKUs → Fields: Propago's Custom 01–05 or named ones — each shown to buyers or kept for the warehouse and billing.",
+            "Item type on every SKU (Brochure, Apparel…), filterable in reports. Propago's item type and Custom 01–05 come over with new SKUs."
+          ]
+        },
+        {
+          "title": "Update SKUs in bulk from a spreadsheet",
+          "items": [
+            "The SKU import now updates the brand's existing SKUs too, changing only the cells you fill in: a sheet of just sku and price updates prices. Export CSV from the SKU list, edit it, import it back."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.65.0",
       "date": "2026-10-24",
@@ -283,21 +365,6 @@
             "Packing: a box line must be the order line's own product; re-boxing after closing bills (or credits) the difference in cartons; Confirm shipped with open boxes closes them first, weight check and carton fee included; cancelling a packed order takes its boxes off the ship desk (void a bought label first).",
             "Undo a receipt never takes units off the cart or stock open orders have reserved. A cancelled print job puts its unused blanks back on their shelves, and Mark printed pressed at two stations books once. Two people moving one pallet to two places: one moves it, the other is told.",
             "Imports read UTF-16 and older-Excel files correctly, refuse an .xlsx that unpacks past 64 MB, and every CSV Amphora exports opens formulas as text."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.59.3",
-      "date": "2026-10-20",
-      "entries": [
-        {
-          "title": "Username and PIN sign-in for floor people without an email",
-          "items": [
-            "Add a person → Username & PIN (no email): a username like maria.l and a 4–8 digit PIN you set and hand over. They sign in on the same page — the username where the email goes, the PIN where the password goes.",
-            "Fenced in on purpose: floor roles only (Warehouse, Pick & pack, Receiving, PPD lead); guessable PINs (1111, 1234) refused; 5 wrong PINs lock it for 15 minutes; no two-factor asked; a username never matches an email account.",
-            "Manage on a PIN person: change the username or set a new PIN (signs them out everywhere). No email ever goes to them, and Forgot password? doesn't apply.",
-            "The sign-in page now reads Email or username / Password or PIN."
           ]
         }
       ]
