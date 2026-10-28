@@ -1,9 +1,22 @@
 {
-  "version": "1.67.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.67.0",
+  "version": "1.67.1",
+  "image": "ghcr.io/parth-kadakia/amphora:1.67.1",
   "releasedAt": "2026-10-28",
-  "notes": "Add many SKUs to a category, and categories you can tell apart",
+  "notes": "Empty categories show in the portal",
   "releases": [
+    {
+      "version": "1.67.1",
+      "date": "2026-10-28",
+      "entries": [
+        {
+          "title": "Empty categories show in the portal",
+          "items": [
+            "A category shows in the portal's menu before any product is in it, so a brand set up with its categories first sees the whole structure from day one. Opening an empty one says Nothing here yet.",
+            "User groups still decide: a group limited to Only these categories sees just those, everything under them, and the parents that lead to them."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.67.0",
       "date": "2026-10-28",
@@ -294,44 +307,6 @@
             "\"Which spreadsheet do I use?\" beside the customer's imports: Import CSV makes the products; Kit contents, Price breaks, Ordering limits and Lots each set one thing on SKUs that already exist and replace that SKU's list.",
             "The SKU import says barcode columns are for the warehouse — scanning and placards — and never show in a portal.",
             "Price breaks read \"$ off each unit\" / \"% off each unit\" and every row shows what it comes to, e.g. \"= $64.00 each at 24+\"."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.61.0",
-      "date": "2026-10-21",
-      "entries": [
-        {
-          "title": "Practice in the demo world",
-          "items": [
-            "Practice (demo world only): six guided exercises a trainer hands a new hire — receive a truck with a short line, put away, pick and ship an order, count three shelves, process a return, enter an order from a buyer's email.",
-            "Start builds a fresh scenario through the real engines; the checklist ticks itself as the work gets done on the real screens, and Try again makes a new one. It never touches the main install's stock. New hires need their own account inside the demo world."
-          ]
-        },
-        {
-          "title": "Onboarding a brand: welcome pack, Getting started and portal Help",
-          "items": [
-            "Customer → Overview → Welcome pack (PDF) prints a few pages for a new brand in your own branding: their portal address and how to sign in, the ship-by promise and cut-off, carriers, how to send stock in and mark the cartons, reports, and who to ask. Sections that don't apply are left out.",
-            "When a brand admin signs in, the portal home shows Getting started — invite your people, groups, approvals, the first order, a scheduled report, low-stock alerts. Each line ticks itself from what has actually happened, links to the screen that does it, and the card can be hidden.",
-            "Every portal has a Help page (Help in the account menu): short guides in the brand's own look, showing each person only what they can do, with a search box."
-          ]
-        },
-        {
-          "title": "Floor cheat sheets: one printed page per station",
-          "items": [
-            "Knowledge base → Floor cheat sheets: eight one-page sheets — scan mode, receiving, putaway, picking, pack & ship, cycle counts, returns and put back — to print, laminate and keep where the work happens.",
-            "Each has the steps in big numbered type, What the screen tells you (the messages people actually see, like “may have gone through” or a red DO NOT SHIP placard) and When you're stuck, ending with who to ask. They wear your logo and are generated from this version, so reprint after an update."
-          ]
-        },
-        {
-          "title": "Learn your job, not the whole manual",
-          "items": [
-            "The knowledge base opens on Your first day as… — a short path for each job (receiving, pick & pack, floor lead, office, billing, setting up, developers): the handful of things that job does every day, each with the screen that does it and the exact section that explains it. Handbook (PDF) prints just that job's pages and articles instead of the whole reference.",
-            "A ? in the top bar on every screen opens the help for that screen in a side panel — press ? anywhere outside a field.",
-            "New installs: the dashboard opens with Go live, the first-run steps in order (the clock, the building, the team, a customer ready to trade, the first receipt, the first shipment…), each ticked off from the real thing. Hide it, or bring it back from Settings → General.",
-            "Reports → Help questions (owners and admins) lists what your team asked the help and didn't find, in their own words — the docs still to write.",
-            "The knowledge base's sections are regrouped into eleven, in the order people need them: Start here, Team & security, Customers, Client portals, Catalog, Receiving & stock, Orders & shipping, Billing & reports, Print, mail & compliance, Platform & integrations, Reference."
           ]
         }
       ]
