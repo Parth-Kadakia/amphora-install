@@ -1,9 +1,24 @@
 {
-  "version": "1.66.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.66.0",
-  "releasedAt": "2026-10-26",
-  "notes": "Nothing being made: cancelled jobs under waiting orders · Taking items off orders, packing after picking, and rush per SKU · HP Site Flow: connect and check · Clearer answers on the floor · Stock stays right when two people collide · Imports that say what's wrong · Reports: order details, backorders, tracking — and who gets them · Custom SKU fields and item type · Update SKUs in bulk from a spreadsheet",
+  "version": "1.67.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.67.0",
+  "releasedAt": "2026-10-28",
+  "notes": "Add many SKUs to a category, and categories you can tell apart",
   "releases": [
+    {
+      "version": "1.67.0",
+      "date": "2026-10-28",
+      "entries": [
+        {
+          "title": "Add many SKUs to a category, and categories you can tell apart",
+          "items": [
+            "Each category has a SKUs tab: In category and Not in category, with search and sortable columns. Tick SKUs (or every one the search shows) and press Add to category or Remove from category. Other categories shows where each SKU already sits.",
+            "A SKU's Categories box is now the tree: each top-level category in its own box with its sub-categories under it, so two called Sale under different parents can't be mixed up. The SKU's categories are listed above as full paths, and a Find box narrows a long list.",
+            "In the portal, People is now Users — the menu, the page and the help.",
+            "On a SKU, Customs value is now Fair market value — the declared value per unit for international shipments."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.66.0",
       "date": "2026-10-26",
@@ -317,54 +332,6 @@
             "New installs: the dashboard opens with Go live, the first-run steps in order (the clock, the building, the team, a customer ready to trade, the first receipt, the first shipment…), each ticked off from the real thing. Hide it, or bring it back from Settings → General.",
             "Reports → Help questions (owners and admins) lists what your team asked the help and didn't find, in their own words — the docs still to write.",
             "The knowledge base's sections are regrouped into eleven, in the order people need them: Start here, Team & security, Customers, Client portals, Catalog, Receiving & stock, Orders & shipping, Billing & reports, Print, mail & compliance, Platform & integrations, Reference."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.60.0",
-      "date": "2026-10-21",
-      "entries": [
-        {
-          "title": "Stock that goes bad moves its orders, files aren't received twice, paid invoices stay paid",
-          "items": [
-            "Marking stock damaged or quarantined, writing it off, destroying it or counting it down now re-reserves the orders that were counting on it — from other lots, earliest expiry first, or backordered — and the screen names the orders that moved. Before, they stayed reserved on stock that couldn't ship.",
-            "Mass receiving: the same file received a second time (another screen, a double click, the sheet uploaded again) stops and says when and by whom it was received; Receive it again anyway is there for a genuine second delivery.",
-            "Big import checks run in short parts, so the floor keeps scanning while a 6,000-row file is checked — no more “database is locked” on the scanners.",
-            "A paid invoice can't be voided any more — correct it with a credit on the next invoice, or a refund."
-          ]
-        },
-        {
-          "title": "Friendlier error pages — and they know when the Wi-Fi dropped",
-          "items": [
-            "A page that can't load now says so with a bit of warehouse humour (“This page tripped over a pallet.”), what to check (did what you were saving go through?), and Try again, Go back or Home — instead of a bare “This page couldn't load”.",
-            "Lost the connection? It says that (“The Wi-Fi went on break.”) and tries again by itself the moment the connection is back.",
-            "A real failure shows a short reference code that matches the server's log, for whoever runs Amphora. Pages that don't exist, scan mode and client portals (in the brand's own look) get the same treatment."
-          ]
-        },
-        {
-          "title": "Idle stock fees: stock that doesn't ship costs more to keep",
-          "items": [
-            "Customer → Billing → Idle stock fees: a storage surcharge for SKUs that haven't shipped in months — by default 50% of the bin or pallet fee at 6 months, 75% at 12, 100% at 18, 150% at 24, each client's own tiers editable.",
-            "Idle means no unit shipped: the clock runs from the last shipment (or the first receipt, if it never shipped); receipts and moves don't restart it, shipping one unit does. A location shared with other products counts as a share.",
-            "Three modes per client: Inactive (nothing), Draft (alerts only, nothing charged — a dry run) and On (the monthly invoice adds the surcharge, averaged over the days it was On, like storage).",
-            "Alerts each morning to the brand's admins and the client's new Account manager, by email, and the Billing team's bell: SKUs coming up on a tier within the warning window (30 days by default) and SKUs that just reached one — each told once.",
-            "Reports → Idle stock: by client, every SKU past a tier or coming up — months idle, positions, the surcharge now and at the next tier — with a CSV export."
-          ]
-        },
-        {
-          "title": "The floor, hammered: lost answers, double taps, counts, returns and billing made safe",
-          "items": [
-            "No answer from the server? The scanner now says it may have gone through, and doing it again is safe — it's sent with the same key, so a receipt, move or pick that already landed is never booked twice. Before, it said “this wasn't saved”, and doing it again booked it twice.",
-            "A second Enter from the gun (or a double tap) while a scan is being sent is ignored on the pick and receiving screens; the same stop sent twice in a moment is recorded once. Pallet receipts, return receipts, kitting pulls, Confirm shipped and the print buttons are done once when pressed again after a lost answer.",
-            "Pick & pack and Receiving can now finish their own work: confirm put-backs, show up as Being picked by, answer Put back / Keep when an order comes off their cart, release an empty location, and decide what happened to their own refused offline scans. Anything outside a role now says so (“Pick & pack can't do this — ask a manager”) instead of “Authentication required”.",
-            "Finish picking waits until every stop is confirmed or recorded short — no more lines shorted silently because a colleague's stop was still on its way — and waits while the office is editing the order. A run where every stop came up short sends the order back to Backordered instead of leaving it at the bench as Packed.",
-            "Counts: locations the system believes are empty are listed on the count (and the sheet) and locked with the rest; pallets can't be driven in or out of a counted location; a line sent back for recount must be counted again before it can be approved; two counters who disagree send the line back for a recount; a pick & pack or receiving person can't approve their own count.",
-            "Returns can't bring back more than an order shipped, a product it didn't ship, or the same units twice; Undo shipped is refused once a return has brought units back.",
-            "Invoices: a draft whose dates overlap another invoice is refused (storage would bill those days twice); Recalculate and Issue can no longer cross and leave fees on an invoice that doesn't show them.",
-            "Packing: a box line must be the order line's own product; re-boxing after closing bills (or credits) the difference in cartons; Confirm shipped with open boxes closes them first, weight check and carton fee included; cancelling a packed order takes its boxes off the ship desk (void a bought label first).",
-            "Undo a receipt never takes units off the cart or stock open orders have reserved. A cancelled print job puts its unused blanks back on their shelves, and Mark printed pressed at two stations books once. Two people moving one pallet to two places: one moves it, the other is told.",
-            "Imports read UTF-16 and older-Excel files correctly, refuse an .xlsx that unpacks past 64 MB, and every CSV Amphora exports opens formulas as text."
           ]
         }
       ]
