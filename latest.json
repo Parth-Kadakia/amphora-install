@@ -1,9 +1,22 @@
 {
-  "version": "1.67.2",
-  "image": "ghcr.io/parth-kadakia/amphora:1.67.2",
+  "version": "1.67.3",
+  "image": "ghcr.io/parth-kadakia/amphora:1.67.3",
   "releasedAt": "2026-10-28",
-  "notes": "Every category level in the portal menu, and a new group stays open",
+  "notes": "Sub-categories as big blocks, and category pictures that fit",
   "releases": [
+    {
+      "version": "1.67.3",
+      "date": "2026-10-28",
+      "entries": [
+        {
+          "title": "Sub-categories as big blocks, and category pictures that fit",
+          "items": [
+            "A parent category shows its sub-categories as big picture blocks, the same as Shop by category on the home page — including a parent with nothing in it yet. Design studio → Catalog switches between blocks (the default), chips, or only the sidebar and menu.",
+            "Category pictures always show whole — a logo is fitted inside its block, never cropped."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.67.2",
       "date": "2026-10-28",
@@ -270,18 +283,6 @@
           "title": "Portal typefaces ship with Amphora",
           "items": [
             "The typefaces a portal theme can choose now come inside Amphora itself instead of being fetched from Google when Amphora is built — nothing changes on screen, and portals never load fonts from Google."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.62.1",
-      "date": "2026-10-22",
-      "entries": [
-        {
-          "title": "Security update",
-          "items": [
-            "Amphora now runs on a patched version of its web framework, closing a critical issue in image handling and a way to slow the server down. Nothing changes on screen; update when you can."
           ]
         }
       ]
