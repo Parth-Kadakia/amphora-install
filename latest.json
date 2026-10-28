@@ -1,9 +1,23 @@
 {
-  "version": "1.67.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.67.1",
+  "version": "1.67.2",
+  "image": "ghcr.io/parth-kadakia/amphora:1.67.2",
   "releasedAt": "2026-10-28",
-  "notes": "Empty categories show in the portal",
+  "notes": "Every category level in the portal menu, and a new group stays open",
   "releases": [
+    {
+      "version": "1.67.2",
+      "date": "2026-10-28",
+      "entries": [
+        {
+          "title": "Every category level in the portal menu, and a new group stays open",
+          "items": [
+            "The portal's header menu shows every level of categories under a parent, indented — not just the first. Sub-category tiles list what sits under each one, and an empty category lists its sub-categories instead of stopping at Nothing here yet.",
+            "Creating a user group keeps it open on its editor, ready for its catalog, limits and rules — no Edit click.",
+            "A test world's portal developer page (/p/…/api) loads its reference for staff previewing it or signed in as one of its people."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.67.1",
       "date": "2026-10-28",
@@ -268,45 +282,6 @@
           "title": "Security update",
           "items": [
             "Amphora now runs on a patched version of its web framework, closing a critical issue in image handling and a way to slow the server down. Nothing changes on screen; update when you can."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.62.0",
-      "date": "2026-10-22",
-      "entries": [
-        {
-          "title": "Kits ordered report",
-          "items": [
-            "Reports → Kits ordered: how many of each kit got ordered over a date range — prebuilt kits, build-a-kits and kits an upstream system sent as parts — with the number of orders and the last time each was ordered. Filter by customer, kit type and dates; download as CSV. Cancelled orders are left out.",
-            "Every order now records its kits as it's placed, so build-a-kits count right even though they arrive as their parts. Orders placed before this update are filled in from their own records the first time the report runs.",
-            "Brands see the same in their portal: Reports → Usage → By kit. The report builder has a Kits ordered subject and a ready-to-run starter."
-          ]
-        },
-        {
-          "title": "Which services and countries each user group may ship to",
-          "items": [
-            "Customer → Client portal → User groups → Shipping: under the carriers, Services this group may pick — e.g. only admins get overnight. Nothing checked keeps every service the customer allows; a group can narrow, never widen.",
-            "Countries: Anywhere (the default — existing groups don't change), US only (territories included), or Only these countries. Checkout says so under Ship to before the order is placed; address-book and fixed group addresses are checked too.",
-            "Fixed: a portal order's shipping service is now checked against what the group may pick on every route — checkout, bulk, saved carts and the portal API — not only its carrier."
-          ]
-        },
-        {
-          "title": "Ask AI for a portal theme from the brand guidelines",
-          "items": [
-            "After the Design studio reads a brand's guidelines PDF, Ask AI for a theme suggests which colour does what, a font pairing, corners and button style, with its reasons. It only sees what was read from the PDF and may only use the guide's own colours; text that wouldn't read is fixed and every correction is shown. You still choose, Apply to the preview and Publish.",
-            "Off until switched on: Settings → Integrations → AI assistant → Portal theme from brand guidelines.",
-            "Easier to find: the Your brand section and the colors step say you can start from the guidelines, and a card points to it until the brand's colours are set."
-          ]
-        },
-        {
-          "title": "SKUs: find the kits, clearer imports and price breaks",
-          "items": [
-            "Both SKU lists have a Type filter — Kits, Stocked, Print on demand, Service. Export CSV and Placards follow it.",
-            "\"Which spreadsheet do I use?\" beside the customer's imports: Import CSV makes the products; Kit contents, Price breaks, Ordering limits and Lots each set one thing on SKUs that already exist and replace that SKU's list.",
-            "The SKU import says barcode columns are for the warehouse — scanning and placards — and never show in a portal.",
-            "Price breaks read \"$ off each unit\" / \"% off each unit\" and every row shows what it comes to, e.g. \"= $64.00 each at 24+\"."
           ]
         }
       ]
