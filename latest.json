@@ -1,9 +1,69 @@
 {
-  "version": "1.67.3",
-  "image": "ghcr.io/parth-kadakia/amphora:1.67.3",
-  "releasedAt": "2026-10-28",
-  "notes": "Sub-categories as big blocks, and category pictures that fit",
+  "version": "1.68.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.68.0",
+  "releasedAt": "2026-11-09",
+  "notes": "Packaging on each client's own dieline, with their art per panel · Clients put their own artwork in a box on the design — checked and placed · Choose exactly what each client API key may do — and change it any time · Change SKU codes when a brand renumbers — stock stays put, old codes keep working · The print designer stops adding fields by accident · The design studio saves your work as you go · Move a portal design from test to live with one file",
   "releases": [
+    {
+      "version": "1.68.0",
+      "date": "2026-11-09",
+      "entries": [
+        {
+          "title": "Packaging on each client's own dieline, with their art per panel",
+          "items": [
+            "In the designer, add the client's dieline (PDF or AI): the page takes its size, and it shows over the page so you can draw a box on each panel — Lid, Front, sides — for the client's art.",
+            "Clients upload art per panel, checked at that panel's size. Proofs show it against the dieline; the print file never has the lines on the art, and the print-ready PDF adds the dieline as its own page for the cutter."
+          ]
+        },
+        {
+          "title": "Clients put their own artwork in a box on the design — checked and placed",
+          "items": [
+            "A box on a design set to They upload it now takes the client's artwork as PDF, AI, SVG, PNG, JPG or WebP — not just a picture. It's checked at the box's printed size: too low a resolution is refused with the reason, soft is placed with a note, vector is sharp at any size.",
+            "The proof shows it in its spot and the print file draws it at print resolution; the check runs again when the order is placed.",
+            "Client emailed their logo? On the print job, The client's artwork → Add or Replace artwork puts it in the box, checked the same way, and re-renders the job."
+          ]
+        },
+        {
+          "title": "Choose exactly what each client API key may do — and change it any time",
+          "items": [
+            "Customer → Client portal → API keys: Place orders now has boxes for what an order may carry — ship to any address, choose carrier and service, rush, a ship date, personalized products. A key sending something it isn't allowed gets a clear refusal naming the box.",
+            "New: Cancel orders — a key may cancel an order before the warehouse starts on it.",
+            "Change permissions on any existing key, right in the Keys list. Keys issued before keep everything they could already do."
+          ]
+        },
+        {
+          "title": "Change SKU codes when a brand renumbers — stock stays put, old codes keep working",
+          "items": [
+            "A live SKU's code can now change: its page → SKU code → Change…. It stays the same SKU, so stock, locations, lots and history don't move and nothing is transferred.",
+            "A whole brand at once: Customer → SKUs → Change SKU codes — paste or upload old and new codes, check every row, then change them all together. Undo puts the old codes back.",
+            "The old code keeps working everywhere: old placards and case labels scan, and packing lists, sheets, orders, inbound, the client API, Propago and Shopify that still say it find the SKU. Pick and pack show “was …” for 60 days."
+          ]
+        },
+        {
+          "title": "The print designer stops adding fields by accident",
+          "items": [
+            "Clicking a dotted line of the customer's PDF now only picks it; Make it a field (or a double-click, or Enter) turns it into a field. Clicking around the page to select or deselect never adds anything.",
+            "Your fields sit on top of the PDF's dotted lines, so clicking a field always selects it — and a line a field already covers stops showing.",
+            "Leaving the designer with unsaved changes asks first."
+          ]
+        },
+        {
+          "title": "The design studio saves your work as you go",
+          "items": [
+            "Every change in the portal design studio is kept as your draft within a moment — the top bar shows Draft saved with the time. Close the tab and the studio reopens on your changes next time, with Start from live instead if you'd rather not.",
+            "Buyers still see only what you Publish; a half-finished design never goes live on its own."
+          ]
+        },
+        {
+          "title": "Move a portal design from test to live with one file",
+          "items": [
+            "Design studio → Design file downloads the whole look as one file — pictures, logo and web fonts included — and brings one in on another portal or install, as unpublished changes to check before Publish.",
+            "Featured products match by SKU code and user groups by name; anything the other portal doesn't have is listed after the import.",
+            "Also on the API: GET /api/v1/customers/{id}/portal-theme/export and POST …/portal-theme/import."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.67.3",
       "date": "2026-10-28",
@@ -271,18 +331,6 @@
           "items": [
             "Location on the Receive desk's Pallet mode is now a search box: type or scan part of a code and the list narrows to match. Leave it blank to land the pallet on the dock, as before.",
             "Location lists everywhere are in aisle order — MAIN46-B-6-5 now comes before MAIN46-B-46-1 instead of after it."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.62.2",
-      "date": "2026-10-22",
-      "entries": [
-        {
-          "title": "Portal typefaces ship with Amphora",
-          "items": [
-            "The typefaces a portal theme can choose now come inside Amphora itself instead of being fetched from Google when Amphora is built — nothing changes on screen, and portals never load fonts from Google."
           ]
         }
       ]
