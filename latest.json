@@ -1,9 +1,22 @@
 {
-  "version": "1.69.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.69.1",
+  "version": "1.70.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.70.0",
   "releasedAt": "2026-11-09",
-  "notes": "Problem alerts by email, clearer preview errors, portal pages behind nginx, and a tidier Users list",
+  "notes": "Bring a client's people in from Propago",
   "releases": [
+    {
+      "version": "1.70.0",
+      "date": "2026-11-09",
+      "entries": [
+        {
+          "title": "Bring a client's people in from Propago",
+          "items": [
+            "Customer → Propago → People reads the client's Propago user groups, users and accounting units and brings them in: groups by name, people with their role, power buyer, group and title, and cost centres. Nothing is written to Propago.",
+            "People arrive inactive with no email, so they keep ordering in Propago; on moving day, Go live switches them all on and sends the invitations (single sign-on people just become active). Shared logins, people with no email and duplicates are skipped and listed."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.69.1",
       "date": "2026-11-09",
@@ -283,34 +296,6 @@
             "Customer → Client portal → Roles: add the brand's own roles — Field rep, Marketing, Finance — each built on buyer, approver or brand admin, with eleven switches for whose orders they see and approve, placing orders, people, addresses, accounting units, reports, inbound, and skipping approvals or limits.",
             "Pick the brand's roles for people on People, staff side or in the portal. Editing a role changes its people at once; deleting one puts them back on its base role.",
             "Power buyer, on a person: their orders skip approvals and ordering limits, whatever their role. Stock, minimums and pack multiples still apply."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.64.0",
-      "date": "2026-10-23",
-      "entries": [
-        {
-          "title": "Kits get their own page",
-          "items": [
-            "A customer's Catalog menu now has Categories, SKUs and Kits. Kits lists the products built from other SKUs, with New kit; the SKU list keeps everything else, kit parts included.",
-            "The design studio's \"Catalog page\" step is now \"Shop page\", the name buyers see on the portal."
-          ]
-        },
-        {
-          "title": "User groups: a category tree, and products one by one",
-          "items": [
-            "\"Only these categories\" shows every level as a tree. Tick a category and everything under it comes with it — its sub-categories show as \"included\". Before, a ticked parent didn't bring its sub-categories' products.",
-            "New on a group's Catalog tab: Products, one by one. Find a product and choose Always show (an extra SKU this group wouldn't otherwise see) or Always hide."
-          ]
-        },
-        {
-          "title": "The same category name under two parents",
-          "items": [
-            "Skincare > Sale and Gifts > Sale can now both exist — a name only has to be unique among the categories beside it. Adding a second \"Sale\" under the same parent says so plainly.",
-            "The SKU import's categories column takes paths: \"Makeup > Lipsticks\" files the product there, making any level that's missing.",
-            "The reorganizer's spreadsheet writes each category as its path, and reads paths back, so two categories with the same name never get mixed up."
           ]
         }
       ]
