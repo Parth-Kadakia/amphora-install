@@ -1,9 +1,26 @@
 {
-  "version": "1.69.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.69.0",
+  "version": "1.69.1",
+  "image": "ghcr.io/parth-kadakia/amphora:1.69.1",
   "releasedAt": "2026-11-09",
-  "notes": "The design file brings the category tree and its pictures too · Clients add their people through the API — invited, or inactive until switched on",
+  "notes": "Problem alerts by email, clearer preview errors, portal pages behind nginx, and a tidier Users list",
   "releases": [
+    {
+      "version": "1.69.1",
+      "date": "2026-11-09",
+      "entries": [
+        {
+          "title": "Problem alerts by email, clearer preview errors, portal pages behind nginx, and a tidier Users list",
+          "items": [
+            "Test worlds show the address testers can actually reach — inside Docker the link no longer shows the container's own address. Test worlds → Your worlds → Not the right address? Change… sets it once (like 192.168.113.40) for every world.",
+            "Customer → Client portal → Users: a Status column (Active, Invited · not accepted, Inactive), and Manage opens a person's actions under their row instead of a line of buttons running off the side.",
+            "Portal pages and the design studio's preview no longer fail with 502 Bad Gateway behind a web server (nginx) on its default settings: the storefront's fonts are no longer all announced up front, which made its response headers too big for the server.",
+            "Problem alerts: add email addresses under Settings → Health and they hear about it when something breaks — a server error, a crashed page, or the web server refusing Amphora's answer — through your own email setup, at most once an hour per problem. Send a test alert to check.",
+            "Each alert is the actual issue, in two parts: in plain words — what went wrong (named plainly when Amphora knows it), who it happened to, which client and record, where, and what to do — then the technical detail for whoever fixes it: the exact error, the request, the error reference, the version and the trace.",
+            "The design studio explains a failed preview instead of showing a bare 502 page: which server answered, what usually fixes it, and Try again."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.69.0",
       "date": "2026-11-09",
@@ -294,42 +311,6 @@
             "Skincare > Sale and Gifts > Sale can now both exist — a name only has to be unique among the categories beside it. Adding a second \"Sale\" under the same parent says so plainly.",
             "The SKU import's categories column takes paths: \"Makeup > Lipsticks\" files the product there, making any level that's missing.",
             "The reorganizer's spreadsheet writes each category as its path, and reads paths back, so two categories with the same name never get mixed up."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.63.0",
-      "date": "2026-10-23",
-      "entries": [
-        {
-          "title": "Security update",
-          "items": [
-            "A library Amphora uses to check what's sent to it is updated, closing a way an oversized request could use up the server's memory. Nothing changes on screen."
-          ]
-        },
-        {
-          "title": "Categories at every level, and a merge that keeps user groups",
-          "items": [
-            "The Categories card shows the whole tree — sub-categories of sub-categories included. Before, anything deeper than two levels was hidden from the card even though it existed.",
-            "Add a sub-category straight from the card: pick where it goes (Top level, or Under a category) next to the name, then Add.",
-            "Reorganize the catalog checks each change the moment you add it, so Apply is always one click (\"Apply 2 changes\"). Reshape the tree nests at any depth — drop a category onto another to put it under that one.",
-            "Merging a category into one of its own sub-categories now works: the kept one takes its place. User groups limited to \"Only these categories\", and their allowances, follow a merge or delete too, and Undo puts them back.",
-            "\"view SKUs\" and each category's SKU count open this customer's own SKU list, filtered to that category and everything under it. The SKU list has a category filter of its own."
-          ]
-        },
-        {
-          "title": "The design studio previews every setting before you publish",
-          "items": [
-            "Featured products, the Orders page's opening tab, related products, low-stock-first, labels on the reports, accounting and bulk pages, and the approvals ship-to all change in the preview as you set them. Before, these only showed after Publish.",
-            "Buyers still see the published portal until you press Publish. The draft is yours alone — another designer previewing the same portal sees their own."
-          ]
-        },
-        {
-          "title": "The menu stays where you left it",
-          "items": [
-            "Clicking an item low in the side menu no longer throws the menu back to the top: the menu stays put while the page scrolls, and so does a customer's own menu.",
-            "Fold any menu group you don't use by clicking its heading. This device remembers what you folded; the group holding the page you're on always stays open."
           ]
         }
       ]
