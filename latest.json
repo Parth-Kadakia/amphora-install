@@ -1,9 +1,28 @@
 {
-  "version": "1.68.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.68.0",
+  "version": "1.69.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.69.0",
   "releasedAt": "2026-11-09",
-  "notes": "Packaging on each client's own dieline, with their art per panel · Clients put their own artwork in a box on the design — checked and placed · Choose exactly what each client API key may do — and change it any time · Change SKU codes when a brand renumbers — stock stays put, old codes keep working · The print designer stops adding fields by accident · The design studio saves your work as you go · Move a portal design from test to live with one file",
+  "notes": "The design file brings the category tree and its pictures too · Clients add their people through the API — invited, or inactive until switched on",
   "releases": [
+    {
+      "version": "1.69.0",
+      "date": "2026-11-09",
+      "entries": [
+        {
+          "title": "The design file brings the category tree and its pictures too",
+          "items": [
+            "Design studio → Design file now carries every category with its picture, description and order. Bringing it in on live puts each picture on the matching category and makes the categories live doesn't have yet — assign products to them there."
+          ]
+        },
+        {
+          "title": "Clients add their people through the API — invited, or inactive until switched on",
+          "items": [
+            "A new Manage users permission on client API keys: the brand's own systems add people as invited (the invitation email goes now) or inactive (no email; switch them on later and the invitation goes then).",
+            "They can also change a person's role, group and status by name, and resend an invitation. The key must act as a brand admin, like the People page."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.68.0",
       "date": "2026-11-09",
@@ -311,26 +330,6 @@
           "items": [
             "Clicking an item low in the side menu no longer throws the menu back to the top: the menu stays put while the page scrolls, and so does a customer's own menu.",
             "Fold any menu group you don't use by clicking its heading. This device remembers what you folded; the group holding the page you're on always stays open."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.62.3",
-      "date": "2026-10-22",
-      "entries": [
-        {
-          "title": "Pick runs walk pick priority 1 first",
-          "items": [
-            "The pick slip and the scan station now send pickers to locations in pick-priority order — priority 1, then 2, then 3 — before anything without a priority, which follows the walk path as before. Amphora already took the right quantities from each location; it listed the stops in walk order, so a priority-3 shelf could come first on the slip.",
-            "The slip's ROUTE line now reads \"pick priority first, then walk-path order\"."
-          ]
-        },
-        {
-          "title": "Find a location by typing it when receiving a pallet",
-          "items": [
-            "Location on the Receive desk's Pallet mode is now a search box: type or scan part of a code and the list narrows to match. Leave it blank to land the pallet on the dock, as before.",
-            "Location lists everywhere are in aisle order — MAIN46-B-6-5 now comes before MAIN46-B-46-1 instead of after it."
           ]
         }
       ]
