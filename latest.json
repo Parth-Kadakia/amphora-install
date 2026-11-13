@@ -1,9 +1,33 @@
 {
-  "version": "1.72.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.72.0",
-  "releasedAt": "2026-11-10",
-  "notes": "Oversized Excel files are refused before they use up memory · A row pasted twice no longer imports twice · A failed label purchase never blocks the shipment, and it emails you · Adding a product with shades always asks which shade · FedEx delivery estimates work · Launch rosters: create people now, invite them on launch day · Critical problems by text, after hours · Variants: add many at once, bulk upload, and a Variants import · SKU import says what's required, with a short template · Portals say Powered by your company, and the calendar asks what your company should know · Categories one level at a time, and drag to move them",
+  "version": "1.73.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.73.0",
+  "releasedAt": "2026-11-13",
+  "notes": "Security questionnaires, drafted from what Amphora actually does · Every import takes Excel, and gives back the rows to fix",
   "releases": [
+    {
+      "version": "1.73.0",
+      "date": "2026-11-13",
+      "entries": [
+        {
+          "title": "Security questionnaires, drafted from what Amphora actually does",
+          "items": [
+            "Settings → Security questionnaires (owners and admins): choose a client's security questionnaire as Excel or CSV, and Amphora drafts an answer to every question from its security facts — what the software does, checked against its code, and how this install is set up right now (two-factor rule, session limits, password rules, backups and off-site copies, restore drills, SIEM forwarding, the AI assistant).",
+            "Questions about your company rather than the software — policies, people, insurance, offices, hosting provider, certifications — are never guessed: they come back Needs an answer for you to write. Every answer shows the facts it rests on, and you can edit any of them before downloading the client's file with the answers added.",
+            "Needs the AI assistant with the new Security questionnaire answers switch on; only the questions and the facts are sent, never your data.",
+            "Settings → Security now says two-factor “Required for owners, admins and managers” — managers were always included; the label left them out."
+          ]
+        },
+        {
+          "title": "Every import takes Excel, and gives back the rows to fix",
+          "items": [
+            "Choose an Excel workbook (.xlsx) anywhere you could choose a CSV — SKU import, mass receiving, the move sheet, locations, portal rosters, SKU code changes, tracking numbers, the catalog layout, the carrier tools' bulk lists and a portal's bulk checkout. Before, an Excel file on the SKU import was read as gibberish and refused with “The file has no \"sku\" column”.",
+            "Dates in Excel read as dates, and a long number like a 12-digit UPC keeps every digit. An older .xls or a Numbers file gets a plain “save it as .xlsx or CSV”.",
+            "Download the rows to fix: when rows have problems, one click gives an Excel file of just those rows as they were in your file, with an error column saying what's wrong on each. Fix it and upload it again — the error column is skipped. The guided Import window's download and a portal's address check now come as Excel too, with every cell kept as text so codes and ZIPs with leading zeros survive.",
+            "The SKU import's problem list is easier to scan: each row on its own line with its code, the reason underneath. A move sheet's problems now always name the line in your file."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.72.0",
       "date": "2026-11-10",
@@ -303,20 +327,6 @@
           "items": [
             "A parent category shows its sub-categories as big picture blocks, the same as Shop by category on the home page — including a parent with nothing in it yet. Design studio → Catalog switches between blocks (the default), chips, or only the sidebar and menu.",
             "Category pictures always show whole — a logo is fitted inside its block, never cropped."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.67.2",
-      "date": "2026-10-28",
-      "entries": [
-        {
-          "title": "Every category level in the portal menu, and a new group stays open",
-          "items": [
-            "The portal's header menu shows every level of categories under a parent, indented — not just the first. Sub-category tiles list what sits under each one, and an empty category lists its sub-categories instead of stopping at Nothing here yet.",
-            "Creating a user group keeps it open on its editor, ready for its catalog, limits and rules — no Edit click.",
-            "A test world's portal developer page (/p/…/api) loads its reference for staff previewing it or signed in as one of its people."
           ]
         }
       ]
