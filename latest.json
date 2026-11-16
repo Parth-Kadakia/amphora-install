@@ -1,9 +1,32 @@
 {
-  "version": "1.73.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.73.0",
-  "releasedAt": "2026-11-13",
-  "notes": "Security questionnaires, drafted from what Amphora actually does · Every import takes Excel, and gives back the rows to fix",
+  "version": "1.74.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.74.0",
+  "releasedAt": "2026-11-16",
+  "notes": "Find a kit part by code, name or UPC · Kit groups can limit how many the buyer picks",
   "releases": [
+    {
+      "version": "1.74.0",
+      "date": "2026-11-16",
+      "entries": [
+        {
+          "title": "Find a kit part by code, name or UPC",
+          "items": [
+            "On a kit's Kit contents tab, each part is now a search box instead of a long dropdown: type part of the SKU code, the product name or the UPC, and the matches list right under the row with their UPCs. Arrow keys move through them and Enter picks one; scanning a UPC picks that part straight away.",
+            "Every SKU of the brand can be found, not only the first 200 the old dropdown loaded. A part that's already in the kit is listed as “already in this kit” and can't be picked twice.",
+            "The SKU search behind the receiving and movement screens now matches barcodes too."
+          ]
+        },
+        {
+          "title": "Kit groups can limit how many the buyer picks",
+          "items": [
+            "A group of Buyer's choice parts on a kit can now say how many of them the buyer takes: pick at least, pick at most. At least 1 and at most 1 on Hair Clips means the buyer gets one of the clips, never neither and never both, while each clip stays a Buyer's choice.",
+            "In the portal the group reads “Hair Clips — Pick 1”; choosing the other clip swaps the choice, a group that's full stops more picks, and Add to cart waits until every group has what it needs. Orders that break a group's limit are refused by name, wherever they come from (portal, API, import).",
+            "“Buyer picks up to” still caps the whole kit when it's set, and can be left blank when every Buyer's choice part is in a group with a limit.",
+            "The API takes kitGroupPicks on a SKU, and the Kit contents import has pick_at_least and pick_at_most columns."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.73.0",
       "date": "2026-11-13",
@@ -314,19 +337,6 @@
             "Design studio → Design file downloads the whole look as one file — pictures, logo and web fonts included — and brings one in on another portal or install, as unpublished changes to check before Publish.",
             "Featured products match by SKU code and user groups by name; anything the other portal doesn't have is listed after the import.",
             "Also on the API: GET /api/v1/customers/{id}/portal-theme/export and POST …/portal-theme/import."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.67.3",
-      "date": "2026-10-28",
-      "entries": [
-        {
-          "title": "Sub-categories as big blocks, and category pictures that fit",
-          "items": [
-            "A parent category shows its sub-categories as big picture blocks, the same as Shop by category on the home page — including a parent with nothing in it yet. Design studio → Catalog switches between blocks (the default), chips, or only the sidebar and menu.",
-            "Category pictures always show whole — a logo is fitted inside its block, never cropped."
           ]
         }
       ]
