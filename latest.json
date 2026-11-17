@@ -1,9 +1,25 @@
 {
-  "version": "1.76.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.76.1",
+  "version": "1.76.2",
+  "image": "ghcr.io/parth-kadakia/amphora:1.76.2",
   "releasedAt": "2026-11-17",
-  "notes": "Security: the API documentation viewer held back for an advisory",
+  "notes": "Signed in without a user group: nothing to browse until someone places them",
   "releases": [
+    {
+      "version": "1.76.2",
+      "date": "2026-11-17",
+      "entries": [
+        {
+          "title": "Signed in without a user group: nothing to browse until someone places them",
+          "items": [
+            "Someone who signs in through single sign-on without a user group no longer sees the brand's categories, search, cart, orders or reports — the menu is empty and every store page leads to one welcome page.",
+            "That page now speaks to the brand's own people: their access isn't set up yet, their portal administrator can add them (with the support email), or IT can add them to the portal group.",
+            "On the staff Users page, the group of someone waiting reads “No group — waiting” instead of “No group (open)”.",
+            "Single sign-on is in the audit trail properly: each sign-in names the person and the address it came from instead of “anonymous”, says what happened (created, updated, refused, which group), and opens to every value their identity provider sent.",
+            "Customer → Activity: each customer's own audit trail — sign-ins, single sign-on, their portal people, settings — with the same click-to-open detail. Reports → Audit trail rows open the same way and name portal people."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.76.1",
       "date": "2026-11-17",
@@ -283,19 +299,6 @@
             "Design studio → Hero → Button says now says it plainly: leave it empty and the welcome has no button (like Shop the catalog) at all.",
             "Customer → Ordering platform → People shows the people straight away — name, email, group, role, how they'll sign in — with tabs for already here, skipped, user groups and cost centres.",
             "Don't skip them: tick a shared or inactive ordering platform login to bring it in anyway (inactive ones stay switched off), or type an email for someone without one."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.70.0",
-      "date": "2026-11-09",
-      "entries": [
-        {
-          "title": "Bring a client's people in from the ordering platform",
-          "items": [
-            "Customer → Ordering platform → People reads the client's ordering platform user groups, users and accounting units and brings them in: groups by name, people with their role, power buyer, group and title, and cost centres. Nothing is written to the ordering platform.",
-            "People arrive inactive with no email, so they keep ordering in the ordering platform; on moving day, Go live switches them all on and sends the invitations (single sign-on people just become active). Shared logins, people with no email and duplicates are skipped and listed."
           ]
         }
       ]
