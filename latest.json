@@ -1,9 +1,36 @@
 {
-  "version": "1.75.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.75.0",
+  "version": "1.76.1",
+  "image": "ghcr.io/parth-kadakia/amphora:1.76.1",
   "releasedAt": "2026-11-17",
-  "notes": "Duplicate a SKU · Import SKU images in bulk · Add many SKUs to a category from the Categories card",
+  "notes": "Security: the API documentation viewer held back for an advisory",
   "releases": [
+    {
+      "version": "1.76.1",
+      "date": "2026-11-17",
+      "entries": [
+        {
+          "title": "Security: the API documentation viewer held back for an advisory",
+          "items": [
+            "The interactive API reference stays on its previous version while its newest one carries a high-severity advisory in a file-matching library (GHSA-fc5q-39xc-vjpf). Nothing changes on screen."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.76.0",
+      "date": "2026-11-17",
+      "entries": [
+        {
+          "title": "The team hears when a new version is live",
+          "items": [
+            "After Amphora updates, everyone on the staff side gets one email: “Version 1.76.0 is live”, with your logo and colours, a hello, and what changed since the version you came from — every release in between if a few were skipped.",
+            "It waits until the new version has been up for five minutes and is running well — the server answers, errors stay rare, nothing critical — so nobody is told about an update that's having trouble. Once per version; going back to an older version sends nothing.",
+            "Vendor logins, deactivated people and username + PIN accounts are left out; client portal users never get it. Owners and admins can turn it off, and send themselves a preview, under Settings → General → Updates. The wording can be changed under Settings → Email.",
+            "Single sign-on: Download our certificate — the signing certificate as a .cer file, for Okta’s Signature Certificate upload (portal Sign-in setup, the IT handout, and Settings → Single sign-on)."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.75.0",
       "date": "2026-11-17",
@@ -269,42 +296,6 @@
           "items": [
             "Customer → Ordering platform → People reads the client's ordering platform user groups, users and accounting units and brings them in: groups by name, people with their role, power buyer, group and title, and cost centres. Nothing is written to the ordering platform.",
             "People arrive inactive with no email, so they keep ordering in the ordering platform; on moving day, Go live switches them all on and sends the invitations (single sign-on people just become active). Shared logins, people with no email and duplicates are skipped and listed."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.69.1",
-      "date": "2026-11-09",
-      "entries": [
-        {
-          "title": "Problem alerts by email, clearer preview errors, portal pages behind nginx, and a tidier Users list",
-          "items": [
-            "Test worlds show the address testers can actually reach — inside Docker the link no longer shows the container's own address. Test worlds → Your worlds → Not the right address? Change… sets it once (like 192.168.113.40) for every world.",
-            "Customer → Client portal → Users: a Status column (Active, Invited · not accepted, Inactive), and Manage opens a person's actions under their row instead of a line of buttons running off the side.",
-            "Portal pages and the design studio's preview no longer fail with 502 Bad Gateway behind a web server (nginx) on its default settings: the storefront's fonts are no longer all announced up front, which made its response headers too big for the server.",
-            "Problem alerts: add email addresses under Settings → Health and they hear about it when something breaks — a server error, a crashed page, or the web server refusing Amphora's answer — through your own email setup, at most once an hour per problem. Send a test alert to check.",
-            "Each alert is the actual issue, in two parts: in plain words — what went wrong (named plainly when Amphora knows it), who it happened to, which client and record, where, and what to do — then the technical detail for whoever fixes it: the exact error, the request, the error reference, the version and the trace.",
-            "The design studio explains a failed preview instead of showing a bare 502 page: which server answered, what usually fixes it, and Try again."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.69.0",
-      "date": "2026-11-09",
-      "entries": [
-        {
-          "title": "The design file brings the category tree and its pictures too",
-          "items": [
-            "Design studio → Design file now carries every category with its picture, description and order. Bringing it in on live puts each picture on the matching category and makes the categories live doesn't have yet — assign products to them there."
-          ]
-        },
-        {
-          "title": "Clients add their people through the API — invited, or inactive until switched on",
-          "items": [
-            "A new Manage users permission on client API keys: the brand's own systems add people as invited (the invitation email goes now) or inactive (no email; switch them on later and the invitation goes then).",
-            "They can also change a person's role, group and status by name, and resend an invitation. The key must act as a brand admin, like the People page."
           ]
         }
       ]
