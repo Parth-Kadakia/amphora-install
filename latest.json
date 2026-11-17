@@ -1,9 +1,37 @@
 {
-  "version": "1.74.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.74.0",
-  "releasedAt": "2026-11-16",
-  "notes": "Find a kit part by code, name or UPC · Kit groups can limit how many the buyer picks",
+  "version": "1.75.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.75.0",
+  "releasedAt": "2026-11-17",
+  "notes": "Duplicate a SKU · Import SKU images in bulk · Add many SKUs to a category from the Categories card",
   "releases": [
+    {
+      "version": "1.75.0",
+      "date": "2026-11-17",
+      "entries": [
+        {
+          "title": "Duplicate a SKU",
+          "items": [
+            "Every SKU's page has Duplicate at the top right. It opens New SKU with everything filled in from that SKU — name, prices and price breaks, ordering rules, categories, kit contents, images, sizes, compliance and the brand's fields — so a new colour or size is a new code and a couple of changes.",
+            "The SKU code and the barcodes start empty, because they must be unique: the code box is ready to type in and reminds you it must differ. The copy starts with no stock or history; those stay with the original."
+          ]
+        },
+        {
+          "title": "Import SKU images in bulk",
+          "items": [
+            "Import images, on a customer's SKUs tab, puts pictures on many SKUs at once: a sheet with two columns, sku and image (the file name), and a zip of the pictures — or the image files themselves.",
+            "Repeat a SKU on more rows to give it more pictures; the first row is its main one. Files are found by name, ignoring capitals and the folders in the zip.",
+            "Everything is checked before anything changes: unknown codes, files missing from the zip and non-pictures are listed by line, with Download rows to fix. New pictures go after a SKU's current ones, or tick Replace. Running the same import again adds nothing twice."
+          ]
+        },
+        {
+          "title": "Add many SKUs to a category from the Categories card",
+          "items": [
+            "Open a category on the Categories card and its SKUs now show right under it, split In category and Not in category. Tick as many as you need — or the box at the top for every one shown — and Add to category puts them all in at once.",
+            "Search by code or name, see which other categories each SKU is already in, and take SKUs out the same way. No more opening each category's page to fill it."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.74.0",
       "date": "2026-11-16",
@@ -277,66 +305,6 @@
           "items": [
             "A new Manage users permission on client API keys: the brand's own systems add people as invited (the invitation email goes now) or inactive (no email; switch them on later and the invitation goes then).",
             "They can also change a person's role, group and status by name, and resend an invitation. The key must act as a brand admin, like the People page."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.68.0",
-      "date": "2026-11-09",
-      "entries": [
-        {
-          "title": "Packaging on each client's own dieline, with their art per panel",
-          "items": [
-            "In the designer, add the client's dieline (PDF or AI): the page takes its size, and it shows over the page so you can draw a box on each panel — Lid, Front, sides — for the client's art.",
-            "Clients upload art per panel, checked at that panel's size. Proofs show it against the dieline; the print file never has the lines on the art, and the print-ready PDF adds the dieline as its own page for the cutter."
-          ]
-        },
-        {
-          "title": "Clients put their own artwork in a box on the design — checked and placed",
-          "items": [
-            "A box on a design set to They upload it now takes the client's artwork as PDF, AI, SVG, PNG, JPG or WebP — not just a picture. It's checked at the box's printed size: too low a resolution is refused with the reason, soft is placed with a note, vector is sharp at any size.",
-            "The proof shows it in its spot and the print file draws it at print resolution; the check runs again when the order is placed.",
-            "Client emailed their logo? On the print job, The client's artwork → Add or Replace artwork puts it in the box, checked the same way, and re-renders the job."
-          ]
-        },
-        {
-          "title": "Choose exactly what each client API key may do — and change it any time",
-          "items": [
-            "Customer → Client portal → API keys: Place orders now has boxes for what an order may carry — ship to any address, choose carrier and service, rush, a ship date, personalized products. A key sending something it isn't allowed gets a clear refusal naming the box.",
-            "New: Cancel orders — a key may cancel an order before the warehouse starts on it.",
-            "Change permissions on any existing key, right in the Keys list. Keys issued before keep everything they could already do."
-          ]
-        },
-        {
-          "title": "Change SKU codes when a brand renumbers — stock stays put, old codes keep working",
-          "items": [
-            "A live SKU's code can now change: its page → SKU code → Change…. It stays the same SKU, so stock, locations, lots and history don't move and nothing is transferred.",
-            "A whole brand at once: Customer → SKUs → Change SKU codes — paste or upload old and new codes, check every row, then change them all together. Undo puts the old codes back.",
-            "The old code keeps working everywhere: old placards and case labels scan, and packing lists, sheets, orders, inbound, the client API, the ordering platform and Shopify that still say it find the SKU. Pick and pack show “was …” for 60 days."
-          ]
-        },
-        {
-          "title": "The print designer stops adding fields by accident",
-          "items": [
-            "Clicking a dotted line of the customer's PDF now only picks it; Make it a field (or a double-click, or Enter) turns it into a field. Clicking around the page to select or deselect never adds anything.",
-            "Your fields sit on top of the PDF's dotted lines, so clicking a field always selects it — and a line a field already covers stops showing.",
-            "Leaving the designer with unsaved changes asks first."
-          ]
-        },
-        {
-          "title": "The design studio saves your work as you go",
-          "items": [
-            "Every change in the portal design studio is kept as your draft within a moment — the top bar shows Draft saved with the time. Close the tab and the studio reopens on your changes next time, with Start from live instead if you'd rather not.",
-            "Buyers still see only what you Publish; a half-finished design never goes live on its own."
-          ]
-        },
-        {
-          "title": "Move a portal design from test to live with one file",
-          "items": [
-            "Design studio → Design file downloads the whole look as one file — pictures, logo and web fonts included — and brings one in on another portal or install, as unpublished changes to check before Publish.",
-            "Featured products match by SKU code and user groups by name; anything the other portal doesn't have is listed after the import.",
-            "Also on the API: GET /api/v1/customers/{id}/portal-theme/export and POST …/portal-theme/import."
           ]
         }
       ]
