@@ -1,9 +1,32 @@
 {
-  "version": "1.78.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.78.0",
-  "releasedAt": "2026-11-17",
-  "notes": "Pace: Staging and Live connected side by side, each customer's Pace ID checked against both; sign-in photos can show the whole image",
+  "version": "1.79.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.79.0",
+  "releasedAt": "2026-11-18",
+  "notes": "Portal fixes from the Tatcha go-live: kit names, a way back after ordering, as-is print cards that wait for their artwork · Disconnect a client from the ordering platform",
   "releases": [
+    {
+      "version": "1.79.0",
+      "date": "2026-11-18",
+      "entries": [
+        {
+          "title": "Portal fixes from the Tatcha go-live: kit names, a way back after ordering, as-is print cards that wait for their artwork",
+          "items": [
+            "Kit and sub-category blocks: long names sit on the left and wrap to two lines instead of being centred and cut off at both ends.",
+            "After placing an order: View order, Keep shopping and Back to home. Refreshing the page still says the order was placed, with the same ways back into the portal.",
+            "A cart of only e-downloads can be placed — it no longer waits for a ship-to address it doesn't need.",
+            "As-is print cards: buyers are no longer asked to “add your details” to a card that has none. When the card's own artwork can't print yet, the buyer is told the warehouse is on it, and the moment the artwork is fixed or accepted with Print anyway, every order waiting for it goes ahead by itself. A waiting print job also has Try again with the SKU's artwork.",
+            "Print anyway now carries through to the print-ready copy of the file, so an accepted file actually reaches production."
+          ]
+        },
+        {
+          "title": "Disconnect a client from the ordering platform",
+          "items": [
+            "Customer → Ordering platform → Connection → Disconnect…: unlink a client from the ordering platform once it's set up — for a brand that has left, or one linked to the wrong company. The card lists what will happen first: the link and the client's own credential go, orders stop coming in, nothing more is sent, and anything still waiting to go out is cancelled. SKUs, stock, orders and people stay.",
+            "Which SKU is which ordering platform part is kept so a reconnect picks up without importing again — or tick Also forget to clear it. Connecting again starts at Not live yet, so nothing old is sent."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.78.0",
       "date": "2026-11-17",
@@ -156,30 +179,6 @@
             "In the portal the group reads “Hair Clips — Pick 1”; choosing the other clip swaps the choice, a group that's full stops more picks, and Add to cart waits until every group has what it needs. Orders that break a group's limit are refused by name, wherever they come from (portal, API, import).",
             "“Buyer picks up to” still caps the whole kit when it's set, and can be left blank when every Buyer's choice part is in a group with a limit.",
             "The API takes kitGroupPicks on a SKU, and the Kit contents import has pick_at_least and pick_at_most columns."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.73.0",
-      "date": "2026-11-13",
-      "entries": [
-        {
-          "title": "Security questionnaires, drafted from what Amphora actually does",
-          "items": [
-            "Settings → Security questionnaires (owners and admins): choose a client's security questionnaire as Excel or CSV, and Amphora drafts an answer to every question from its security facts — what the software does, checked against its code, and how this install is set up right now (two-factor rule, session limits, password rules, backups and off-site copies, restore drills, SIEM forwarding, the AI assistant).",
-            "Questions about your company rather than the software — policies, people, insurance, offices, hosting provider, certifications — are never guessed: they come back Needs an answer for you to write. Every answer shows the facts it rests on, and you can edit any of them before downloading the client's file with the answers added.",
-            "Needs the AI assistant with the new Security questionnaire answers switch on; only the questions and the facts are sent, never your data.",
-            "Settings → Security now says two-factor “Required for owners, admins and managers” — managers were always included; the label left them out."
-          ]
-        },
-        {
-          "title": "Every import takes Excel, and gives back the rows to fix",
-          "items": [
-            "Choose an Excel workbook (.xlsx) anywhere you could choose a CSV — SKU import, mass receiving, the move sheet, locations, portal rosters, SKU code changes, tracking numbers, the catalog layout, the carrier tools' bulk lists and a portal's bulk checkout. Before, an Excel file on the SKU import was read as gibberish and refused with “The file has no \"sku\" column”.",
-            "Dates in Excel read as dates, and a long number like a 12-digit UPC keeps every digit. An older .xls or a Numbers file gets a plain “save it as .xlsx or CSV”.",
-            "Download the rows to fix: when rows have problems, one click gives an Excel file of just those rows as they were in your file, with an error column saying what's wrong on each. Fix it and upload it again — the error column is skipped. The guided Import window's download and a portal's address check now come as Excel too, with every cell kept as text so codes and ZIPs with leading zeros survive.",
-            "The SKU import's problem list is easier to scan: each row on its own line with its code, the reason underneath. A move sheet's problems now always name the line in your file."
           ]
         }
       ]
