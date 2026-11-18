@@ -1,9 +1,27 @@
 {
-  "version": "1.76.2",
-  "image": "ghcr.io/parth-kadakia/amphora:1.76.2",
+  "version": "1.77.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.77.0",
   "releasedAt": "2026-11-17",
-  "notes": "Signed in without a user group: nothing to browse until someone places them",
+  "notes": "E-download SKUs, Developer logins, Print anyway, Remove file",
   "releases": [
+    {
+      "version": "1.77.0",
+      "date": "2026-11-17",
+      "entries": [
+        {
+          "title": "E-download SKUs, Developer logins, Print anyway, Remove file",
+          "items": [
+            "E-download SKUs: a product whose stock is a file (PDF, Office, ZIP, image). Ordered like any product; once the order is live the buyer is emailed the file — attached up to 10 MB, and a Download button on the order — nothing is picked or shipped, and an order of only downloads closes at once (in a mixed order the boxes alone decide). A cart of only downloads needs no address or carrier. Rate cards get an E-download fee, per download, 0 = free.",
+            "A print file with images at 150–249 dpi (against a 300 dpi spec) shows “Prints softer than the spec” with Print anyway for managers, owners and admins — accepted, it goes to production, with who and when on the file and in the audit trail. 250–299 dpi is only a note; under 150 still needs a sharper file.",
+            "The same picture drawn several times in a PDF is listed once (“— used 9 times”), not nine times.",
+            "In a brand that uses user groups, a buyer with no group sees only the welcome page until someone places them — the same as a single sign-on arrival without one. Brand admins, approvers and API accounts are unchanged; brands with no groups stay open.",
+            "Print setup: Remove file takes the customer's PDF off a print SKU (the original stays in its history; print jobs already made keep it).",
+            "Brand guidelines: a page of don'ts (wrong colours, logo misuse) no longer feeds the suggested colours — its rules are still read — and the colours under a “Primary colours” heading lead, the first one becoming the primary.",
+            "Developer portal logins: someone building a brand's integration signs in to the API reference, the integration guide and a read-only list of the brand's keys — nothing to order or see. Only warehouse staff make them (Users → Role → Developer — API docs only); keys stay with you."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.76.2",
       "date": "2026-11-17",
@@ -285,20 +303,6 @@
             "Preview what the stock push or following the ordering platform's stock would change, per SKU, before switching it on; nothing is written.",
             "Switching on saves a copy of the ordering platform's numbers first (download as CSV), and every send is kept in a send history.",
             "Receiving only compares like with like, new parts become SKUs only for live clients, a failed shipment check asks a person instead of guessing, and held orders go through on their own once fixed."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.70.1",
-      "date": "2026-11-09",
-      "entries": [
-        {
-          "title": "The ordering platform people you can see and choose, and no button on the portal's welcome if you'd rather",
-          "items": [
-            "Design studio → Hero → Button says now says it plainly: leave it empty and the welcome has no button (like Shop the catalog) at all.",
-            "Customer → Ordering platform → People shows the people straight away — name, email, group, role, how they'll sign in — with tabs for already here, skipped, user groups and cost centres.",
-            "Don't skip them: tick a shared or inactive ordering platform login to bring it in anyway (inactive ones stay switched off), or type an email for someone without one."
           ]
         }
       ]
