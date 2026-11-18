@@ -1,9 +1,23 @@
 {
-  "version": "1.77.3",
-  "image": "ghcr.io/parth-kadakia/amphora:1.77.3",
+  "version": "1.78.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.78.0",
   "releasedAt": "2026-11-17",
-  "notes": "Ten home layouts, Order again and Reorder now, ten sign-in layouts with the form placed anywhere; Check now says when it couldn't check; signing in as someone is exactly their view",
+  "notes": "Pace: Staging and Live connected side by side, each customer's Pace ID checked against both; sign-in photos can show the whole image",
   "releases": [
+    {
+      "version": "1.78.0",
+      "date": "2026-11-17",
+      "entries": [
+        {
+          "title": "Pace: Staging and Live connected side by side, each customer's Pace ID checked against both; sign-in photos can show the whole image",
+          "items": [
+            "Settings → Integrations → Pace: connect Pace Staging and Pace Live side by side — each with its own address, username and password (stored encrypted) and its own Connect & check. Nothing is written to Pace yet; monthly billing jobs come next and will run against whichever one you pick.",
+            "Sign-in page photo fit (Design studio → Sign-in): Fill, as before, or Show whole image — the whole picture with nothing cropped, the page colour around it. For logos and artwork that mustn't be cut off.",
+            "Customer → Billing → Pace: the customer's Pace customer ID. Saving checks it in every connected Pace and shows the customer's name there, or says it isn't found, so a typo shows straight away."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.77.3",
       "date": "2026-11-17",
@@ -166,109 +180,6 @@
             "Dates in Excel read as dates, and a long number like a 12-digit UPC keeps every digit. An older .xls or a Numbers file gets a plain “save it as .xlsx or CSV”.",
             "Download the rows to fix: when rows have problems, one click gives an Excel file of just those rows as they were in your file, with an error column saying what's wrong on each. Fix it and upload it again — the error column is skipped. The guided Import window's download and a portal's address check now come as Excel too, with every cell kept as text so codes and ZIPs with leading zeros survive.",
             "The SKU import's problem list is easier to scan: each row on its own line with its code, the reason underneath. A move sheet's problems now always name the line in your file."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.72.0",
-      "date": "2026-11-10",
-      "entries": [
-        {
-          "title": "Oversized Excel files are refused before they use up memory",
-          "items": [
-            "An .xlsx that unpacks to more than 64 MB for its sheet, or 100 MB in all, is refused as it's opened: “This spreadsheet unpacks to more than 64 MB — save it as CSV, or split it.” A small file built to swell used to take over a gigabyte of the server's memory and slow everyone on that server.",
-            "The 20,000-row limit now applies while the sheet is read, so a too-long sheet is refused in moments instead of after being read in full."
-          ]
-        },
-        {
-          "title": "A row pasted twice no longer imports twice",
-          "items": [
-            "Every import now skips a row that repeats an earlier row exactly — every cell the same — and names it “Same as line N”. The check says how many at the top. Before, the same order line pasted 1,000 times became an order with 1,000 lines, and a mass-receiving sheet pasted twice booked the delivery twice.",
-            "When the repeats are real, tick “Rows that repeat exactly are meant” and check again: every row goes in. Rows that only share a SKU but differ in any cell are never flagged.",
-            "A roster import skips the same person pasted twice, and a SKU import names an exact repeat “Same as line N”."
-          ]
-        },
-        {
-          "title": "A failed label purchase never blocks the shipment, and it emails you",
-          "items": [
-            "When a carrier says no (a refused API key, a bad address, its own error), nothing is held: the pack screen shows the carrier's message, and once it's fixed you buy again. Before, some refusals left the shipment saying an earlier purchase “hasn't answered yet”.",
-            "When a purchase gets no answer at all, the pack screen asks “Did a label get bought?”. Choose No label was bought — buy again, or It was bought — enter tracking, right there. Anyone who can ship can choose, and no second label is bought until someone does.",
-            "Every failed label purchase, and refused carrier credentials on any carrier call, now reaches your problem-alert email (Settings → Health). The alert names the client, the order, the carrier and what the carrier said, and says what to check: Settings → Integrations → Carrier accounts, sandbox or production keys, and for FedEx, the Ship API on the project.",
-            "Void works on a label the carrier has never heard of: it's cleared here, with a note saying so."
-          ]
-        },
-        {
-          "title": "Adding a product with shades always asks which shade",
-          "items": [
-            "A product's shades now follow it into user groups limited to “Only these categories” — file the parent and every shade comes along. Before, the shades were filtered out, so the product page offered no choice and Add to cart put the parent itself in the cart.",
-            "A product that comes in options can never be added to a cart on its own; when none of its options are open to someone, the page says so. “N options” on a card counts only the ones that person can order."
-          ]
-        },
-        {
-          "title": "FedEx delivery estimates work",
-          "items": [
-            "Estimated delivery with a FedEx account no longer fails with “An invalid or null CarrierCodeType was entered” — Amphora now asks both FedEx Express and FedEx Ground."
-          ]
-        },
-        {
-          "title": "Launch rosters: create people now, invite them on launch day",
-          "items": [
-            "Portal users have an account status and an invitation status of their own. New people start Pending activation — no sign-in, no email — and on launch day you activate a group and send the welcome emails in one go.",
-            "Users shows Account (Pending activation, Active, Inactive) and Invite (Not sent, Queued, Sent with the date, Failed with the reason, Accepted) as separate columns.",
-            "Create user adds someone as Pending activation and emails nobody. Create & send invite is there for a one-off.",
-            "Search, filter by group, role, account and invite, sort any column, tick people or select everyone the filters show.",
-            "Activate, Deactivate, Send welcome emails and Resend invitations for the selection. Each asks first with the number of emails and who's skipped and why; Send welcome emails never goes to someone already sent one.",
-            "A pending person can't get in — not by password, single sign-on, an old invitation link or a session — and the sign-in page tells them plainly their account isn't active yet.",
-            "Roster import is safe by default: new people are pending and nobody is emailed. Choose Active or Send the invitation now when you mean it; the summary counts created, activated and emailed.",
-            "Settings → Users: adding a team member no longer emails them unless you tick the box. Send welcome email under Manage sends it later with a fresh temporary password.",
-            "Activations, deactivations and invitations each go in the audit log.",
-            "API: creating a portal user without a password no longer emails them — send invite: true for that. New bulk endpoint, and the import takes activation."
-          ]
-        },
-        {
-          "title": "Critical problems by text, after hours",
-          "items": [
-            "Settings → Health → Text messages: add the on-call phones (a 10-digit number and the carrier, Verizon or T-Mobile) and critical problems are texted to them as well as emailed. Texts go out through your own outgoing email to the carrier's email-to-text address, so there's nothing new to sign up for. Send a test text checks every phone.",
-            "Every problem is now Critical or Warning. Critical means an order, pick, pack, label, stock change or payment that failed to save, or a background job or the ordering platform connection that failed or went down. Warnings, such as a page that crashed in a browser or the store preview, are emailed only.",
-            "A text is one short line with the client, what went wrong, the area and a reference. It never includes people's details or passwords. When a texted outage on the ordering platform ends, a 'working again' text follows.",
-            "Alert emails now say Critical or Warning, the area, the client and which install sent them.",
-            "The same problem texts at most once an hour, and no more than 10 texts go out in an hour. A problem that keeps happening says so ('Still happening'). These limits now survive a restart and are shared by every process.",
-            "Delivery depends on the carrier's gateway and isn't guaranteed, so the email always goes out too."
-          ]
-        },
-        {
-          "title": "Variants: add many at once, bulk upload, and a Variants import",
-          "items": [
-            "A SKU's Variants tab has + Add variants: search the customer's SKUs by code, name or description, tick as many as you need (or Select all matching), and add them in one go with their option labels suggested. Ticks are kept when you search again or change page.",
-            "SKUs that can't join stay in the list, greyed, with the reason: already an option of another parent, or has options of its own.",
-            "If the SKU holds stock or is on open orders, the tab says so before you pick anything.",
-            "Bulk upload variants on the same tab: a two-column sheet (Child SKU, Dropdown Display Name), checked row by row before anything is saved. Fix problems in place or download the rows that were left out.",
-            "Setup → Import → Variants sets up many parents from one file (Parent SKU, Child SKU, Dropdown Display Name), with the same checks."
-          ]
-        },
-        {
-          "title": "SKU import says what's required, with a short template",
-          "items": [
-            "Import CSV on a customer's SKUs tab now says plainly what a file needs: sku on every row, and name on rows that create a new SKU. Everything else is optional — delete columns you don't use, in any order.",
-            "Two templates: Basic (12 columns — the required two plus the ones most catalogs fill in) and Advanced (all 64). Show all 64 columns lists each one as Required or Optional with what goes in it.",
-            "Choosing a file checks it straight away and nothing changes until you press Import. The check counts new SKUs and updates, and lists lines with no sku, new SKUs without a name, repeated SKUs and columns it doesn't recognise.",
-            "Columns the import doesn't recognise are now ignored and listed instead of stopping the whole file. A sku repeated in the file is taken from its first row; the later rows are reported."
-          ]
-        },
-        {
-          "title": "Portals say Powered by your company, and the calendar asks what your company should know",
-          "items": [
-            "Calendar events ask What should <your company> know? (e.g. What should Hatteras know?) instead of What the warehouse should know.",
-            "Client portals' footer and sign-in page now say Powered by <your company> instead of Powered by Amphora. Settings → Branding → Client portals say “Powered by …” sets the name; blank uses the company name. It's a setting, so it survives updates."
-          ]
-        },
-        {
-          "title": "Categories one level at a time, and drag to move them",
-          "items": [
-            "The Categories card shows the top level first; click a category to see what's inside it. The path above the list (All categories › Balani › Fitness) and Back take you up, Find a category searches every level, and the card remembers where you were.",
-            "Drag the six-dot handle to reorder categories or move one anywhere: hold over a category to open it, over the path to climb out, and the page scrolls by itself near the edges — a deep category goes to a completely different parent in one drag. A line or highlight shows where it will land, loops and duplicate names are refused, and every drop saves straight away with Undo.",
-            "Reshape the tree, a SKU's Categories and a user group's Only these categories use the same navigator."
           ]
         }
       ]
