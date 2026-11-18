@@ -1,9 +1,25 @@
 {
-  "version": "1.77.2",
-  "image": "ghcr.io/parth-kadakia/amphora:1.77.2",
+  "version": "1.77.3",
+  "image": "ghcr.io/parth-kadakia/amphora:1.77.3",
   "releasedAt": "2026-11-17",
-  "notes": "Stripe for card payments, artwork as a print product's picture, Security settings save with a button",
+  "notes": "Ten home layouts, Order again and Reorder now, ten sign-in layouts with the form placed anywhere; Check now says when it couldn't check; signing in as someone is exactly their view",
   "releases": [
+    {
+      "version": "1.77.3",
+      "date": "2026-11-17",
+      "entries": [
+        {
+          "title": "Ten home layouts, Order again and Reorder now, ten sign-in layouts with the form placed anywhere; Check now says when it couldn't check; signing in as someone is exactly their view",
+          "items": [
+            "Ten home layouts for client portals (Design studio → Look → Home layout): Magazine, Bento, Lookbook, Shelf, Dashboard, Sticker book, Pastel counter, Routine, Vanity mirror and Love letter — each a different structure in the brand's own colours and fonts, with the real catalog and each buyer's usual items, orders and budget. A Style strength dial (Classic, Playful, Full) sets how much decoration they draw; Classic is the calm default. Standard stays as it was.",
+            "Order again on every past order — My orders, the home page's recent orders and the order page — and Reorder now on the order page, which places the same order again in one step (same items, address, shipping). Both follow today's rules: anything out of stock without backorders, no longer on offer or over a limit is left out of Order again with the reason, and Reorder now refuses rather than place part of an order; approvals apply as usual.",
+            "Settings → General → Updates → Check now used to show the last answer it had (and “You're on the latest version”) when it couldn't reach the version file. Now it says it couldn't check and why — no answer from GitHub, or what came back — with when the last good check was and how to update on the host instead.",
+            "Signing in as a portal user is now exactly their view in every case: someone waiting for a user group sees the waiting page, and a developer login lands on the API docs, for staff signed in as them too.",
+            "The portal sign-in page has ten layouts instead of three — Big photo, Photo on top, Brand colour, Frosted panel, Framed photo, Big type and On a slant join the three — and the form can sit left, centre or right, and top, middle or bottom; the logo, name and tagline can be left, centred or right too (Design studio → Sign-in)."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.77.2",
       "date": "2026-11-17",
@@ -253,18 +269,6 @@
             "The Categories card shows the top level first; click a category to see what's inside it. The path above the list (All categories › Balani › Fitness) and Back take you up, Find a category searches every level, and the card remembers where you were.",
             "Drag the six-dot handle to reorder categories or move one anywhere: hold over a category to open it, over the path to climb out, and the page scrolls by itself near the edges — a deep category goes to a completely different parent in one drag. A line or highlight shows where it will land, loops and duplicate names are refused, and every drop saves straight away with Undo.",
             "Reshape the tree, a SKU's Categories and a user group's Only these categories use the same navigator."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.71.1",
-      "date": "2026-11-10",
-      "entries": [
-        {
-          "title": "The knowledge base PDF downloads quickly",
-          "items": [
-            "Knowledge base → Full reference (PDF) is less than half the size (about 22 MB instead of 53 MB) with the same pages and pictures, and once it has been made it downloads straight away for everyone until the next update. Handbooks and single articles too."
           ]
         }
       ]
