@@ -1,9 +1,23 @@
 {
-  "version": "1.77.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.77.0",
+  "version": "1.77.2",
+  "image": "ghcr.io/parth-kadakia/amphora:1.77.2",
   "releasedAt": "2026-11-17",
-  "notes": "E-download SKUs, Developer logins, Print anyway, Remove file",
+  "notes": "Stripe for card payments, artwork as a print product's picture, Security settings save with a button",
   "releases": [
+    {
+      "version": "1.77.2",
+      "date": "2026-11-17",
+      "entries": [
+        {
+          "title": "Stripe for card payments, artwork as a print product's picture, Security settings save with a button",
+          "items": [
+            "Card payments can run on Stripe: under Settings → Integrations → Card payments choose Authorize.net or Stripe. Stripe's own secure card field at checkout; holds, captures and refunds as before; test keys for trying it out.",
+            "A print-on-demand product with no photo now shows page 1 of the customer's artwork in the portal — on its card in the shop and on its page — instead of a printer icon. Add photos and they take its place.",
+            "Settings → Security: the typed values (session limits, password length, audit forwarding) now save with a clear Save button — an Unsaved changes bar appears as soon as you change one, and Enter saves too."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.77.0",
       "date": "2026-11-17",
@@ -251,58 +265,6 @@
           "title": "The knowledge base PDF downloads quickly",
           "items": [
             "Knowledge base → Full reference (PDF) is less than half the size (about 22 MB instead of 53 MB) with the same pages and pictures, and once it has been made it downloads straight away for everyone until the next update. Handbooks and single articles too."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.71.0",
-      "date": "2026-11-09",
-      "entries": [
-        {
-          "title": "Portal tab icon, studio while signed in as someone, kit stock said plainly",
-          "items": [
-            "Design studio → Your brand → Browser tab icon: upload a square icon for the browser tab. Without one, a square logo is used, or the brand's first letter on its colour — wide logos no longer get squeezed.",
-            "The studio preview updates live even when you also have a Sign in as session open on that portal, and says whose view you're seeing, with End that session.",
-            "Kit choices that are out of stock say Out of stock in the portal, not just greyed out.",
-            "Labels with a hint no longer push their box below the others in a row (calendar reminders, counts, receiving, bulk order edits)."
-          ]
-        },
-        {
-          "title": "Print sizes in millimetres, and proofs that show the cut",
-          "items": [
-            "Pick a print size from standard sizes — A6 to A1, Letter, Tabloid, business card, posters — or type it in inches or millimetres. Bleed has one-click 0.125 in and 3 mm.",
-            "Proofs show the cut line, the bleed that's trimmed off and the keep-text-inside line, for buyers' uploads, personalized items and the staff print job page."
-          ]
-        },
-        {
-          "title": "Office: fewer clicks on orders, invoices, approvals and imports",
-          "items": [
-            "One Change order button on an order; Ship, Close short and Cancel confirm in a window that says exactly what happens to stock and fees.",
-            "Invoices → Drafts: tick several and Issue & send them at once, each with its own result.",
-            "Approvers can Approve or Reject straight from the email — no sign-in; links work once and last 7 days.",
-            "The portal's My orders has search and pages, with tracking numbers as links.",
-            "Import check: correct a bad cell right there and check again — no spreadsheet round-trip."
-          ]
-        },
-        {
-          "title": "Floor: scans that finish the job",
-          "items": [
-            "Scan mode saves the line you finished when you scan the next item, and says why if it can't.",
-            "Picking: scans count up, scanning the next bin confirms the stop, and a bin isn't scanned twice in a row.",
-            "Counts: count by scanning units, and add something unexpected you find in the bin.",
-            "Receive and Move suggest where to put the item; a received pallet offers Put away now.",
-            "Packing: rates load by themselves, one Buy & print label button, box weights estimated from the products."
-          ]
-        },
-        {
-          "title": "The ordering platform you can trust: safe sends, alerts and previews",
-          "items": [
-            "Customer → Ordering platform opens with Is it working? — last synced per stream, and what's failing in plain words. Problems (refused login, the ordering platform down, no orders polled for 30 minutes, stuck items) are emailed to your problem alert addresses.",
-            "Every send to the ordering platform goes out once — no double pushes from overlapping syncs, webhooks or double clicks.",
-            "Preview what the stock push or following the ordering platform's stock would change, per SKU, before switching it on; nothing is written.",
-            "Switching on saves a copy of the ordering platform's numbers first (download as CSV), and every send is kept in a send history.",
-            "Receiving only compares like with like, new parts become SKUs only for live clients, a failed shipment check asks a person instead of guessing, and held orders go through on their own once fixed."
           ]
         }
       ]
