@@ -1,9 +1,32 @@
 {
-  "version": "1.79.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.79.0",
-  "releasedAt": "2026-11-18",
-  "notes": "Portal fixes from the Tatcha go-live: kit names, a way back after ordering, as-is print cards that wait for their artwork · Disconnect a client from the ordering platform",
+  "version": "1.80.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.80.0",
+  "releasedAt": "2026-11-20",
+  "notes": "5 × 7 cards, bigger build-a-kits, and a way back from Order placed in Reader view · Print-on-demand orders always ship their printed pieces",
   "releases": [
+    {
+      "version": "1.80.0",
+      "date": "2026-11-20",
+      "entries": [
+        {
+          "title": "5 × 7 cards, bigger build-a-kits, and a way back from Order placed in Reader view",
+          "items": [
+            "Print setup: Card 5 × 7 is one of the quick sizes, next to Postcard and Large postcard.",
+            "Kits take up to 500 parts (it was 50), and Buyer picks up to goes to 500. A kit with 54 buyer's-choice parts was refused with only “Invalid input”.",
+            "When a SKU's Save changes is refused, the message names the field and the rule, not just “Invalid input”.",
+            "Order placed: the ways back (See this order, all your orders, go back to the portal) also sit in a sentence of plain links. Safari's Reader view hides the buttons and the portal menu, which left buyers with no way out."
+          ]
+        },
+        {
+          "title": "Print-on-demand orders always ship their printed pieces",
+          "items": [
+            "A piece printed for an order always ships from the packing area, even if its pick record was lost. Before, an order whose cards were all printed could refuse to ship with “Reserved stock is missing from the shelves”.",
+            "Pick screen: Fix on a printed piece's stop is refused instead of quietly dropping it. The piece went straight into packing, so there's no shelf to send it back to. For the wrong piece, cancel its print job or change the line.",
+            "When stock really is missing at shipping, the message names the SKU, the lot and how many units."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.79.0",
       "date": "2026-11-18",
@@ -156,29 +179,6 @@
           "items": [
             "Open a category on the Categories card and its SKUs now show right under it, split In category and Not in category. Tick as many as you need — or the box at the top for every one shown — and Add to category puts them all in at once.",
             "Search by code or name, see which other categories each SKU is already in, and take SKUs out the same way. No more opening each category's page to fill it."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.74.0",
-      "date": "2026-11-16",
-      "entries": [
-        {
-          "title": "Find a kit part by code, name or UPC",
-          "items": [
-            "On a kit's Kit contents tab, each part is now a search box instead of a long dropdown: type part of the SKU code, the product name or the UPC, and the matches list right under the row with their UPCs. Arrow keys move through them and Enter picks one; scanning a UPC picks that part straight away.",
-            "Every SKU of the brand can be found, not only the first 200 the old dropdown loaded. A part that's already in the kit is listed as “already in this kit” and can't be picked twice.",
-            "The SKU search behind the receiving and movement screens now matches barcodes too."
-          ]
-        },
-        {
-          "title": "Kit groups can limit how many the buyer picks",
-          "items": [
-            "A group of Buyer's choice parts on a kit can now say how many of them the buyer takes: pick at least, pick at most. At least 1 and at most 1 on Hair Clips means the buyer gets one of the clips, never neither and never both, while each clip stays a Buyer's choice.",
-            "In the portal the group reads “Hair Clips — Pick 1”; choosing the other clip swaps the choice, a group that's full stops more picks, and Add to cart waits until every group has what it needs. Orders that break a group's limit are refused by name, wherever they come from (portal, API, import).",
-            "“Buyer picks up to” still caps the whole kit when it's set, and can be left blank when every Buyer's choice part is in a group with a limit.",
-            "The API takes kitGroupPicks on a SKU, and the Kit contents import has pick_at_least and pick_at_most columns."
           ]
         }
       ]
