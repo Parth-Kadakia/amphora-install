@@ -11,8 +11,8 @@
         {
           "title": "Handwritten notes: your handwriting font, salutation, body and closing, justified",
           "items": [
-            "Add a font, in the designer under the font list: drop in a licensed TTF or OTF (astSarah, for example). For every client makes it a house font any brand can use.",
-            "Handwritten note, on the left of the designer, lays out Salutation, Body, Closing and a small card number in one click, in the library's handwriting font. The type is sized from the font, so astSarah on a 7 × 5 comes out at 26.5 pt with six lines of body, like the Kiehl's cards.",
+            "Add a font, in the designer under the font list: drop in a licensed TTF or OTF handwriting font. For every client makes it a house font any brand can use.",
+            "Handwritten note, on the left of the designer, lays out Salutation, Body, Closing and a small card number in one click, in the library's handwriting font. The type is sized from the font itself, so the note fills the card the same way whichever handwriting font you use.",
             "Justified text: a fourth alignment button. Every line runs edge to edge; a paragraph's last line stays left.",
             "Lists with FirstLine, Body, LastLine and FileName columns (what mail houses send) match the note's fields on their own."
           ]
@@ -47,7 +47,7 @@
       "date": "2026-11-18",
       "entries": [
         {
-          "title": "Portal fixes from the Tatcha go-live: kit names, a way back after ordering, as-is print cards that wait for their artwork",
+          "title": "Portal fixes: kit names, a way back after ordering, as-is print cards that wait for their artwork",
           "items": [
             "Kit and sub-category blocks: long names sit on the left and wrap to two lines instead of being centred and cut off at both ends.",
             "After placing an order: View order, Keep shopping and Back to home. Refreshing the page still says the order was placed, with the same ways back into the portal.",
