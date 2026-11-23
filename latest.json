@@ -1,9 +1,22 @@
 {
-  "version": "1.83.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.83.0",
+  "version": "1.83.1",
+  "image": "ghcr.io/parth-kadakia/amphora:1.83.1",
   "releasedAt": "2026-11-23",
-  "notes": "Kits: printed cards ask for their details, parts in options pick an option",
+  "notes": "Kits: pick up to the max, several shades of one part",
   "releases": [
+    {
+      "version": "1.83.1",
+      "date": "2026-11-23",
+      "entries": [
+        {
+          "title": "Kits: pick up to the max, several shades of one part",
+          "items": [
+            "A build-your-own kit's max picks is a ceiling: “Pick up to 4” takes one to four, not exactly four.",
+            "A buyer's-choice part in shades takes several shades (+ Add another…), each one a pick — two lip oils in different colours. Max picks can count those shades."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.83.0",
       "date": "2026-11-23",
@@ -157,22 +170,6 @@
             "Print setup: Remove file takes the customer's PDF off a print SKU (the original stays in its history; print jobs already made keep it).",
             "Brand guidelines: a page of don'ts (wrong colours, logo misuse) no longer feeds the suggested colours — its rules are still read — and the colours under a “Primary colours” heading lead, the first one becoming the primary.",
             "Developer portal logins: someone building a brand's integration signs in to the API reference, the integration guide and a read-only list of the brand's keys — nothing to order or see. Only warehouse staff make them (Users → Role → Developer — API docs only); keys stay with you."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.76.2",
-      "date": "2026-11-17",
-      "entries": [
-        {
-          "title": "Signed in without a user group: nothing to browse until someone places them",
-          "items": [
-            "Someone who signs in through single sign-on without a user group no longer sees the brand's categories, search, cart, orders or reports — the menu is empty and every store page leads to one welcome page.",
-            "That page now speaks to the brand's own people: their access isn't set up yet, their portal administrator can add them (with the support email), or IT can add them to the portal group.",
-            "On the staff Users page, the group of someone waiting reads “No group — waiting” instead of “No group (open)”.",
-            "Single sign-on is in the audit trail properly: each sign-in names the person and the address it came from instead of “anonymous”, says what happened (created, updated, refused, which group), and opens to every value their identity provider sent.",
-            "Customer → Activity: each customer's own audit trail — sign-ins, single sign-on, their portal people, settings — with the same click-to-open detail. Reports → Audit trail rows open the same way and name portal people."
           ]
         }
       ]
