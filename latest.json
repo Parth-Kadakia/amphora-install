@@ -1,9 +1,23 @@
 {
-  "version": "1.82.0",
-  "image": "ghcr.io/parth-kadakia/amphora:1.82.0",
-  "releasedAt": "2026-11-21",
-  "notes": "Fonts in one place, logos from brand guidelines, guides kept for next time, category pictures, two-line examples",
+  "version": "1.83.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.83.0",
+  "releasedAt": "2026-11-23",
+  "notes": "Kits: printed cards ask for their details, parts in options pick an option",
   "releases": [
+    {
+      "version": "1.83.0",
+      "date": "2026-11-23",
+      "entries": [
+        {
+          "title": "Kits: printed cards ask for their details, parts in options pick an option",
+          "items": [
+            "A kit with a print-on-demand part (a handwritten card) asks for the card's details on the kit's page, with a live proof; Add to cart waits for them, and they go to the card's print job.",
+            "A printed part never makes a kit out of stock or Waiting on parts — it's made for the order.",
+            "A kit part that comes in options (shades, sizes) shows in stock when any option has stock, and the buyer picks which option goes in — that option is what's picked and shipped."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.82.0",
       "date": "2026-11-21",
@@ -159,18 +173,6 @@
             "On the staff Users page, the group of someone waiting reads “No group — waiting” instead of “No group (open)”.",
             "Single sign-on is in the audit trail properly: each sign-in names the person and the address it came from instead of “anonymous”, says what happened (created, updated, refused, which group), and opens to every value their identity provider sent.",
             "Customer → Activity: each customer's own audit trail — sign-ins, single sign-on, their portal people, settings — with the same click-to-open detail. Reports → Audit trail rows open the same way and name portal people."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.76.1",
-      "date": "2026-11-17",
-      "entries": [
-        {
-          "title": "Security: the API documentation viewer held back for an advisory",
-          "items": [
-            "The interactive API reference stays on its previous version while its newest one carries a high-severity advisory in a file-matching library (GHSA-fc5q-39xc-vjpf). Nothing changes on screen."
           ]
         }
       ]
