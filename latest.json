@@ -1,9 +1,24 @@
 {
-  "version": "1.83.1",
-  "image": "ghcr.io/parth-kadakia/amphora:1.83.1",
-  "releasedAt": "2026-11-23",
-  "notes": "Kits: pick up to the max, several shades of one part",
+  "version": "1.84.0",
+  "image": "ghcr.io/parth-kadakia/amphora:1.84.0",
+  "releasedAt": "2026-11-24",
+  "notes": "Several options at once, quantities in kits, clear cart, arrives by",
   "releases": [
+    {
+      "version": "1.84.0",
+      "date": "2026-11-24",
+      "entries": [
+        {
+          "title": "Several options at once, quantities in kits, clear cart, arrives by",
+          "items": [
+            "A product in options: Order several options at once — a quantity for each shade or size, all added to the cart in one go.",
+            "Kits: How many under each pick, and per shade — two of one fragrance, three of one shade. Each counts as a pick.",
+            "Cart: Clear cart empties it (after a yes), beside removing single lines.",
+            "Checkout: Arrives by, from the carrier's own transit times for the address, carrier and service — it moves with rush and the service. Needs a connected UPS or FedEx account."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.83.1",
       "date": "2026-11-23",
@@ -152,24 +167,6 @@
             "Card payments can run on Stripe: under Settings → Integrations → Card payments choose Authorize.net or Stripe. Stripe's own secure card field at checkout; holds, captures and refunds as before; test keys for trying it out.",
             "A print-on-demand product with no photo now shows page 1 of the customer's artwork in the portal — on its card in the shop and on its page — instead of a printer icon. Add photos and they take its place.",
             "Settings → Security: the typed values (session limits, password length, audit forwarding) now save with a clear Save button — an Unsaved changes bar appears as soon as you change one, and Enter saves too."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.77.0",
-      "date": "2026-11-17",
-      "entries": [
-        {
-          "title": "E-download SKUs, Developer logins, Print anyway, Remove file",
-          "items": [
-            "E-download SKUs: a product whose stock is a file (PDF, Office, ZIP, image). Ordered like any product; once the order is live the buyer is emailed the file — attached up to 10 MB, and a Download button on the order — nothing is picked or shipped, and an order of only downloads closes at once (in a mixed order the boxes alone decide). A cart of only downloads needs no address or carrier. Rate cards get an E-download fee, per download, 0 = free.",
-            "A print file with images at 150–249 dpi (against a 300 dpi spec) shows “Prints softer than the spec” with Print anyway for managers, owners and admins — accepted, it goes to production, with who and when on the file and in the audit trail. 250–299 dpi is only a note; under 150 still needs a sharper file.",
-            "The same picture drawn several times in a PDF is listed once (“— used 9 times”), not nine times.",
-            "In a brand that uses user groups, a buyer with no group sees only the welcome page until someone places them — the same as a single sign-on arrival without one. Brand admins, approvers and API accounts are unchanged; brands with no groups stay open.",
-            "Print setup: Remove file takes the customer's PDF off a print SKU (the original stays in its history; print jobs already made keep it).",
-            "Brand guidelines: a page of don'ts (wrong colours, logo misuse) no longer feeds the suggested colours — its rules are still read — and the colours under a “Primary colours” heading lead, the first one becoming the primary.",
-            "Developer portal logins: someone building a brand's integration signs in to the API reference, the integration guide and a read-only list of the brand's keys — nothing to order or see. Only warehouse staff make them (Users → Role → Developer — API docs only); keys stay with you."
           ]
         }
       ]
