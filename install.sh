@@ -1,14 +1,22 @@
 #!/usr/bin/env bash
 # Amphora one-line installer.
 #
-#   curl -fsSL https://raw.githubusercontent.com/Parth-Kadakia/amphora-install/main/install.sh | bash -s <INSTALL CODE>
+#   curl -fsSL https://get.amphoracdn.com/install.sh | bash -s <INSTALL CODE>
 #
-# The install code comes from BrandBox. It carries the registry login, the
-# license key, and the image name — nothing to type or paste afterwards.
+# The install code comes from BrandBox. It carries the license key (which is
+# also the login for registry.amphoracdn.com, where updates come from) and
+# the image name — nothing to type or paste afterwards.
 # What this does, in order: checks Docker (installs it on Linux if asked),
 # writes ~/amphora/{docker-compose.yml,.env,amphora.env}, logs in to the
 # registry, starts Amphora plus its updater, waits until it answers, and
-# prints the address to open. Re-running with the same code is safe.
+# prints the address to open.
+#
+# Running it again with a new code on an existing install moves that install
+# to the code's registry and license and to the newest version, keeping its
+# data (the amphora-data volume) and its own settings: amphora.env and .env
+# only have the license, registry and updater lines changed, the port is
+# kept, and the three files are copied to ~/amphora/backup-<time>/ first.
+# Amphora is offline for the usual restart, about a minute.
 #
 #   bash install.sh update      # pull the newest version and restart
 #   bash install.sh use 1.47.1  # switch to a given version (going back)
@@ -16,6 +24,7 @@
 set -euo pipefail
 
 DIR="${AMPHORA_HOME:-$HOME/amphora}"
+BACKUP=""
 PORT="${AMPHORA_PORT:-3000}"
 say()  { printf '\n\033[1m▸ %s\033[0m\n' "$*"; }
 ok()   { printf '  ✓ %s\n' "$*"; }
@@ -129,6 +138,26 @@ set_tag() { # AMPHORA_TAG=<tag> in .env
   umask 077; printf '%s\nAMPHORA_TAG=%s\n' "$rest" "$1" > "$DIR/.env"
 }
 
+# KEY=value in a file: replace the line or add it, keep every other line.
+set_kv() {
+  local file="$1" key="$2" value="$3" tmp
+  tmp="$(mktemp "$DIR/.kv.XXXXXX")"
+  { grep -v "^$key=" "$file" 2>/dev/null || true; printf '%s=%s\n' "$key" "$value"; } > "$tmp"
+  chmod 600 "$tmp"; mv "$tmp" "$file"
+}
+get_kv() { [[ -f "$1" ]] || return 0; sed -n "s/^$2=//p" "$1" | tail -1; }
+
+# Sign in to the install's registry with the login in .env (none = open registry).
+registry_login() {
+  local image user token registry
+  image="$(get_kv "$DIR/.env" AMPHORA_IMAGE)"; user="$(get_kv "$DIR/.env" REGISTRY_USER)"; token="$(get_kv "$DIR/.env" REGISTRY_TOKEN)"
+  [[ -n "$token" ]] || return 0
+  registry="${image%%/*}"
+  [[ "$registry" == *.* || "$registry" == *:* ]] || registry="ghcr.io"
+  printf '%s' "$token" | docker login "$registry" -u "$user" --password-stdin >/dev/null 2>&1 && ok "Signed in to $registry" \
+    || die "Couldn't sign in to $registry. The license may have expired or been replaced: paste the current key under Settings → General, or ask BrandBox for a fresh install code."
+}
+
 write_files() {
   mkdir -p "$DIR"; chmod 700 "$DIR"
   local decoded; decoded="$(decode_code "$1")"
@@ -137,40 +166,52 @@ write_files() {
   local image user token key
   image="$(get AMPHORA_IMAGE)"; user="$(get REGISTRY_USER)"; token="$(get REGISTRY_TOKEN)"; key="$(get AMPHORA_LICENSE_KEY)"
   [[ -n "$image" && -n "$user" && -n "$token" ]] || die "The install code is missing the registry login. Ask BrandBox for a fresh one."
-  # Registry host = first path segment of the image when it looks like a host.
-  local registry="${image%%/*}"
-  [[ "$registry" == *.* || "$registry" == *:* ]] || registry="ghcr.io"
   # A token of "none" means an open registry (local testing) — no login, no creds.
   if [[ "$token" == "none" ]]; then user=""; token=""; fi
-  local updater_token
-  if [[ -f "$DIR/.env" ]] && grep -q '^AMPHORA_UPDATER_TOKEN=' "$DIR/.env"; then
-    updater_token="$(sed -n 's/^AMPHORA_UPDATER_TOKEN=//p' "$DIR/.env")"
-  else
-    updater_token="$(head -c 32 /dev/urandom | base64 | tr -dc 'A-Za-z0-9' | head -c 40)"
+
+  local existing=0
+  [[ -f "$DIR/.env" ]] && existing=1
+  if (( existing )); then
+    BACKUP="$DIR/backup-$(date +%Y%m%d-%H%M%S)"
+    mkdir -p "$BACKUP"; chmod 700 "$BACKUP"
+    for f in .env amphora.env docker-compose.yml; do if [[ -f "$DIR/$f" ]]; then cp -p "$DIR/$f" "$BACKUP/$f"; fi; done
+    ok "Saved the current settings to $BACKUP"
   fi
-  local tag="latest"
-  [[ -f "$DIR/.env" ]] && tag="$(sed -n 's/^AMPHORA_TAG=//p' "$DIR/.env" | head -1)"
+
   umask 077
-  cat > "$DIR/.env" <<ENV
-AMPHORA_IMAGE=$image
-AMPHORA_PORT=$PORT
-REGISTRY_USER=$user
-REGISTRY_TOKEN=$token
-AMPHORA_UPDATER_TOKEN=$updater_token
-AMPHORA_TAG=${tag:-latest}
-ENV
-  cat > "$DIR/amphora.env" <<ENV
+  local updater_token port
+  updater_token="$(get_kv "$DIR/.env" AMPHORA_UPDATER_TOKEN)"
+  [[ -n "$updater_token" ]] || updater_token="$(head -c 32 /dev/urandom | base64 | tr -dc 'A-Za-z0-9' | head -c 40)"
+  port="$(get_kv "$DIR/.env" AMPHORA_PORT)"; port="${port:-$PORT}"; PORT="$port"
+  touch "$DIR/.env"
+  set_kv "$DIR/.env" AMPHORA_IMAGE "$image"
+  set_kv "$DIR/.env" AMPHORA_PORT "$port"
+  set_kv "$DIR/.env" REGISTRY_USER "$user"
+  set_kv "$DIR/.env" REGISTRY_TOKEN "$token"
+  set_kv "$DIR/.env" AMPHORA_UPDATER_TOKEN "$updater_token"
+  # A new code means the newest version: it's the one that accepts the code's license.
+  set_kv "$DIR/.env" AMPHORA_TAG latest
+
+  if [[ -f "$DIR/amphora.env" ]]; then
+    # The install's own settings (web address, proxies, workers…) stay as they are.
+    if [[ -n "$key" ]]; then set_kv "$DIR/amphora.env" AMPHORA_LICENSE_KEY "$key"; fi
+    set_kv "$DIR/amphora.env" AMPHORA_UPDATER_URL "http://updater:8080/v1/update"
+    set_kv "$DIR/amphora.env" AMPHORA_UPDATER_TOKEN "$updater_token"
+  else
+    cat > "$DIR/amphora.env" <<ENV
 AMPHORA_LICENSE_KEY=$key
 AMPHORA_ALLOW_INSECURE_HTTP=1
 AMPHORA_UPDATE_CHECK=1
 AMPHORA_UPDATER_URL=http://updater:8080/v1/update
 AMPHORA_UPDATER_TOKEN=$updater_token
 ENV
-  if [[ -n "$token" ]]; then
-    printf '%s' "$token" | docker login "$registry" -u "$user" --password-stdin >/dev/null 2>&1 && ok "Logged in to $registry" || die "Registry login failed — the pull token may have expired. Ask BrandBox for a fresh install code."
   fi
+  registry_login
   write_compose
   ok "Wrote $DIR/docker-compose.yml, .env, amphora.env"
+  if (( existing )) && [[ -f "$BACKUP/docker-compose.yml" ]] && ! cmp -s "$BACKUP/docker-compose.yml" "$DIR/docker-compose.yml"; then
+    printf '  ! docker-compose.yml was rewritten. If it had changes of your own, they are in %s/docker-compose.yml.\n' "$BACKUP"
+  fi
 }
 
 wait_ready() {
@@ -196,7 +237,7 @@ cmd="${1:-}"
 case "$cmd" in
   update)
     cd "$DIR" 2>/dev/null || die "No install at $DIR."
-    say "Pulling the newest Amphora"; set_tag latest; write_compose
+    say "Pulling the newest Amphora"; registry_login; set_tag latest; write_compose
     docker compose pull; docker compose up -d --remove-orphans
     wait_ready && ok "Updated. Open http://$(lan_ip):$PORT" ;;
   use)
@@ -204,7 +245,7 @@ case "$cmd" in
     cd "$DIR" 2>/dev/null || die "No install at $DIR."
     ver="${2:-}"; ver="${ver#v}"
     [[ "$ver" =~ ^([0-9]+\.[0-9]+\.[0-9]+|latest)$ ]] || die "Usage: install.sh use <version>   (e.g. install.sh use 1.47.1, or latest)"
-    say "Switching Amphora to $ver"; set_tag "$ver"
+    say "Switching Amphora to $ver"; registry_login; set_tag "$ver"
     docker compose pull amphora || die "Couldn't download version $ver."
     docker compose up -d amphora
     wait_ready && ok "Amphora is on $ver. Open http://$(lan_ip):$PORT" ;;
@@ -214,13 +255,21 @@ case "$cmd" in
     die "Usage: install.sh <INSTALL CODE>   (or: install.sh update | use <version> | status)" ;;
   *)
     say "Checking Docker"; need_docker
+    was_installed=0; [[ -f "$DIR/.env" ]] && was_installed=1
     say "Writing the install to $DIR"; write_files "$cmd"
-    say "Starting Amphora"; (cd "$DIR" && docker compose up -d --quiet-pull 2>&1 | grep -v '^$' || true)
+    # Download first, then restart: Amphora is only offline for the restart itself.
+    say "Downloading Amphora"; (cd "$DIR" && docker compose pull --quiet) || die "Couldn't download Amphora. Nothing was restarted; your settings are unchanged apart from the files above (copies in ${BACKUP:-$DIR})."
+    say "Starting Amphora"; (cd "$DIR" && docker compose up -d --remove-orphans 2>&1 | grep -v '^$' || true)
     if wait_ready; then
       ok "Amphora is running"
-      printf '\n\033[1mOpen http://%s:%s\033[0m and create the owner account.\n' "$(lan_ip)" "$PORT"
-      printf 'The license is already activated. Phones and scanners on the same network use the same address.\n'
-      printf 'Updates: Settings → General → Update. Back up the amphora-data Docker volume.\n\n'
+      if (( was_installed )); then
+        printf '\n\033[1mDone.\033[0m Amphora is on the newest version with the new license; data and settings are unchanged.\n'
+        printf 'Check Settings → General (License and Updates) at http://%s:%s. Previous settings: %s\n\n' "$(lan_ip)" "$PORT" "$BACKUP"
+      else
+        printf '\n\033[1mOpen http://%s:%s\033[0m and create the owner account.\n' "$(lan_ip)" "$PORT"
+        printf 'The license is already activated. Phones and scanners on the same network use the same address.\n'
+        printf 'Updates: Settings → General → Update. Back up the amphora-data Docker volume.\n\n'
+      fi
     else
       die "Amphora started but isn't answering on port $PORT yet. Check: cd $DIR && docker compose logs amphora"
     fi ;;
