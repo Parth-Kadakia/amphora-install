@@ -1,21 +1,34 @@
 {
-  "version": "1.85.0",
-  "image": "registry.amphoracdn.com/amphora:1.85.0",
+  "version": "1.85.1",
+  "image": "registry.amphoracdn.com/amphora:1.85.1",
   "releasedAt": "2026-11-27",
-  "notes": "Updates from BrandBox's download service — your license is the login",
+  "notes": "More reliable updates",
   "releases": [
+    {
+      "version": "1.85.1",
+      "date": "2026-11-27",
+      "entries": [
+        {
+          "title": "More reliable updates",
+          "items": [
+            "Updates now come from Amphora's own download service, so they keep arriving without anyone renewing a separate access token.",
+            "Renewing your license is all it takes to keep updates coming: paste the new key under Settings → General.",
+            "For IT teams with a firewall allow-list: Amphora now reaches get.amphoracdn.com, registry.amphoracdn.com and pkg-containers.githubusercontent.com.",
+            "Settings → General shows a release's date correctly in every time zone."
+          ]
+        }
+      ]
+    },
     {
       "version": "1.85.0",
       "date": "2026-11-27",
       "entries": [
         {
-          "title": "Updates from BrandBox's download service — your license is the login",
+          "title": "More reliable updates",
           "items": [
-            "Amphora downloads updates from registry.amphoracdn.com, signing in with your license key. No separate registry token to expire or renew.",
-            "Renewing renews downloads too: paste the new key under Settings → General, and the next update uses it. Nothing to change on the server.",
-            "Check for new versions reads get.amphoracdn.com, with GitHub as a fallback. A server with an outbound allow-list needs get.amphoracdn.com, registry.amphoracdn.com and pkg-containers.githubusercontent.com.",
-            "Running the installer again with a new install code keeps the port and your amphora.env settings, saves a copy of the settings files first, and downloads before it restarts anything.",
-            "License keys now name the BrandBox key that signed them. Keys issued before keep working until they expire."
+            "Updates now come from Amphora's own download service, so they keep arriving without anyone renewing a separate access token.",
+            "Renewing your license is all it takes to keep updates coming: paste the new key under Settings → General.",
+            "For IT teams with a firewall allow-list: Amphora now reaches get.amphoracdn.com, registry.amphoracdn.com and pkg-containers.githubusercontent.com."
           ]
         }
       ]
@@ -153,22 +166,6 @@
             "Settings → Integrations → Pace: connect Pace Staging and Pace Live side by side — each with its own address, username and password (stored encrypted) and its own Connect & check. Nothing is written to Pace yet; monthly billing jobs come next and will run against whichever one you pick.",
             "Sign-in page photo fit (Design studio → Sign-in): Fill, as before, or Show whole image — the whole picture with nothing cropped, the page colour around it. For logos and artwork that mustn't be cut off.",
             "Customer → Billing → Pace: the customer's Pace customer ID. Saving checks it in every connected Pace and shows the customer's name there, or says it isn't found, so a typo shows straight away."
-          ]
-        }
-      ]
-    },
-    {
-      "version": "1.77.3",
-      "date": "2026-11-17",
-      "entries": [
-        {
-          "title": "Ten home layouts, Order again and Reorder now, ten sign-in layouts with the form placed anywhere; Check now says when it couldn't check; signing in as someone is exactly their view",
-          "items": [
-            "Ten home layouts for client portals (Design studio → Look → Home layout): Magazine, Bento, Lookbook, Shelf, Dashboard, Sticker book, Pastel counter, Routine, Vanity mirror and Love letter — each a different structure in the brand's own colours and fonts, with the real catalog and each buyer's usual items, orders and budget. A Style strength dial (Classic, Playful, Full) sets how much decoration they draw; Classic is the calm default. Standard stays as it was.",
-            "Order again on every past order — My orders, the home page's recent orders and the order page — and Reorder now on the order page, which places the same order again in one step (same items, address, shipping). Both follow today's rules: anything out of stock without backorders, no longer on offer or over a limit is left out of Order again with the reason, and Reorder now refuses rather than place part of an order; approvals apply as usual.",
-            "Settings → General → Updates → Check now used to show the last answer it had (and “You're on the latest version”) when it couldn't reach the version file. Now it says it couldn't check and why — no answer from GitHub, or what came back — with when the last good check was and how to update on the host instead.",
-            "Signing in as a portal user is now exactly their view in every case: someone waiting for a user group sees the waiting page, and a developer login lands on the API docs, for staff signed in as them too.",
-            "The portal sign-in page has ten layouts instead of three — Big photo, Photo on top, Brand colour, Frosted panel, Framed photo, Big type and On a slant join the three — and the form can sit left, centre or right, and top, middle or bottom; the logo, name and tagline can be left, centred or right too (Design studio → Sign-in)."
           ]
         }
       ]
